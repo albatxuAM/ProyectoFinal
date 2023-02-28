@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('datos_personas', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre');
+            $table->string('email')->unique();
+            $table->string('telefono');
             $table->timestamps();
         });
     }
