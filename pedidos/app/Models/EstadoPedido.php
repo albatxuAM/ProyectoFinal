@@ -13,4 +13,8 @@ class EstadoPedido extends Model
         "id",
         "nombre"
     ];
+
+    public function pedidos() {
+        return $this->hasMany(Pedidos::class, 'id');
+    }
 }

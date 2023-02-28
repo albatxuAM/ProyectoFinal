@@ -13,4 +13,8 @@ class TipoProducto extends Model
         "id",
         "nombre"
     ];
+     
+    public function productos() {
+        return $this->hasMany(Productos::class, 'id');
+    }
 }

@@ -16,4 +16,16 @@ class Pedido extends Model
         "fecha",
         "idPersona",
     ];
+
+    public function productosPedido() {
+        return $this->hasMany(ProductosPedido::class, 'id');
+    }
+
+    public function estadoPedido() {
+        return $this->belongsTo(EstadoPedido::class, 'id');
+    }
+
+    public function datosPersonas() {
+        return $this->belongsTo(DatosPersonas::class, 'id');
+    }
 }

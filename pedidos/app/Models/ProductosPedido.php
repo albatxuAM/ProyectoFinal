@@ -15,4 +15,12 @@ class ProductosPedido extends Model
         "idProducto",
         "idPedido"
     ];
+
+    public function producto() {
+        return $this->belongsTo(Producto::class, 'id');
+    }
+
+    public function pedidos() {
+        return $this->belongsTo(Pedidos::class, 'id');
+    }
 }
