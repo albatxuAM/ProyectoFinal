@@ -15,6 +15,6 @@ class EstadoPedido extends Model
     ];
 
     public function pedidos() {
-        return $this->hasMany(Pedidos::class, 'id');
+        return $this->hasMany(Pedidos::class, 'idEstado');
     }
 }

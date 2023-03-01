@@ -12,8 +12,7 @@ class PedidoController extends Controller
      */
     public function index()
     {
-        //$pedidos = Pedido::all()->where('idEstado', 1)->get()->sortByDesc('created_at');
-        $pedidos = Pedido::all();
+        $pedidos = Pedido::all()->where('idEstado', '!=' , 3);
         return view('pages.pedidos.index', [
             'pedidos' => $pedidos
         ]);
@@ -58,6 +57,13 @@ class PedidoController extends Controller
     {
         //
     }
+    public function updateEstado(Pedido $pedido, $estado)
+    {
+        $pedido->idEstado = $estado;
+        $pedido->save();
+        return redirect()->route('pedidos.pendientes');
+    }
+
 
     /**
      * Remove the specified resource from storage.
