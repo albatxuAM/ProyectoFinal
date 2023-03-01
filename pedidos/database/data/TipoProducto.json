@@ -1,0 +1,38 @@
+[
+    {
+        "id": "1",
+        "nombre": "FRITOS"
+    },
+    {
+        "id": "2",
+        "nombre": "ENTRANTES"
+    },
+    {
+        "id": "3",
+        "nombre": "PESCADOS"
+    },
+    {
+        "id": "4",
+        "nombre": "CARNES"
+    },
+    {
+        "id": "6",
+        "nombre": "SEMIFRIOS"
+    },
+    {
+        "id": "7",
+        "nombre": "TARTAS DE BIZCOCHO"
+    },
+    {
+        "id": "8",
+        "nombre": "TARTAS DE HOJALDRE"
+    },
+    {
+        "id": "9",
+        "nombre": "TARTAS VARIADAS"
+    },
+    {
+        "id": "10",
+        "nombre": "VARIEDADES"
+    }
+]
