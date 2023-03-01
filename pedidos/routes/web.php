@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PedidoController;
+use App\Http\Controllers\ProductosController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,3 +24,6 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/admin', [PedidoController::class, 'index'])->name('pedidos.pendientes');
+Route::get('/producto/create', [ProductosController::class, 'create'])->name('producto.create');
+Route::post('/producto', [ProductosController::class, 'store'])->name('producto.store');
+

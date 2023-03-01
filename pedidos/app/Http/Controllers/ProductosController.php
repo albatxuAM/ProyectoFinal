@@ -20,7 +20,7 @@ class ProductosController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.productos.create');
     }
 
     /**
@@ -28,7 +28,7 @@ class ProductosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       
     }
 
     /**
