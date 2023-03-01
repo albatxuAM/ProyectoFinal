@@ -16,23 +16,23 @@
         "nombre": "CARNES"
     },
     {
-        "id": "6",
+        "id": "5",
         "nombre": "SEMIFRIOS"
     },
     {
-        "id": "7",
+        "id": "6",
         "nombre": "TARTAS DE BIZCOCHO"
     },
     {
-        "id": "8",
+        "id": "7",
         "nombre": "TARTAS DE HOJALDRE"
     },
     {
-        "id": "9",
+        "id": "8",
         "nombre": "TARTAS VARIADAS"
     },
     {
-        "id": "10",
+        "id": "9",
         "nombre": "VARIEDADES"
     }
 ]
