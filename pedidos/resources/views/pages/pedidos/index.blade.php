@@ -31,10 +31,10 @@
                                 <span class="badge bg-secondary rounded-pill d-inline"> {{ $pedido->estadoPedido->nombre }} </span> &nbsp;
                                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"> </a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                  <li> <a class="dropdown-item" href="#">Recibido</a> </li>
-                                  <li> <a class="dropdown-item" href="#">Proceso</a> </li>
-                                  <li> <a class="dropdown-item" href="#">Preparado</a> </li>
-                                  <li> <a class="dropdown-item" href="#">Cancelado</a> </li>
+                                  <li> <a class="dropdown-item" href="{{ route('pedidos.update', ['pedido'=> $pedido, 'estado'=>1]) }}">Recibido</a> </li>
+                                  <li> <a class="dropdown-item" href="{{ route('pedidos.update', ['pedido'=> $pedido, 'estado'=>2]) }}">Proceso</a> </li>
+                                  <li> <a class="dropdown-item" href="{{ route('pedidos.update', ['pedido'=> $pedido, 'estado'=>3]) }}">Preparado</a> </li>
+                                  <li> <a class="dropdown-item" href="{{ route('pedidos.update', ['pedido'=> $pedido, 'estado'=>4]) }}">Cancelado</a> </li>
                                 </ul>
                             </td>
                         </tr>
