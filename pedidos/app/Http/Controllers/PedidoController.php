@@ -12,8 +12,7 @@ class PedidoController extends Controller
      */
     public function index()
     {
-        //$pedidos = Pedido::all()->where('idEstado', 1)->get()->sortByDesc('created_at');
-        $pedidos = Pedido::all();
+        $pedidos = Pedido::all()->where('idEstado', '!=' , 3);
         return view('pages.pedidos.index', [
             'pedidos' => $pedidos
         ]);

@@ -10,7 +10,50 @@
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Platos</th>
-                        <th colspan="2" scope="col">Estados</th>
+                        <th scope="col">Estados</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($pedidos as $pedido)
+                        <tr>
+                            <th scope="row"> {{ $pedido->id }} </th>
+                            <td>
+                                <ul class="list-group">
+                                    @foreach ($pedido->productosPedido as $producto)
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            {{ $producto->producto->nombre }}
+                                            <span class="badge bg-primary rounded-pill">{{ $producto->cantidad }}</span>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </td>
+                            <td>
+                                <span class="badge bg-secondary rounded-pill d-inline"> {{ $pedido->estadoPedido->nombre }} </span> &nbsp;
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"> </a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                  <li> <a class="dropdown-item" href="#">Recibido</a> </li>
+                                  <li> <a class="dropdown-item" href="#">Proceso</a> </li>
+                                  <li> <a class="dropdown-item" href="#">Preparado</a> </li>
+                                  <li> <a class="dropdown-item" href="#">Cancelado</a> </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="row my-4 justify-content-center">
+    <div class="col-10 ">
+        <div class="table-responsive">
+            <table class="table align-middle mb-0 caption-top table-hover">
+                <caption>Pedidos Pendientes:</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Platos</th>
+                        <th scope="col">Estados</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -26,26 +69,17 @@
                                   A second list item
                                   <span class="badge bg-primary rounded-pill">2</span>
                                 </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                  A third list item
-                                  <span class="badge bg-primary rounded-pill">1</span>
-                                </li>
                             </ul>
                         </td>
                         <td>
                             <span class="badge bg-secondary rounded-pill d-inline">Recibido</span>
-                        </td>
-                        <td>
-                            <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">dfgfd</button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">Recibido</a>
-                                    <a class="dropdown-item" href="#">Proceso</a>
-                                    <a class="dropdown-item" href="#">Preparado</a>
-                                    <a class="dropdown-item" href="#">Cancelado</a>
-                                </div>
-                            </div>
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"> </a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                              <li> <a class="dropdown-item" href="#">Recibido</a> </li>
+                              <li> <a class="dropdown-item" href="#">Proceso</a> </li>
+                              <li> <a class="dropdown-item" href="#">Preparado</a> </li>
+                              <li> <a class="dropdown-item" href="#">Cancelado</a> </li>
+                            </ul>
                         </td>
                     </tr>
                     <tr>
@@ -53,14 +87,6 @@
                         <td>Mark</td>
                         <td>
                             <span class="badge bg-warning rounded-pill d-inline">Proceso</span>
-                        </td>
-                        <td>
-                            <select class="form-select" aria-label="Disabled select example" disabled>
-                                <option selected value="1" class="badge bg-warning rounded-pill d-inline">Proceso
-                                </option>
-                                <option value="2" class="badge bg-warning rounded-pill d-inline">Proceso</option>
-                                <option value="3" class="badge bg-warning rounded-pill d-inline">Proceso</option>
-                            </select>
                         </td>
                     </tr>
                     <tr>
