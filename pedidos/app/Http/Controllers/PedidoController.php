@@ -12,7 +12,11 @@ class PedidoController extends Controller
      */
     public function index()
     {
-        //
+        //$pedidos = Pedido::all()->where('idEstado', 1)->get()->sortByDesc('created_at');
+        $pedidos = Pedido::all();
+        return view('pages.pedidos.index', [
+            'pedidos' => $pedidos
+        ]);
     }
 
     /**
