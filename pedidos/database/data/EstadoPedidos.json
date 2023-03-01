@@ -14,5 +14,9 @@
     {
         "id": "4",
         "nombre": "Cancelado"
+    },
+    {
+        "id": "5",
+        "nombre": "Entregado"
     }
 ]

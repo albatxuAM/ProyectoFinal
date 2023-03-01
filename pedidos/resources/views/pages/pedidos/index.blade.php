@@ -99,7 +99,11 @@
                         <td>Mark</td>
                         <td><span class="badge bg-danger rounded-pill d-inline">Cancelado</span></td>
                     </tr>
-
+                    <tr>
+                        <th scope="row">5</th>
+                        <td>Mark</td>
+                        <td><span class="badge bg-primary rounded-pill d-inline">Entregado</span></td>
+                    </tr>
                 </tbody>
             </table>
         </div>

@@ -59,17 +59,8 @@ class PedidoController extends Controller
     }
     public function updateEstado(Pedido $pedido, $estado)
     {
-        // $validated = $request->validate([
-        //     'nombre' => 'required|max:255',
-        //     'apellido' => 'required|max:255',
-        //     'email' => 'required|max:255',
-        //     'telefono' => 'required|max:255',
-        //     'direccion' => 'required|max:255',
-        // ]);
-
         $pedido->idEstado = $estado;
         $pedido->save();
-        // $pedido->update($validated);
         return redirect()->route('pedidos.pendientes');
     }
 
