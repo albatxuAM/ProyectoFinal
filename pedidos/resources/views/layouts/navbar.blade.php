@@ -25,6 +25,7 @@
             </ul>
             
 
+    <hr></hr>
             <span class="material-symbols-outlined">
                 shopping_cart
             </span>

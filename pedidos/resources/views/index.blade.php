@@ -14,17 +14,20 @@
             </div>
             <span class="slogan">La Escuela de Hostelería de EGIBIDE-MENDIZORROTZA ofrece una variada oferta gastronómica,<br> que podrás disfrutar en nuestro restaurante o disponible también para llevar.</span>
         </div>
-        <div class="col-6">
+        <div class="d-flex" style="height: 200px;">
+  <div class="vr"></div>
+</div>
+        <div class="col-2">
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="{{ asset('images/plato1.jpeg') }}" class="d-block w-100" alt="Imagen plato 1">
+                    <div class="carousel-item active ">
+                        <img src="{{ asset('images/plato1.jpg') }}" class="d-block w-100 img-fluid" alt="Imagen plato 1">
                     </div>
                     <div class="carousel-item">
-                        <img src="{{ asset('images/plato2.jpeg') }}" class="d-block w-100" alt="Imagen plato 2">
+                        <img src="{{ asset('images/plato2.jpg') }}" class="d-block w-100 img-fluid" alt="Imagen plato 2">
                     </div>
                     <div class="carousel-item">
-                        <img src="{{ asset('images/plato3.jpg') }}" class="d-block w-100" alt="Imagen plato 3">
+                        <img src="{{ asset('images/plato3.jpg') }}" class="d-block w-100 img-fluid" alt="Imagen plato 3">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
