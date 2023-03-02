@@ -1,0 +1,324 @@
+[
+    {
+        "id": "1",
+        "nombre": "Croquetas de hongos",
+        "pedidoMinimo": "2",
+        "precio": "5.60",
+        "idTipo": "1"
+    },
+    {
+        "id": "2",
+        "nombre": "Croquetas de jamón ibérico",
+        "pedidoMinimo": "2",
+        "precio": "5.60",
+        "idTipo": "1"
+    },
+    {
+        "id": "3",
+        "nombre": "Croquetas de txipiron",
+        "pedidoMinimo": "2",
+        "precio": "5.60",
+        "idTipo": "1"
+    },
+    {
+        "id": "4",
+        "nombre": "Tigres (mejillones rellenos)",
+        "pedidoMinimo": "2",
+        "precio": "5.60",
+        "idTipo": "1"
+    },
+    {
+        "id": "5",
+        "nombre": "Croquetas de hongos",
+        "pedidoMinimo": "2",
+        "precio": "6.00",
+        "idTipo": "1"
+    },
+    {
+        "id": "6",
+        "nombre": "Escalibada de verduras con ventresca de bonito",
+        "pedidoMinimo": "2",
+        "precio": "8.20",
+        "idTipo": "2"
+    },
+    {
+        "id": "7",
+        "nombre": "Canelones rellenos de espinacas y hongos",
+        "pedidoMinimo": "2",
+        "precio": "4.30",
+        "idTipo": "2"
+    },
+    {
+        "id": "8",
+        "nombre": "Pencas de acelga rellenas de paleta de Basatxerri",
+        "pedidoMinimo": "2",
+        "precio": "4.75",
+        "idTipo": "2"
+    },
+    {
+        "id": "9",
+        "nombre": "Piquillos rellenos de merluza y gambas",
+        "pedidoMinimo": "2",
+        "precio": "5.50",
+        "idTipo": "2"
+    },
+    {
+        "id": "10",
+        "nombre": "Piquillos rellenos de zancarrón y shiitake “eko”",
+        "pedidoMinimo": "2",
+        "precio": "5.50",
+        "idTipo": "2"
+    },
+    {
+        "id": "11",
+        "nombre": "Bacalao a la bizkaina",
+        "pedidoMinimo": "2",
+        "precio": "10.70",
+        "idTipo": "3"
+    },
+    {
+        "id": "12",
+        "nombre": "Bacalao ajoarriero con langostinos",
+        "pedidoMinimo": "2",
+        "precio": "8.80",
+        "idTipo": "3"
+    },
+    {
+        "id": "13",
+        "nombre": "Chipirones en su tinta",
+        "pedidoMinimo": "2",
+        "precio": "7.10",
+        "idTipo": "3"
+    },
+    {
+        "id": "14",
+        "nombre": "Kokotxas de bacalao con gulas",
+        "pedidoMinimo": "2",
+        "precio": "12.10",
+        "idTipo": "3"
+    },
+    {
+        "id": "15",
+        "nombre": "Albóndigas de pollo en salsa verde",
+        "pedidoMinimo": "2",
+        "precio": "5.00",
+        "idTipo": "4"
+    },
+    {
+        "id": "16",
+        "nombre": "Carrilleras ibéricas al Rioja Alavesa",
+        "pedidoMinimo": "2",
+        "precio": "7.15",
+        "idTipo": "4"
+    },
+    {
+        "id": "17",
+        "nombre": "Lengua rellena de Idiazabal y salsa agridulce",
+        "pedidoMinimo": "2",
+        "precio": "5.90",
+        "idTipo": "4"
+    },
+    {
+        "id": "18",
+        "nombre": "Callos y morros de ternera en salsa bizkaina",
+        "pedidoMinimo": "2",
+        "precio": "7.15",
+        "idTipo": "4"
+    },
+    {
+        "id": "19",
+        "nombre": "Delicia de arroz y canela",
+        "pedidoMinimo": "0",
+        "precio": "15.00",
+        "idTipo": "5"
+    },
+    {
+        "id": "20",
+        "nombre": "Mousse de chocolate",
+        "pedidoMinimo": "0",
+        "precio": "16.00",
+        "idTipo": "5"
+    },
+    {
+        "id": "21",
+        "nombre": "Charlota de crema",
+        "pedidoMinimo": "0",
+        "precio": "16.00",
+        "idTipo": "5"
+    },
+    {
+        "id": "22",
+        "nombre": "Bavarroi de frutas",
+        "pedidoMinimo": "0",
+        "precio": "16.00",
+        "idTipo": "5"
+    },
+    {
+        "id": "23",
+        "nombre": "Mousse de queso y frambuesa",
+        "pedidoMinimo": "0",
+        "precio": "16.00",
+        "idTipo": "5"
+    },
+    {
+        "id": "24",
+        "nombre": "Delicia de yogur y chocolate blanco",
+        "pedidoMinimo": "0",
+        "precio": "16.00",
+        "idTipo": "5"
+    },
+    {
+        "id": "25",
+        "nombre": "Tiramisú",
+        "pedidoMinimo": "0",
+        "precio": "16.00",
+        "idTipo": "5"
+    },
+    {
+        "id": "26",
+        "nombre": "Brazo de gitano de chocolate",
+        "pedidoMinimo": "0",
+        "precio": "16.00",
+        "idTipo": "6"
+    },
+    {
+        "id": "27",
+        "nombre": "Brazo de gitano de yema",
+        "pedidoMinimo": "0",
+        "precio": "16.00",
+        "idTipo": "6"
+    },
+    {
+        "id": "28",
+        "nombre": "Brazo de gitano de nata",
+        "pedidoMinimo": "0",
+        "precio": "16.00",
+        "idTipo": "6"
+    },
+    {
+        "id": "29",
+        "nombre": "Brazo de gitano de crema",
+        "pedidoMinimo": "0",
+        "precio": "16.00",
+        "idTipo": "6"
+    },
+    {
+        "id": "30",
+        "nombre": "Tarta San Marcos-yema",
+        "pedidoMinimo": "0",
+        "precio": "16.00",
+        "idTipo": "6"
+    },
+    {
+        "id": "31",
+        "nombre": "Tarta Moka-mantequilla",
+        "pedidoMinimo": "0",
+        "precio": "16.00",
+        "idTipo": "6"
+    },
+    {
+        "id": "32",
+        "nombre": "Tarta Mascota-almendra",
+        "pedidoMinimo": "0",
+        "precio": "16.00",
+        "idTipo": "6"
+    },
+    {
+        "id": "33",
+        "nombre": "Tarta Imperial-merengue",
+        "pedidoMinimo": "0",
+        "precio": "16.00",
+        "idTipo": "6"
+    },
+    {
+        "id": "34",
+        "nombre": "Tarta Selva Negra-chocolate",
+        "pedidoMinimo": "0",
+        "precio": "16.00",
+        "idTipo": "6"
+    },
+    {
+        "id": "35",
+        "nombre": "Milhojas de nata",
+        "pedidoMinimo": "0",
+        "precio": "16.00",
+        "idTipo": "7"
+    },
+    {
+        "id": "36",
+        "nombre": "Milhojas de crema",
+        "pedidoMinimo": "0",
+        "precio": "17.00",
+        "idTipo": "7"
+    },
+    {
+        "id": "37",
+        "nombre": "Tarta Gasteiz",
+        "pedidoMinimo": "0",
+        "precio": "17.00",
+        "idTipo": "7"
+    },
+    {
+        "id": "38",
+        "nombre": "Banda de manzana",
+        "pedidoMinimo": "0",
+        "precio": "15.00",
+        "idTipo": "7"
+    },
+    {
+        "id": "39",
+        "nombre": "Banda de frutas rojas",
+        "pedidoMinimo": "0",
+        "precio": "15.00",
+        "idTipo": "7"
+    },
+    {
+        "id": "40",
+        "nombre": "Banda de frutos secos",
+        "pedidoMinimo": "0",
+        "precio": "15.00",
+        "idTipo": "7"
+    },
+    {
+        "id": "41",
+        "nombre": "Tarta de manzana",
+        "pedidoMinimo": "0",
+        "precio": "14.00",
+        "idTipo": "8"
+    },
+    {
+        "id": "42",
+        "nombre": "Tatín de frutas",
+        "pedidoMinimo": "0",
+        "precio": "14.00",
+        "idTipo": "8"
+    },
+    {
+        "id": "43",
+        "nombre": "Pastel vasco",
+        "pedidoMinimo": "0",
+        "precio": "14.00",
+        "idTipo": "8"
+    },
+    {
+        "id": "44",
+        "nombre": "Tarta de queso cocida",
+        "pedidoMinimo": "0",
+        "precio": "15.00",
+        "idTipo": "8"
+    },
+    {
+        "id": "45",
+        "nombre": "Tarta Santiago",
+        "pedidoMinimo": "0",
+        "precio": "16.00",
+        "idTipo": "8"
+    },
+    {
+        "id": "46",
+        "nombre": "Sacher",
+        "pedidoMinimo": "0",
+        "precio": "16.00",
+        "idTipo": "8"
+    }
+]

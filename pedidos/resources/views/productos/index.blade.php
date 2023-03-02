@@ -38,91 +38,29 @@
     </div>
 </div><!-- FIN cards de condiciones y a tener en cuenta -->
 <div class="row">
-        <button type="button" class="col-6 mt-4 ms-2 col-md btn filtro btn-outline-secondary ">Fritos</button>
-        <button type="button" class="col-6 mt-4 ms-2 col-md btn filtro btn-outline-secondary">Entrantes</button>
-        <button type="button" class="col-6 mt-4 ms-2 col-md btn filtro btn-outline-secondary">Pescados</button>
-        <button type="button" class="col-6 mt-4 ms-2 col-md btn filtro btn-outline-secondary">Carnes</button>
-        <button type="button" class="col-6 mt-4 ms-2 col-md btn filtro btn-outline-secondary">Semifrios</button>
-        <button type="button" class="col-6 mt-4 ms-2 col-md btn filtro btn-outline-secondary">Tartas</button>
-        <button type="button" class="col-6 mt-4 ms-2 col-md btn filtro btn-outline-secondary">Variedades</button>
-    
+    <button type="button" class="col-6 mt-4 ms-2 col-md btn filtro btn-outline-secondary ">Fritos</button>
+    <button type="button" class="col-6 mt-4 ms-2 col-md btn filtro btn-outline-secondary">Entrantes</button>
+    <button type="button" class="col-6 mt-4 ms-2 col-md btn filtro btn-outline-secondary">Pescados</button>
+    <button type="button" class="col-6 mt-4 ms-2 col-md btn filtro btn-outline-secondary">Carnes</button>
+    <button type="button" class="col-6 mt-4 ms-2 col-md btn filtro btn-outline-secondary">Semifrios</button>
+    <button type="button" class="col-6 mt-4 ms-2 col-md btn filtro btn-outline-secondary">Tartas</button>
+    <button type="button" class="col-6 mt-4 ms-2 col-md btn filtro btn-outline-secondary">Variedades</button>
+
 </div><!-- FIN BOTONES FILTROS -->
 
 
 <div class="row mt-4 d-flex "><!-- PLATOS -->
+    @foreach($productos as $producto)
     <div class="col-12 col-sm-4 col-md-3 plato">
-        <div class="card ">
-            <img class="card-img-top" alt="Bootstrap Thumbnail Second" src="https://www.layoutit.com/img/city-q-c-600-200-1.jpg" />
-            <div class="card-block">
-            <div class="card-title">
-                   <h5> Nombre del plato mas largo</h5>
-                </div>
-                <div class="card-text">
-                   <p> Precio</p>
-                </div>
-            </div>
-            <div class="card-footer text-muted">
-                <a class="btn btn-outline-secondary" href="#">Opciones</a> <!-- ENLACE A FORMULARIO PARA INICIAR SESION O SEGUIR COMO INVITADO -->
-            </div>
-        </div>
-    </div>
-    <div class="col-12 col-sm-4 col-md-3 plato">
-        <div class="card ">
-            <img class="card-img-top" alt="Bootstrap Thumbnail Second" src="https://www.layoutit.com/img/city-q-c-600-200-1.jpg" />
-            <div class="card-block">
-            <div class="card-title">
-                   <h5> Nombre del plato</h5>
-                </div>
-                <div class="card-text">
-                   <p> Precio</p>
-                </div>
-            </div>
-            <div class="card-footer text-muted">
-                <a class="btn btn-outline-secondary" href="#">Opciones</a> <!-- ENLACE A FORMULARIO PARA INICIAR SESION O SEGUIR COMO INVITADO -->
-            </div>
-        </div>
-    </div>
-    <div class="col-12 col-sm-4 col-md-3 plato">
-        <div class="card ">
-            <img class="card-img-top" alt="Bootstrap Thumbnail Second" src="https://www.layoutit.com/img/city-q-c-600-200-1.jpg" />
-            <div class="card-block">
-            <div class="card-title">
-                   <h5> Nombre del plato</h5>
-                </div>
-                <div class="card-text">
-                   <p> Precio</p>
-                </div>
-            </div>
-            <div class="card-footer text-muted">
-                <a class="btn btn-outline-secondary" href="#">Opciones</a> <!-- ENLACE A FORMULARIO PARA INICIAR SESION O SEGUIR COMO INVITADO -->
-            </div>
-        </div>
-    </div>
-    <div class="col-12 col-sm-4 col-md-3 plato">
-        <div class="card ">
-            <img class="card-img-top" alt="Bootstrap Thumbnail Second" src="https://www.layoutit.com/img/city-q-c-600-200-1.jpg" />
-            <div class="card-block">
-            <div class="card-title">
-                   <h5> Nombre del plato</h5>
-                </div>
-                <div class="card-text">
-                   <p> Precio</p>
-                </div>
-            </div>
-            <div class="card-footer text-muted">
-                <a class="btn btn-outline-secondary" href="#">Opciones</a> <!-- ENLACE A FORMULARIO PARA INICIAR SESION O SEGUIR COMO INVITADO -->
-            </div>
-        </div>
-    </div>
-    <div class="col-12  col-sm-4 col-md-3 plato">
         <div class="card ">
             <img class="card-img-top" alt="Bootstrap Thumbnail Second" src="https://www.layoutit.com/img/city-q-c-600-200-1.jpg" />
             <div class="card-block">
                 <div class="card-title">
-                   <h5> Nombre del plato</h5>
+                    <h5> {{ $producto->nombre }} </h5>
                 </div>
                 <div class="card-text">
-                   <p> Precio</p>
+
+                    <p> Precio: {{ $producto->precio }}€</p>
                 </div>
             </div>
             <div class="card-footer text-muted">
@@ -130,9 +68,9 @@
             </div>
         </div>
     </div>
+    @endforeach
+    {{ $productos->links() }}
 
 </div><!-- FIN PLATOS -->
-
-
 
 @endsection
