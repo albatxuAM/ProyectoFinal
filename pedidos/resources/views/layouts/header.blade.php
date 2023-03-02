@@ -16,6 +16,7 @@
             font-size: 3rem;
             font-family: 'Dancing Script', cursive;
             font-weight: bold;
+            color: #8b0066;
         }
 
         nav {
