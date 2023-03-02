@@ -1,9 +1,11 @@
 @extends('layouts.layout')
 @section('content')
+<div class="row mt-4 d-flex justify-content-center"><!-- PLATOS -->
+    <div class="col-10 col-md-11 col-lg-10">
 
 <h1>PLATOS PARA LLEVAR</h1>
 <div class="row gy-4"> <!-- cards de condiciones y a tener en cuenta -->
-    <div class="d-none d-sm-block col-sm-12 col-md-12 col-lg-6 avisos ">
+    <div class="d-none d-sm-block col-sm-12 col-md-12 col-lg-6 avisos">
         <div class="card">
             <h5 class="card-header">
                 Condiciones
@@ -48,17 +50,16 @@
 </div><!-- FIN BOTONES FILTROS -->
 
 
-<div class="row mt-4 d-flex "><!-- PLATOS -->
+<div class="row mt-4 d-flex gy-3"><!-- PLATOS -->
     @foreach($productos as $producto)
-    <div class="col-12 col-sm-4 col-md-3 plato">
-        <div class="card">
-            <img class="card-img-top" alt="Bootstrap Thumbnail Second" src="https://www.layoutit.com/img/city-q-c-600-200-1.jpg" />
-            <div class="card-block">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 px-3 plato card-group">
+        <div class="card border-light">
+            <img class="card-img-top img-fluid img-thumbnail" alt="Bootstrap Thumbnail Second" src="{{ asset('images/croqueta.png') }}" />
+            <div class="card-body">
                 <div class="card-title">
                     <h5> {{ $producto->nombre }} </h5>
                 </div>
                 <div class="card-text">
-
                     <p> Precio: {{ $producto->precio }}€</p>
                 </div>
             </div>
@@ -71,5 +72,5 @@
     {{ $productos->links() }}
 
 </div><!-- FIN PLATOS -->
-
+</div></div>
 @endsection

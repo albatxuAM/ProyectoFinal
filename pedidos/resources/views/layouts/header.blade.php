@@ -17,23 +17,8 @@
     @vite(['resources/sass/app.scss'])
     
     <style>
-        .plato{
-            height: 23em;
-        }
-        .plato .card-block{
-            height: 7em;
-        }
-        .plato img{
-            height: 10em;
-        }
-        .plato .card{
-            border:none;
-        }
         .plato .card-footer{
             background-color: white;
-        }
-        .avisos .card-body{
-            height: 16em;
         }
         .filtro{
             width: 7em;
