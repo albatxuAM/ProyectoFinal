@@ -29,8 +29,8 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/pedidos', [PedidoController::class, 'index'])->name('pedidos.index');
 Route::get('/pedidos/{pedido}/{estado}', [PedidoController::class, 'updateEstado'])->name('pedidos.update');
 
-Route::get('/productos/create', [ProductosController::class, 'create'])->name('producto.create');
-Route::post('/productos', [ProductosController::class, 'store'])->name('producto.store');
+Route::get('/producto/create', [ProductosController::class, 'create'])->name('producto.create');
+Route::post('/producto', [ProductosController::class, 'store'])->name('producto.store');
 Route::get('/productos', function () {
     return view('productos.index');
 });

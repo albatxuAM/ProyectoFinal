@@ -25,14 +25,14 @@ class DatabaseSeeder extends Seeder
             'id' =>  1,
             'nombre' =>  $faker->firstName(),
             'telefono' => $faker->randomNumber(8),
-            'email' => $faker->email(),
+            'email' => 'admin@gmail.com',
             'created_at' => $faker->dateTimeBetween('-1 years', 'now'),
             'updated_at' => $faker->dateTimeBetween('-1 years', 'now'),
         ]);
 
         DB::table('users')->insert([
             'id_persona' =>  1,
-            'email' => $faker->email(),
+            'email' => 'admin@gmail.com',
             'password' => Hash::make('test'),
             'admin' => 1,
             'created_at' => $faker->dateTimeBetween('-1 years', 'now'),
