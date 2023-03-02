@@ -14,14 +14,17 @@
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-xl-3">
+                        {{-- Multiple Select Dropdown --}}
+                        {{-- <select name="estadoP[]" id="estadoP" class="form-select" multiple> --}}
                         <select name="estadoP" id="estadoP" class="form-select">
-                            <option selected>Estado...</option>
-                            <option value="1">Recibido</option>
-                            <option value="2">En proceso</option>
-                            <option value="3">Preparado</option>
-                            <option value="4">Cancelado</option>
-                            <option value="5">Entregado</option>
+                            <option hidden value="0">Estado...</option>
+                            @foreach($estados as $estado)
+                                <option value="{{$estado->id}}">{{ $estado->nombre }}</option>
+                            @endforeach
                         </select>
+                    </div>
+                    <div class="col-12 col-md-6 col-xl-1">
+                        <button id="buscarP" class="btn btn-primary">Buscar</button>
                     </div>
                 </div>  
                 </form>
@@ -52,18 +55,18 @@
                                 </ul>
                             </td>
                             <td>
-                                <div class="row">
-                                    <div class="col-4">
+                                <div class="d-flex justify-content-between">
+                                    <div >
                                         <span class="badge bg-primary rounded-pill d-inline"> {{ $pedido->estadoPedido->nombre }} </span>
                                     </div>
-                                    <div class="col-2">
+                                    <div >
                                         <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"> </a>
                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                             <li> <a class="dropdown-item" href="{{ route('pedidos.update', ['pedido'=> $pedido, 'estado'=>1]) }}">Recibido</a> </li>
                                             <li> <a class="dropdown-item" href="{{ route('pedidos.update', ['pedido'=> $pedido, 'estado'=>2]) }}">Proceso</a> </li>
                                             <li> <a class="dropdown-item" href="{{ route('pedidos.update', ['pedido'=> $pedido, 'estado'=>3]) }}">Preparado</a> </li>
                                             <li> <a class="dropdown-item" href="{{ route('pedidos.update', ['pedido'=> $pedido, 'estado'=>4]) }}">Cancelado</a> </li>
-                                          </ul>
+                                        </ul>
                                     </div>
                                 </div>
                             </td>
@@ -74,6 +77,9 @@
         </div>
     </div>
 </div>
+
+{{ $pedidos->links() }}
+
 <div class="row my-4 justify-content-center">
     <div class="col-10 ">
         <div class="table-responsive">
@@ -137,23 +143,6 @@
                 </tbody>
             </table>
         </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col">
-        <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-center">
-              <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Anterior</a>
-              </li>
-              <li class="page-item"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item">
-                <a class="page-link" href="#">Siguiente</a>
-              </li>
-            </ul>
-          </nav>
     </div>
 </div>
 

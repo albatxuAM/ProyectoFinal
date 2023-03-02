@@ -17,9 +17,10 @@ if (isset($_POST['id'])) {
 }
 ?>
     <div class="container-fluid">
+        
         @include('layouts.navbar')
-        @yield('content')
 
+        @yield('content')
 
         @include('layouts.footer')
     </div>

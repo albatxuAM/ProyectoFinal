@@ -29,496 +29,489 @@
     },
     {
         "id": "5",
-        "nombre": "Croquetas de hongos",
-        "pedidoMinimo": "2",
-        "precio": "6.00",
-        "idTipo": "1"
-    },
-    {
-        "id": "6",
         "nombre": "Escalibada de verduras con ventresca de bonito",
         "pedidoMinimo": "2",
         "precio": "8.20",
         "idTipo": "2"
     },
     {
-        "id": "7",
+        "id": "6",
         "nombre": "Canelones rellenos de espinacas y hongos",
         "pedidoMinimo": "2",
         "precio": "4.30",
         "idTipo": "2"
     },
     {
-        "id": "8",
+        "id": "7",
         "nombre": "Pencas de acelga rellenas de paleta de Basatxerri",
         "pedidoMinimo": "2",
         "precio": "4.75",
         "idTipo": "2"
     },
     {
-        "id": "9",
+        "id": "8",
         "nombre": "Piquillos rellenos de merluza y gambas",
         "pedidoMinimo": "2",
         "precio": "5.50",
         "idTipo": "2"
     },
     {
-        "id": "10",
+        "id": "9",
         "nombre": "Piquillos rellenos de zancarrón y shiitake “eko”",
         "pedidoMinimo": "2",
         "precio": "5.50",
         "idTipo": "2"
     },
     {
-        "id": "11",
+        "id": "10",
         "nombre": "Bacalao a la bizkaina",
         "pedidoMinimo": "2",
         "precio": "10.70",
         "idTipo": "3"
     },
     {
-        "id": "12",
+        "id": "11",
         "nombre": "Bacalao ajoarriero con langostinos",
         "pedidoMinimo": "2",
         "precio": "8.80",
         "idTipo": "3"
     },
     {
-        "id": "13",
+        "id": "12",
         "nombre": "Chipirones en su tinta",
         "pedidoMinimo": "2",
         "precio": "7.10",
         "idTipo": "3"
     },
     {
-        "id": "14",
+        "id": "13",
         "nombre": "Kokotxas de bacalao con gulas",
         "pedidoMinimo": "2",
         "precio": "12.10",
         "idTipo": "3"
     },
     {
-        "id": "15",
+        "id": "14",
         "nombre": "Albóndigas de pollo en salsa verde",
         "pedidoMinimo": "2",
         "precio": "5.00",
         "idTipo": "4"
     },
     {
-        "id": "16",
+        "id": "15",
         "nombre": "Carrilleras ibéricas al Rioja Alavesa",
         "pedidoMinimo": "2",
         "precio": "7.15",
         "idTipo": "4"
     },
     {
-        "id": "17",
+        "id": "16",
         "nombre": "Lengua rellena de Idiazabal y salsa agridulce",
         "pedidoMinimo": "2",
         "precio": "5.90",
         "idTipo": "4"
     },
     {
-        "id": "18",
+        "id": "17",
         "nombre": "Callos y morros de ternera en salsa bizkaina",
         "pedidoMinimo": "2",
         "precio": "7.15",
         "idTipo": "4"
     },
     {
-        "id": "19",
+        "id": "18",
         "nombre": "Delicia de arroz y canela",
         "pedidoMinimo": "0",
         "precio": "15.00",
         "idTipo": "5"
     },
     {
-        "id": "20",
+        "id": "19",
         "nombre": "Mousse de chocolate",
         "pedidoMinimo": "0",
         "precio": "16.00",
         "idTipo": "5"
     },
     {
-        "id": "21",
+        "id": "20",
         "nombre": "Charlota de crema",
         "pedidoMinimo": "0",
         "precio": "16.00",
         "idTipo": "5"
     },
     {
-        "id": "22",
+        "id": "21",
         "nombre": "Bavarroi de frutas",
         "pedidoMinimo": "0",
         "precio": "16.00",
         "idTipo": "5"
     },
     {
-        "id": "23",
+        "id": "22",
         "nombre": "Mousse de queso y frambuesa",
         "pedidoMinimo": "0",
         "precio": "16.00",
         "idTipo": "5"
     },
     {
-        "id": "24",
+        "id": "23",
         "nombre": "Delicia de yogur y chocolate blanco",
         "pedidoMinimo": "0",
         "precio": "16.00",
         "idTipo": "5"
     },
     {
-        "id": "25",
+        "id": "24",
         "nombre": "Tiramisú",
         "pedidoMinimo": "0",
         "precio": "16.00",
         "idTipo": "5"
     },
     {
-        "id": "26",
+        "id": "25",
         "nombre": "Brazo de gitano de chocolate",
         "pedidoMinimo": "0",
         "precio": "16.00",
         "idTipo": "6"
     },
     {
-        "id": "27",
+        "id": "26",
         "nombre": "Brazo de gitano de yema",
         "pedidoMinimo": "0",
         "precio": "16.00",
         "idTipo": "6"
     },
     {
-        "id": "28",
+        "id": "27",
         "nombre": "Brazo de gitano de nata",
         "pedidoMinimo": "0",
         "precio": "16.00",
         "idTipo": "6"
     },
     {
-        "id": "29",
+        "id": "28",
         "nombre": "Brazo de gitano de crema",
         "pedidoMinimo": "0",
         "precio": "16.00",
         "idTipo": "6"
     },
     {
-        "id": "30",
+        "id": "29",
         "nombre": "Tarta San Marcos-yema",
         "pedidoMinimo": "0",
         "precio": "16.00",
         "idTipo": "6"
     },
     {
-        "id": "31",
+        "id": "30",
         "nombre": "Tarta Moka-mantequilla",
         "pedidoMinimo": "0",
         "precio": "16.00",
         "idTipo": "6"
     },
     {
-        "id": "32",
+        "id": "31",
         "nombre": "Tarta Mascota-almendra",
         "pedidoMinimo": "0",
         "precio": "16.00",
         "idTipo": "6"
     },
     {
-        "id": "33",
+        "id": "32",
         "nombre": "Tarta Imperial-merengue",
         "pedidoMinimo": "0",
         "precio": "16.00",
         "idTipo": "6"
     },
     {
-        "id": "34",
+        "id": "33",
         "nombre": "Tarta Selva Negra-chocolate",
         "pedidoMinimo": "0",
         "precio": "16.00",
         "idTipo": "6"
     },
     {
-        "id": "35",
+        "id": "34",
         "nombre": "Milhojas de nata",
         "pedidoMinimo": "0",
         "precio": "16.00",
         "idTipo": "6"
     },
     {
-        "id": "36",
+        "id": "35",
         "nombre": "Milhojas de crema",
         "pedidoMinimo": "0",
         "precio": "17.00",
         "idTipo": "6"
     },
     {
-        "id": "37",
+        "id": "36",
         "nombre": "Tarta Gasteiz",
         "pedidoMinimo": "0",
         "precio": "17.00",
         "idTipo": "6"
     },
     {
-        "id": "38",
+        "id": "37",
         "nombre": "Banda de manzana",
         "pedidoMinimo": "0",
         "precio": "15.00",
         "idTipo": "6"
     },
     {
-        "id": "39",
+        "id": "38",
         "nombre": "Banda de frutas rojas",
         "pedidoMinimo": "0",
         "precio": "15.00",
         "idTipo": "6"
     },
     {
-        "id": "40",
+        "id": "39",
         "nombre": "Banda de frutos secos",
         "pedidoMinimo": "0",
         "precio": "15.00",
         "idTipo": "6"
     },
     {
-        "id": "41",
+        "id": "40",
         "nombre": "Tarta de manzana",
         "pedidoMinimo": "0",
         "precio": "14.00",
         "idTipo": "6"
     },
     {
-        "id": "42",
+        "id": "41",
         "nombre": "Tatín de frutas",
         "pedidoMinimo": "0",
         "precio": "14.00",
         "idTipo": "6"
     },
     {
-        "id": "43",
+        "id": "42",
         "nombre": "Pastel vasco",
         "pedidoMinimo": "0",
         "precio": "14.00",
         "idTipo": "6"
     },
     {
-        "id": "44",
+        "id": "43",
         "nombre": "Tarta de queso cocida",
         "pedidoMinimo": "0",
         "precio": "15.00",
         "idTipo": "6"
     },
     {
-        "id": "45",
+        "id": "44",
         "nombre": "Tarta Santiago",
         "pedidoMinimo": "0",
         "precio": "16.00",
         "idTipo": "6"
     },
     {
-        "id": "46",
+        "id": "45",
         "nombre": "Sacher",
         "pedidoMinimo": "0",
         "precio": "16.00",
         "idTipo": "6"
     },
     {
-        "id": "47",
+        "id": "46",
         "nombre": "Rosquillas Fritas",
         "pedidoMinimo": "0",
         "precio": "12.00",
         "idTipo": "7"
     },
     {
-        "id": "48",
+        "id": "47",
         "nombre": "Pastas (cajas de 600 gramos)",
         "pedidoMinimo": "0",
         "precio": "19.00",
         "idTipo": "7"
     },
     {
-        "id": "49",
+        "id": "48",
         "nombre": "Galletas cookies",
         "pedidoMinimo": "0",
         "precio": "16.00",
         "idTipo": "7"
     },
     {
-        "id": "50",
+        "id": "49",
         "nombre": "Polvorones",
         "pedidoMinimo": "0",
         "precio": "16.00",
         "idTipo": "7"
     },
     {
-        "id": "51",
+        "id": "50",
         "nombre": "Trufas",
         "pedidoMinimo": "0",
         "precio": "28.00",
         "idTipo": "7"
     },
     {
-        "id": "52",
+        "id": "51",
         "nombre": "Plum cake de frutas (8 raciones)",
         "pedidoMinimo": "0",
         "precio": "14.00",
         "idTipo": "7"
     },
     {
-        "id": "53",
+        "id": "52",
         "nombre": "Plum cake con perlitas de chocolate (8 raciones)",
         "pedidoMinimo": "0",
         "precio": "14.00",
         "idTipo": "7"
     },
     {
-        "id": "54",
+        "id": "53",
         "nombre": "Bizcocho de nata",
         "pedidoMinimo": "0",
         "precio": "14.00",
         "idTipo": "7"
     },
     {
-        "id": "55",
+        "id": "54",
         "nombre": "Brownie",
         "pedidoMinimo": "0",
         "precio": "14.00",
         "idTipo": "7"
     },
     {
-        "id": "56",
+        "id": "55",
         "nombre": "Galletas de Avena",
         "pedidoMinimo": "0",
         "precio": "16.00",
         "idTipo": "7"
     },
     {
-        "id": "57",
+        "id": "56",
         "nombre": "Madalenas",
         "pedidoMinimo": "0",
         "precio": "10.00",
         "idTipo": "7"
     },
     {
-        "id": "58",
+        "id": "57",
         "nombre": "Hojaldritos",
         "pedidoMinimo": "0",
         "precio": "17.00",
         "idTipo": "7"
     },
     {
-        "id": "59",
+        "id": "58",
         "nombre": "Bizcocho de yogur",
         "pedidoMinimo": "0",
         "precio": "14.00",
         "idTipo": "7"
     },
     {
-        "id": "60",
+        "id": "59",
         "nombre": "Bollería",
         "pedidoMinimo": "0",
         "precio": "1.50",
         "idTipo": "7"
     },
     {
-        "id": "61",
+        "id": "60",
         "nombre": "Goxua",
         "pedidoMinimo": "6",
         "precio": "3.00",
         "idTipo": "7"
     },
     {
-        "id": "62",
+        "id": "61",
         "nombre": "Petit choux de nata y chocolate",
         "pedidoMinimo": "0",
         "precio": "18.00",
         "idTipo": "7"
     },
     {
-        "id": "63",
+        "id": "62",
         "nombre": "Arroz con leche",
         "pedidoMinimo": "6",
         "precio": "2.00",
         "idTipo": "7"
     },
     {
-        "id": "64",
+        "id": "63",
         "nombre": "Natillas a la casera",
         "pedidoMinimo": "6",
         "precio": "2.00",
         "idTipo": "7"
     },
     {
-        "id": "65",
+        "id": "64",
         "nombre": "Flan de queso",
         "pedidoMinimo": "6",
         "precio": "2.50",
         "idTipo": "7"
     },
     {
-        "id": "66",
+        "id": "65",
         "nombre": "Flan de huevo",
         "pedidoMinimo": "6",
         "precio": "2.50",
         "idTipo": "7"
     },
     {
-        "id": "67",
+        "id": "66",
         "nombre": "Canutillos rellenos",
         "pedidoMinimo": "0",
         "precio": "14.00",
         "idTipo": "7"
     },
     {
-        "id": "68",
+        "id": "67",
         "nombre": "Crema frita",
         "pedidoMinimo": "0",
         "precio": "14.00",
         "idTipo": "7"
     },
     {
-        "id": "69",
+        "id": "68",
         "nombre": "Torrijas",
         "pedidoMinimo": "0",
         "precio": "14.00",
         "idTipo": "7"
     },
     {
-        "id": "70",
+        "id": "69",
         "nombre": "Rocas",
         "pedidoMinimo": "0",
         "precio": "25.00",
         "idTipo": "7"
     },
     {
-        "id": "71",
+        "id": "70",
         "nombre": "Barritas de cereales",
         "pedidoMinimo": "6",
         "precio": "1.25",
         "idTipo": "7"
     },
     {
-        "id": "72",
+        "id": "71",
         "nombre": "Palmera Grande",
         "pedidoMinimo": "6",
         "precio": "1.50",
         "idTipo": "7"
     },
     {
-        "id": "73",
+        "id": "72",
         "nombre": "Galletas de Navidad",
         "pedidoMinimo": "6",
         "precio": "2.00",
         "idTipo": "7"
     },
     {
-        "id": "74",
+        "id": "73",
         "nombre": "Muffin",
         "pedidoMinimo": "6",
         "precio": "2.50",
         "idTipo": "7"
     },
     {
-        "id": "75",
+        "id": "74",
         "nombre": "Cocadas",
         "pedidoMinimo": "0",
         "precio": "12.00",

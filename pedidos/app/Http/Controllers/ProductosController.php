@@ -11,20 +11,57 @@ class ProductosController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index($id)
+    public function index($id = 0)
     {
         $builder = Productos::orderBy('idTipo');
 
         if($id != 0){
             $builder->where('idTipo','=',$id);
-
         }
-            $productos = $builder->paginate(10);
-           // $productos = Productos::paginate(10);  
-        
+        $busqueda = "";
+        if (isset($_REQUEST['busqueda'])) {
+            $busqueda = $_REQUEST['busqueda'];
+        }
+
+        if ($busqueda) {
+            # Si hay búsqueda, agregamos el filtro
+            $builder->where("nombre", "LIKE", "%$busqueda%");       
+        }
+        $productos = $builder->paginate(12);  
+
         $tipos = TipoProducto::all();
-        return view('productos.index',["productos"=>$productos,"tipos"=>$tipos]);
+        return view('pages.productos.index', [
+            "productos" => $productos,
+            "tipos" => $tipos
+        ]);
     }
+
+    public function catalogo($id = 0)
+    {
+        $builder = Productos::orderBy('idTipo');
+
+        if($id != 0){
+            $builder->where('idTipo','=',$id);
+        }
+        $busqueda = "";
+        if (isset($_REQUEST['busqueda'])) {
+            $busqueda = $_REQUEST['busqueda'];
+        }
+
+        if ($busqueda) {
+            # Si hay búsqueda, agregamos el filtro
+            $builder->where("nombre", "LIKE", "%$busqueda%");       
+        }
+        $productos = $builder->paginate(8);  
+
+        $tipos = TipoProducto::all();
+        return view('pages.productos.catalogo', [
+            "productos" => $productos,
+            "tipos" => $tipos
+        ]);
+    }
+
+
     /**
      * Show the form for creating a new resource.
      */
@@ -47,9 +84,9 @@ class ProductosController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Productos $productos)
+    public function show(Productos $producto)
     {
-        //
+        return view('pages.productos.show', $producto);
     }
 
     /**
@@ -71,8 +108,9 @@ class ProductosController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Productos $productos)
+    public function destroy(Productos $producto)
     {
-        //
+        $producto->delete();
+        return redirect()->route('productos.catalogo');
     }
 }

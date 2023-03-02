@@ -15,10 +15,10 @@
                     <div class="col-md-6">
                         <label for="tipo" class="form-label">Tipo</label>
                         <select id="tipo" class="form-select">
-                            <option selected>Choose...</option>
-                            <option value="FRITOS">FRITOS</option>
-                            <option value="ENTRANTES">ENTRANTES</option>
-                            <option value="PESCADOS">PESCADOS</option>
+                            <option value="0" selected> Tipo... </option>
+                            @foreach($tipos as $tipo)
+                                <option value="$tipo->id">{{ $tipo->nombre }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="col-6">

@@ -17,10 +17,6 @@ use App\Http\Controllers\ProductosController;
 */
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home.index');
-Route::get('/productos', function () {
-    return view('productos.index');
-});
-Route::get('/productos/{id}',[ProductosController::class,'index'])->name('productos.index');
 
 Auth::routes();
 
@@ -32,3 +28,8 @@ Route::get('/pedidos/{pedido}/{estado}', [PedidoController::class, 'updateEstado
 Route::get('/producto/create', [ProductosController::class, 'create'])->name('producto.create');
 Route::post('/producto', [ProductosController::class, 'store'])->name('producto.store');
 
+Route::get('/productos/{id?}', [ProductosController::class,'index'])->name('productos.index');
+Route::get('/productos/{producto}', [ProductosController::class,'show'])->name('productos.show');
+
+Route::get('/catalogo/{id?}', [ProductosController::class,'catalogo'])->name('productos.catalogo');
+Route::delete('/catalogo/{producto}', [ProductosController::class, 'destroy'])->name('productos.destroy');
