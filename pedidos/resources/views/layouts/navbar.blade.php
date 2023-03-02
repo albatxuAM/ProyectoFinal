@@ -11,8 +11,9 @@
                         Para llevar
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{{ route('productos.index', 0) }}"> TODOS </a></li>
                         @foreach($tipos as $tipo)
-                        <li><a class="dropdown-item" href="#">{{ $tipo->nombre }}</a></li>
+                        <li><a class="dropdown-item" href="{{ route('productos.index', $tipo->id) }}">{{ $tipo->nombre }}</a></li>
                         @endforeach
                     </ul>
                 </li>

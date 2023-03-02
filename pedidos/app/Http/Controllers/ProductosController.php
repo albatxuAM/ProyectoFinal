@@ -19,11 +19,10 @@ class ProductosController extends Controller
             $builder->where('idTipo','=',$id);
 
         }
-            $productos = $builder->paginate(10);
-           // $productos = Productos::paginate(10);  
+        $productos = $builder->paginate(12);  
         
         $tipos = TipoProducto::all();
-        return view('productos.index',["productos"=>$productos,"tipos"=>$tipos]);
+        return view('pages.productos.index',["productos"=>$productos,"tipos"=>$tipos]);
     }
     /**
      * Show the form for creating a new resource.
