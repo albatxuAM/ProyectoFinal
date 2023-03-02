@@ -14,6 +14,9 @@
                         <a class="nav-link" href="{{ route('pedidos.index') }}">Pedidos Pendientes</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{ route('productos.index', 0) }}">Catalogo</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#">Estadisticas</a>
                     </li>
                 @endguest 
@@ -33,9 +36,9 @@
                 </li>
                 
             </ul>
-            <form class="d-flex mx-4">
-                <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
-                <button class="btn btn-outline-success" type="submit">Buscar</button>
+            <form class="d-flex mx-4" action="{{ route('productos.index', 0) }}" >
+                <input class="form-control me-2" type="search" placeholder="Buscar" name="busqueda" value="@if(isset($_GET['busqueda'])){{$_GET['busqueda']}}@endif" aria-label="Buscar">
+                <button class="btn btn-outline-primary" type="submit">Buscar</button>
             </form>
             
             @auth

@@ -43,6 +43,7 @@
 
             <div class="col-12"><!-- Col del groupList -->
                 <div class="list-group list-group-horizontal" id="list-tab" role="tablist">
+                    <a class="list-group-item list-group-item-action active" href="{{ route('productos.index', 0) }}" role="tab" aria-controls="list-profile"> TODOS </a>
                     @foreach($tipos as $tipo)
                     <a class="list-group-item list-group-item-action" href="{{ route('productos.index',$tipo->id) }}" role="tab" aria-controls="list-profile">{{ $tipo->nombre }}</a>
                     @endforeach

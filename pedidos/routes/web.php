@@ -31,8 +31,7 @@ Route::get('/pedidos/{pedido}/{estado}', [PedidoController::class, 'updateEstado
 
 Route::get('/producto/create', [ProductosController::class, 'create'])->name('producto.create');
 Route::post('/producto', [ProductosController::class, 'store'])->name('producto.store');
-Route::get('/productos', function () {
-    return view('productos.index');
-});
+
 Route::get('/productos/{id}',[ProductosController::class,'index'])->name('productos.index');
+Route::get('/productos', function () { redirect()->route('pedidos.index', 0); } );
 Route::get('/productos/{producto}',[ProductosController::class,'show'])->name('productos.show');

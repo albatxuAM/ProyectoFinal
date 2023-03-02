@@ -17,13 +17,25 @@ class ProductosController extends Controller
 
         if($id != 0){
             $builder->where('idTipo','=',$id);
+        }
+        $busqueda = "";
+        if (isset($_REQUEST['busqueda'])) {
+            $busqueda = $_REQUEST['busqueda'];
+        }
 
+        if ($busqueda) {
+            # Si hay búsqueda, agregamos el filtro
+            $builder->where("nombre", "LIKE", "%$busqueda%");       
         }
         $productos = $builder->paginate(12);  
-        
+
         $tipos = TipoProducto::all();
-        return view('pages.productos.index',["productos"=>$productos,"tipos"=>$tipos]);
+        return view('pages.productos.index', [
+            "productos" => $productos,
+            "tipos" => $tipos
+        ]);
     }
+
     /**
      * Show the form for creating a new resource.
      */
