@@ -3,9 +3,33 @@
 
 <div class="row my-4 justify-content-center">
     <div class="col-10 ">
+        <div class="card">
+            <div class="card-header">
+              <form action="{{ route('pedidos.index') }}" id="formPedidos">
+                <div class="row g-3 justify-content-between">
+                    <div class="col-12 col-md-6 col-xl-3">
+                        <div class="input-group">
+                            <input type="number" min="0" id="idPedido" name="idPedido" class="form-control rounded" value="@if(isset($_GET['idPedido'])){{$_GET['idPedido']}}@endif" placeholder="Busqueda por idPedido" aria-label="Search" aria-describedby="search-addon" />
+                            <button id="buscarP" class="btn btn-primary" hidden>Buscar</button>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-xl-3">
+                        <select name="estadoP" id="estadoP" class="form-select">
+                            <option selected>Estado...</option>
+                            <option value="1">Recibido</option>
+                            <option value="2">En proceso</option>
+                            <option value="3">Preparado</option>
+                            <option value="4">Cancelado</option>
+                            <option value="5">Entregado</option>
+                        </select>
+                    </div>
+                </div>  
+                </form>
+            </div>
+        </div>
         <div class="table-responsive">
             <table class="table align-middle mb-0 caption-top table-hover">
-                <caption>Pedidos Pendientes:</caption>
+                <!-- <caption>Pedidos Pendientes:</caption> -->
                 <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -22,20 +46,26 @@
                                     @foreach ($pedido->productosPedido as $producto)
                                         <li class="list-group-item d-flex justify-content-between align-items-center">
                                             {{ $producto->producto->nombre }}
-                                            <span class="badge bg-primary rounded-pill">{{ $producto->cantidad }}</span>
+                                            <span class="badge bg-info rounded-pill">{{ $producto->cantidad }}</span>
                                         </li>
                                     @endforeach
                                 </ul>
                             </td>
                             <td>
-                                <span class="badge bg-secondary rounded-pill d-inline"> {{ $pedido->estadoPedido->nombre }} </span> &nbsp;
-                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"> </a>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                  <li> <a class="dropdown-item" href="{{ route('pedidos.update', ['pedido'=> $pedido, 'estado'=>1]) }}">Recibido</a> </li>
-                                  <li> <a class="dropdown-item" href="{{ route('pedidos.update', ['pedido'=> $pedido, 'estado'=>2]) }}">Proceso</a> </li>
-                                  <li> <a class="dropdown-item" href="{{ route('pedidos.update', ['pedido'=> $pedido, 'estado'=>3]) }}">Preparado</a> </li>
-                                  <li> <a class="dropdown-item" href="{{ route('pedidos.update', ['pedido'=> $pedido, 'estado'=>4]) }}">Cancelado</a> </li>
-                                </ul>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <span class="badge bg-primary rounded-pill d-inline"> {{ $pedido->estadoPedido->nombre }} </span>
+                                    </div>
+                                    <div class="col-2">
+                                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"> </a>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                            <li> <a class="dropdown-item" href="{{ route('pedidos.update', ['pedido'=> $pedido, 'estado'=>1]) }}">Recibido</a> </li>
+                                            <li> <a class="dropdown-item" href="{{ route('pedidos.update', ['pedido'=> $pedido, 'estado'=>2]) }}">Proceso</a> </li>
+                                            <li> <a class="dropdown-item" href="{{ route('pedidos.update', ['pedido'=> $pedido, 'estado'=>3]) }}">Preparado</a> </li>
+                                            <li> <a class="dropdown-item" href="{{ route('pedidos.update', ['pedido'=> $pedido, 'estado'=>4]) }}">Cancelado</a> </li>
+                                          </ul>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                     @endforeach
