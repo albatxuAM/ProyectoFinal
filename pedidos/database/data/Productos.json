@@ -284,41 +284,244 @@
         "nombre": "Tarta de manzana",
         "pedidoMinimo": "0",
         "precio": "14.00",
-        "idTipo": "7"
+        "idTipo": "6"
     },
     {
         "id": "42",
         "nombre": "Tatín de frutas",
         "pedidoMinimo": "0",
         "precio": "14.00",
-        "idTipo": "7"
+        "idTipo": "6"
     },
     {
         "id": "43",
         "nombre": "Pastel vasco",
         "pedidoMinimo": "0",
         "precio": "14.00",
-        "idTipo": "7"
+        "idTipo": "6"
     },
     {
         "id": "44",
         "nombre": "Tarta de queso cocida",
         "pedidoMinimo": "0",
         "precio": "15.00",
-        "idTipo": "7"
+        "idTipo": "6"
     },
     {
         "id": "45",
         "nombre": "Tarta Santiago",
         "pedidoMinimo": "0",
         "precio": "16.00",
-        "idTipo": "7"
+        "idTipo": "6"
     },
     {
         "id": "46",
         "nombre": "Sacher",
         "pedidoMinimo": "0",
         "precio": "16.00",
+        "idTipo": "6"
+    },
+    {
+        "id": "47",
+        "nombre": "Rosquillas Fritas",
+        "pedidoMinimo": "0",
+        "precio": "12.00",
+        "idTipo": "7"
+    },
+    {
+        "id": "48",
+        "nombre": "Pastas (cajas de 600 gramos)",
+        "pedidoMinimo": "0",
+        "precio": "19.00",
+        "idTipo": "7"
+    },
+    {
+        "id": "49",
+        "nombre": "Galletas cookies",
+        "pedidoMinimo": "0",
+        "precio": "16.00",
+        "idTipo": "7"
+    },
+    {
+        "id": "50",
+        "nombre": "Polvorones",
+        "pedidoMinimo": "0",
+        "precio": "16.00",
+        "idTipo": "7"
+    },
+    {
+        "id": "51",
+        "nombre": "Trufas",
+        "pedidoMinimo": "0",
+        "precio": "28.00",
+        "idTipo": "7"
+    },
+    {
+        "id": "52",
+        "nombre": "Plum cake de frutas (8 raciones)",
+        "pedidoMinimo": "0",
+        "precio": "14.00",
+        "idTipo": "7"
+    },
+    {
+        "id": "53",
+        "nombre": "Plum cake con perlitas de chocolate (8 raciones)",
+        "pedidoMinimo": "0",
+        "precio": "14.00",
+        "idTipo": "7"
+    },
+    {
+        "id": "54",
+        "nombre": "Bizcocho de nata",
+        "pedidoMinimo": "0",
+        "precio": "14.00",
+        "idTipo": "7"
+    },
+    {
+        "id": "55",
+        "nombre": "Brownie",
+        "pedidoMinimo": "0",
+        "precio": "14.00",
+        "idTipo": "7"
+    },
+    {
+        "id": "56",
+        "nombre": "Galletas de Avena",
+        "pedidoMinimo": "0",
+        "precio": "16.00",
+        "idTipo": "7"
+    },
+    {
+        "id": "57",
+        "nombre": "Madalenas",
+        "pedidoMinimo": "0",
+        "precio": "10.00",
+        "idTipo": "7"
+    },
+    {
+        "id": "58",
+        "nombre": "Hojaldritos",
+        "pedidoMinimo": "0",
+        "precio": "17.00",
+        "idTipo": "7"
+    },
+    {
+        "id": "59",
+        "nombre": "Bizcocho de yogur",
+        "pedidoMinimo": "0",
+        "precio": "14.00",
+        "idTipo": "7"
+    },
+    {
+        "id": "60",
+        "nombre": "Bollería",
+        "pedidoMinimo": "0",
+        "precio": "1.50",
+        "idTipo": "7"
+    },
+    {
+        "id": "61",
+        "nombre": "Goxua",
+        "pedidoMinimo": "6",
+        "precio": "3.00",
+        "idTipo": "7"
+    },
+    {
+        "id": "62",
+        "nombre": "Petit choux de nata y chocolate",
+        "pedidoMinimo": "0",
+        "precio": "18.00",
+        "idTipo": "7"
+    },
+    {
+        "id": "63",
+        "nombre": "Arroz con leche",
+        "pedidoMinimo": "6",
+        "precio": "2.00",
+        "idTipo": "7"
+    },
+    {
+        "id": "64",
+        "nombre": "Natillas a la casera",
+        "pedidoMinimo": "6",
+        "precio": "2.00",
+        "idTipo": "7"
+    },
+    {
+        "id": "65",
+        "nombre": "Flan de queso",
+        "pedidoMinimo": "6",
+        "precio": "2.50",
+        "idTipo": "7"
+    },
+    {
+        "id": "66",
+        "nombre": "Flan de huevo",
+        "pedidoMinimo": "6",
+        "precio": "2.50",
+        "idTipo": "7"
+    },
+    {
+        "id": "67",
+        "nombre": "Canutillos rellenos",
+        "pedidoMinimo": "0",
+        "precio": "14.00",
+        "idTipo": "7"
+    },
+    {
+        "id": "68",
+        "nombre": "Crema frita",
+        "pedidoMinimo": "0",
+        "precio": "14.00",
+        "idTipo": "7"
+    },
+    {
+        "id": "69",
+        "nombre": "Torrijas",
+        "pedidoMinimo": "0",
+        "precio": "14.00",
+        "idTipo": "7"
+    },
+    {
+        "id": "70",
+        "nombre": "Rocas",
+        "pedidoMinimo": "0",
+        "precio": "25.00",
+        "idTipo": "7"
+    },
+    {
+        "id": "71",
+        "nombre": "Barritas de cereales",
+        "pedidoMinimo": "6",
+        "precio": "1.25",
+        "idTipo": "7"
+    },
+    {
+        "id": "72",
+        "nombre": "Palmera Grande",
+        "pedidoMinimo": "6",
+        "precio": "1.50",
+        "idTipo": "7"
+    },
+    {
+        "id": "73",
+        "nombre": "Galletas de Navidad",
+        "pedidoMinimo": "6",
+        "precio": "2.00",
+        "idTipo": "7"
+    },
+    {
+        "id": "74",
+        "nombre": "Muffin",
+        "pedidoMinimo": "6",
+        "precio": "2.50",
+        "idTipo": "7"
+    },
+    {
+        "id": "75",
+        "nombre": "Cocadas",
+        "pedidoMinimo": "0",
+        "precio": "12.00",
         "idTipo": "7"
     }
 ]
