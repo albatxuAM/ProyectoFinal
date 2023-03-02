@@ -12,7 +12,7 @@
                         <label for="nombre" class="form-label">Nombre Producto</label>
                         <input type="email" class="form-control" id="nombre">
                     </div>
-                      <div class="col-md-6">
+                    <div class="col-md-6">
                         <label for="tipo" class="form-label">Tipo</label>
                         <select id="tipo" class="form-select">
                             <option selected>Choose...</option>

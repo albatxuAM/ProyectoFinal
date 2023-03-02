@@ -26,7 +26,7 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::get('/admin', [PedidoController::class, 'index'])->name('pedidos.pendientes');
+Route::get('/pedidos', [PedidoController::class, 'index'])->name('pedidos.index');
 Route::get('/pedidos/{pedido}/{estado}', [PedidoController::class, 'updateEstado'])->name('pedidos.update');
 
 Route::get('/producto/create', [ProductosController::class, 'create'])->name('producto.create');
