@@ -52,7 +52,7 @@ class ProductosController extends Controller
             # Si hay búsqueda, agregamos el filtro
             $builder->where("nombre", "LIKE", "%$busqueda%");       
         }
-        $productos = $builder->paginate(12);  
+        $productos = $builder->paginate(8);  
 
         $tipos = TipoProducto::all();
         return view('pages.productos.catalogo', [
@@ -108,8 +108,9 @@ class ProductosController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Productos $productos)
+    public function destroy(Productos $producto)
     {
-        //
+        $producto->delete();
+        return redirect()->route('productos.catalogo');
     }
 }

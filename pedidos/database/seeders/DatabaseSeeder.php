@@ -114,7 +114,7 @@ class DatabaseSeeder extends Seeder
             for($j=0; $j<$faker->numberBetween(1,5); $j++) {
                 DB::table('productos_pedidos')->insert([
                     'cantidad' => $faker->numberBetween(1,10),
-                    'idProducto' => $faker->numberBetween(1,75),
+                    'idProducto' => $faker->numberBetween(1,74),
                     'idPedido' => $i,
                     'created_at' => $faker->dateTimeBetween('-1 years', 'now'),
                     'updated_at' => $faker->dateTimeBetween('-1 years', 'now'),
