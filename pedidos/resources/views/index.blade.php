@@ -19,7 +19,7 @@
 
                     </div>
                     <div class="d-flex justify-content-end mt-5 pe-5 me-5">
-                    <a href="{{ route('productos.index', 0) }}" class="btn btn-outline-secondary">Go somewhere</a>
+                    <a href="" class="btn btn-outline-secondary">Carta</a>
                 </div>
                 </div>
                 
