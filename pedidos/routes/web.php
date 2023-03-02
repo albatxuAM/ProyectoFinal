@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProductosController;
-use App\Http\Controllers\ProductosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +16,8 @@ use App\Http\Controllers\ProductosController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home.index');
+Route::get('/productos', function () {
     return view('productos.index');
 });
 Route::get('/productos/{id}',[ProductosController::class,'index'])->name('productos.index');
