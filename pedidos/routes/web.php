@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProductosController;
+use App\Http\Controllers\ProductosController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,6 +20,7 @@ use App\Http\Controllers\ProductosController;
 Route::get('/', function () {
     return view('productos.index');
 });
+Route::get('/productos/{id}',[ProductosController::class,'index'])->name('productos.index');
 
 Auth::routes();
 
