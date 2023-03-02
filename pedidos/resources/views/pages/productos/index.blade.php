@@ -64,7 +64,7 @@
                 </div>
             </div>
             <div class="card-footer text-muted">
-                <a class="btn btn-outline-secondary" href="#">Opciones</a> <!-- ENLACE A FORMULARIO PARA INICIAR SESION O SEGUIR COMO INVITADO -->
+                <a class="btn btn-outline-secondary" href="{{ route('productos.show', $producto) }}">Opciones</a> <!-- ENLACE A FORMULARIO PARA INICIAR SESION O SEGUIR COMO INVITADO -->
             </div>
         </div>
     </div>

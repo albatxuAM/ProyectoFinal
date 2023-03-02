@@ -90,9 +90,12 @@ class ProductosController extends Controller
         $relacionados = Productos::where('idTipo','=',$idTipo)
                         ->take(4)
                         ->get();
+        
+        $tipos = TipoProducto::all();
         return view('pages.productos.show', [
             "producto" => $producto,
-            "relacionados" => $relacionados
+            "relacionados" => $relacionados,
+            "tipos" => $tipos
         ]);
     }
 
