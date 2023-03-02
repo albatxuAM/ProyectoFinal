@@ -29,7 +29,7 @@ Route::get('/producto/create', [ProductosController::class, 'create'])->name('pr
 Route::post('/producto', [ProductosController::class, 'store'])->name('producto.store');
 
 Route::get('/productos/{id?}', [ProductosController::class,'index'])->name('productos.index');
-Route::get('/productos/{producto}', [ProductosController::class,'show'])->name('productos.show');
+Route::get('productos/show/{producto}',[ProductosController::class,'show'])->name('productos.show');
 
 Route::get('/catalogo/{id?}', [ProductosController::class,'catalogo'])->name('productos.catalogo');
 Route::delete('/catalogo/{producto}', [ProductosController::class, 'destroy'])->name('productos.destroy');
