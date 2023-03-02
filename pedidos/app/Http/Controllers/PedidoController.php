@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pedido;
 use App\Models\TipoProducto;
+use App\Models\EstadoPedido;
 use Illuminate\Http\Request;
 
 class PedidoController extends Controller
@@ -26,21 +27,38 @@ class PedidoController extends Controller
             $busqueda = $_REQUEST['idPedido'];
         }
         # Exista o no exista búsqueda, los ordenamos
-        $builder = Pedido::orderBy('idEstado');
+        // $builder = Pedido::orderBy('idEstado');
+        $builder = Pedido::orderBy('id');
         if ($busqueda) {
-            # Si hay búsqueda, agregamos el filtro
-            $builder->where("id", "LIKE", "%$busqueda%");
-            
+            $builder->where("id", "LIKE", "%$busqueda%"); 
         }
+
+        $estado = "";
+        if (isset($_REQUEST['estadoP'])) {
+           
+            if($_REQUEST['estadoP'] != 0)
+                // $options = implode(',', $_POST['estadoP']);
+                $estado = $_REQUEST['estadoP'];
+        }
+        if ($estado) {
+            # Si hay búsqueda, agregamos el filtro
+            $builder->where("idEstado", $estado);   
+        }
+        else {
+            $builder->whereNotIn('idEstado', [3,5]);
+        }
+        
         # Al final de todo, invocamos a paginate que tendrá todos los filtros
         //$pedidos = $builder->whereNotIn('idEstado', [3,5]);
         $pedidos = $builder->paginate(5);
         // $pedidos = $builder->simplePaginate(5);
 
         $tipos = TipoProducto::all();
+        $estados = EstadoPedido::all();
         return view('pages.pedidos.index', [
             'pedidos' => $pedidos,
             'tipos' => $tipos,
+            'estados' => $estados
         ]);
     }
 

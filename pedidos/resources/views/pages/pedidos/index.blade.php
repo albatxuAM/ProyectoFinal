@@ -14,13 +14,13 @@
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-xl-3">
+                        {{-- Multiple Select Dropdown --}}
+                        {{-- <select name="estadoP[]" id="estadoP" class="form-select" multiple> --}}
                         <select name="estadoP" id="estadoP" class="form-select">
-                            <option selected>Estado...</option>
-                            <option value="1">Recibido</option>
-                            <option value="2">En proceso</option>
-                            <option value="3">Preparado</option>
-                            <option value="4">Cancelado</option>
-                            <option value="5">Entregado</option>
+                            <option hidden value="0">Estado...</option>
+                            @foreach($estados as $estado)
+                                <option value="{{$estado->id}}">{{ $estado->nombre }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="col-12 col-md-6 col-xl-1">
@@ -145,4 +145,5 @@
         </div>
     </div>
 </div>
+
 @endsection
