@@ -21,21 +21,39 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $faker = \Faker\Factory::create();
-        for($i=1;$i<=5;$i++){
-            DB::table('users')->insert([
-                'id' =>  $i,
-                'email' => $faker->email(),
-                'password' => Hash::make($faker->password()),
-                'created_at' => $faker->dateTimeBetween('-1 years', 'now'),
-                'updated_at' => $faker->dateTimeBetween('-1 years', 'now'),
-            ]);
+        DB::table('datos_personas')->insert([
+            'id' =>  1,
+            'nombre' =>  $faker->firstName(),
+            'telefono' => $faker->randomNumber(8),
+            'email' => $faker->email(),
+            'created_at' => $faker->dateTimeBetween('-1 years', 'now'),
+            'updated_at' => $faker->dateTimeBetween('-1 years', 'now'),
+        ]);
 
+        DB::table('users')->insert([
+            'id_persona' =>  1,
+            'email' => $faker->email(),
+            'password' => Hash::make('test'),
+            'admin' => 1,
+            'created_at' => $faker->dateTimeBetween('-1 years', 'now'),
+            'updated_at' => $faker->dateTimeBetween('-1 years', 'now'),
+        ]);
+
+
+        for($i=2;$i<=10;$i++){
             DB::table('datos_personas')->insert([
                 'id' =>  $i,
                 'nombre' =>  $faker->firstName(),
                 'telefono' => $faker->randomNumber(8),
                 'email' => $faker->email(),
-                'idUser' => $i,
+                'created_at' => $faker->dateTimeBetween('-1 years', 'now'),
+                'updated_at' => $faker->dateTimeBetween('-1 years', 'now'),
+            ]);
+
+            DB::table('users')->insert([
+                'id_persona' =>  $i,
+                'email' => $faker->email(),
+                'password' => Hash::make($faker->password()),
                 'created_at' => $faker->dateTimeBetween('-1 years', 'now'),
                 'updated_at' => $faker->dateTimeBetween('-1 years', 'now'),
             ]);
@@ -88,7 +106,7 @@ class DatabaseSeeder extends Seeder
                 'idEstado' => $faker->numberBetween(1, 5),
                 'observacion' =>  $faker->realText(40,2),
                 'fecha' =>  $faker->dateTimeBetween('-1 years', 'now'),
-                'idPersona' => $faker->numberBetween(1, 5),
+                'idPersona' => $faker->numberBetween(1, 10),
                 'created_at' => $faker->dateTimeBetween('-1 years', 'now'),
                 'updated_at' => $faker->dateTimeBetween('-1 years', 'now'),
             ]);
