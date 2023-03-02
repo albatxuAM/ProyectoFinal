@@ -18,6 +18,7 @@ Route::get('/', function () {
     return view('productos.index');
 });
 Route::get('/productos/{id}',[ProductosController::class,'index'])->name('productos.index');
+Route::get('productos/show/{producto}',[ProductosController::class,'show'])->name('productos.show');
 
 Auth::routes();
 

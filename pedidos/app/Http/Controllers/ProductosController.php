@@ -46,7 +46,11 @@ class ProductosController extends Controller
      */
     public function show(Productos $producto)
     {
-        return view('productos.show',[])
+        $idTipo = $producto->idTipo;
+        $relacionados = Productos::where('idTipo','=',$idTipo)
+                        ->take(4)
+                        ->get();
+        return view('productos.show',["producto"=>$producto,"relacionados"=>$relacionados]);
     }
 
     /**

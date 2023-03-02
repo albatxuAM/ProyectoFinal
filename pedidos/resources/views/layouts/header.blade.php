@@ -30,6 +30,18 @@
         .filtro{
             width: 7em;
         }
+        #marco{
+            box-shadow: 5px 6px 16px -7px rgba(0,0,0,0.75);
+            background-color: #8b0066;
+            color:white;
+        }
+        #cont{
+            background-color: #3c4c5c;
+            color:white;
+            background-image: url("{{ asset('images/fondoCard.png') }}");
+            background-repeat: no-repeat;
+            background-position: right center;
+        }
         
     </style>
 </head>
