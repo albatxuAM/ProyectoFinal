@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pedido;
+use App\Models\TipoProducto;
 use Illuminate\Http\Request;
 
 class PedidoController extends Controller
@@ -31,8 +32,11 @@ class PedidoController extends Controller
         # Al final de todo, invocamos a paginate que tendrá todos los filtros
         $pedidos = $builder->whereNotIn('idEstado', [3,5]);
         //$pedidos = $builder->paginate(5);
+
+        $tipos = TipoProducto::all();
         return view('pages.pedidos.index', [
-            'pedidos' => $pedidos
+            'pedidos' => $pedidos,
+            'tipos' => $tipos,
         ]);
     }
 

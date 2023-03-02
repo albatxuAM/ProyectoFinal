@@ -30,7 +30,10 @@ class ProductosController extends Controller
      */
     public function create()
     {
-        return view('pages.productos.create');
+        $tipos = TipoProducto::all();
+        return view('pages.productos.create', [
+            'tipos' => $tipos,
+        ]);
     }
 
     /**
