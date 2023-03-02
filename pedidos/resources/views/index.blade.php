@@ -56,4 +56,9 @@
 
 
 
+<button class="carrito btn btn-primary" id="1">Añadir</button>
+<button class="carrito btn btn-primary" id="2">Añadir</button>
+
+<button class="mostrar btn btn-primary" id="mostrar">Añadir</button>
+
 @endsection
