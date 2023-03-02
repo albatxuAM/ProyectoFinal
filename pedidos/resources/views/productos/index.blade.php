@@ -38,13 +38,12 @@
     </div>
 </div><!-- FIN cards de condiciones y a tener en cuenta -->
 <div class="row">
-    <button type="button" class="col-6 mt-4 ms-2 col-md btn filtro btn-outline-secondary ">Fritos</button>
-    <button type="button" class="col-6 mt-4 ms-2 col-md btn filtro btn-outline-secondary">Entrantes</button>
-    <button type="button" class="col-6 mt-4 ms-2 col-md btn filtro btn-outline-secondary">Pescados</button>
-    <button type="button" class="col-6 mt-4 ms-2 col-md btn filtro btn-outline-secondary">Carnes</button>
-    <button type="button" class="col-6 mt-4 ms-2 col-md btn filtro btn-outline-secondary">Semifrios</button>
-    <button type="button" class="col-6 mt-4 ms-2 col-md btn filtro btn-outline-secondary">Tartas</button>
-    <button type="button" class="col-6 mt-4 ms-2 col-md btn filtro btn-outline-secondary">Variedades</button>
+    
+    @foreach($tipos as $tipo)
+        <a class="col-6 mt-4 ms-2 col-md btn filtro btn-outline-secondary "href="{{ route('productos.index',$tipo->id) }}">{{ $tipo->nombre }}</a>
+    @endforeach
+
+
 
 </div><!-- FIN BOTONES FILTROS -->
 
@@ -52,7 +51,7 @@
 <div class="row mt-4 d-flex "><!-- PLATOS -->
     @foreach($productos as $producto)
     <div class="col-12 col-sm-4 col-md-3 plato">
-        <div class="card ">
+        <div class="card">
             <img class="card-img-top" alt="Bootstrap Thumbnail Second" src="https://www.layoutit.com/img/city-q-c-600-200-1.jpg" />
             <div class="card-block">
                 <div class="card-title">

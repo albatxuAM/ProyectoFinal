@@ -17,7 +17,7 @@ use App\Http\Controllers\ProductosController;
 Route::get('/', function () {
     return view('productos.index');
 });
-Route::get('/productos',[ProductosController::class,'index'])->name('index');
+Route::get('/productos/{id}',[ProductosController::class,'index'])->name('productos.index');
 
 Auth::routes();
 

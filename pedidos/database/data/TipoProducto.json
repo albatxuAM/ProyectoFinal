@@ -21,18 +21,10 @@
     },
     {
         "id": "6",
-        "nombre": "TARTAS DE BIZCOCHO"
+        "nombre": "TARTAS"
     },
     {
         "id": "7",
-        "nombre": "TARTAS DE HOJALDRE"
-    },
-    {
-        "id": "8",
-        "nombre": "TARTAS VARIADAS"
-    },
-    {
-        "id": "9",
         "nombre": "VARIEDADES"
     }
 ]

@@ -242,83 +242,83 @@
         "nombre": "Milhojas de nata",
         "pedidoMinimo": "0",
         "precio": "16.00",
-        "idTipo": "7"
+        "idTipo": "6"
     },
     {
         "id": "36",
         "nombre": "Milhojas de crema",
         "pedidoMinimo": "0",
         "precio": "17.00",
-        "idTipo": "7"
+        "idTipo": "6"
     },
     {
         "id": "37",
         "nombre": "Tarta Gasteiz",
         "pedidoMinimo": "0",
         "precio": "17.00",
-        "idTipo": "7"
+        "idTipo": "6"
     },
     {
         "id": "38",
         "nombre": "Banda de manzana",
         "pedidoMinimo": "0",
         "precio": "15.00",
-        "idTipo": "7"
+        "idTipo": "6"
     },
     {
         "id": "39",
         "nombre": "Banda de frutas rojas",
         "pedidoMinimo": "0",
         "precio": "15.00",
-        "idTipo": "7"
+        "idTipo": "6"
     },
     {
         "id": "40",
         "nombre": "Banda de frutos secos",
         "pedidoMinimo": "0",
         "precio": "15.00",
-        "idTipo": "7"
+        "idTipo": "6"
     },
     {
         "id": "41",
         "nombre": "Tarta de manzana",
         "pedidoMinimo": "0",
         "precio": "14.00",
-        "idTipo": "8"
+        "idTipo": "7"
     },
     {
         "id": "42",
         "nombre": "Tatín de frutas",
         "pedidoMinimo": "0",
         "precio": "14.00",
-        "idTipo": "8"
+        "idTipo": "7"
     },
     {
         "id": "43",
         "nombre": "Pastel vasco",
         "pedidoMinimo": "0",
         "precio": "14.00",
-        "idTipo": "8"
+        "idTipo": "7"
     },
     {
         "id": "44",
         "nombre": "Tarta de queso cocida",
         "pedidoMinimo": "0",
         "precio": "15.00",
-        "idTipo": "8"
+        "idTipo": "7"
     },
     {
         "id": "45",
         "nombre": "Tarta Santiago",
         "pedidoMinimo": "0",
         "precio": "16.00",
-        "idTipo": "8"
+        "idTipo": "7"
     },
     {
         "id": "46",
         "nombre": "Sacher",
         "pedidoMinimo": "0",
         "precio": "16.00",
-        "idTipo": "8"
+        "idTipo": "7"
     }
 ]
