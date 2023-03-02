@@ -13,10 +13,12 @@ class PedidoController extends Controller
      */
     public function index()
     {
-        // $pedidos = Pedido::all()->whereNotIn('idEstado', [3,5]);
-        // // $pedidos = $pedidosP->paginate(10);
+        // $pedidos = Pedido::whereNotIn('idEstado', [3,5]);
+        // $pedidos = $pedidos->paginate(6);
+        // $tipos = TipoProducto::all();
         // return view('pages.pedidos.index', [
-        //     'pedidos' => $pedidos
+        //     'pedidos' => $pedidos,
+        //     'tipos' => $tipos,
         // ]);
 
         $busqueda = "";
@@ -24,14 +26,16 @@ class PedidoController extends Controller
             $busqueda = $_REQUEST['idPedido'];
         }
         # Exista o no exista búsqueda, los ordenamos
-        $builder = Pedido::all()->sortBy('idEstado');
+        $builder = Pedido::orderBy('idEstado');
         if ($busqueda) {
             # Si hay búsqueda, agregamos el filtro
             $builder->where("id", "LIKE", "%$busqueda%");
+            
         }
         # Al final de todo, invocamos a paginate que tendrá todos los filtros
-        $pedidos = $builder->whereNotIn('idEstado', [3,5]);
-        //$pedidos = $builder->paginate(5);
+        //$pedidos = $builder->whereNotIn('idEstado', [3,5]);
+        $pedidos = $builder->paginate(5);
+        // $pedidos = $builder->simplePaginate(5);
 
         $tipos = TipoProducto::all();
         return view('pages.pedidos.index', [
