@@ -14,7 +14,7 @@
                         <a class="nav-link" href="{{ route('pedidos.index') }}">Pedidos Pendientes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('productos.index', 0) }}">Catalogo</a>
+                        <a class="nav-link" href="{{ route('productos.catalogo') }}">Catalogo</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Estadisticas</a>

@@ -11,7 +11,7 @@ class ProductosController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index($id)
+    public function index($id = 0)
     {
         $builder = Productos::orderBy('idTipo');
 
@@ -35,6 +35,32 @@ class ProductosController extends Controller
             "tipos" => $tipos
         ]);
     }
+
+    public function catalogo($id = 0)
+    {
+        $builder = Productos::orderBy('idTipo');
+
+        if($id != 0){
+            $builder->where('idTipo','=',$id);
+        }
+        $busqueda = "";
+        if (isset($_REQUEST['busqueda'])) {
+            $busqueda = $_REQUEST['busqueda'];
+        }
+
+        if ($busqueda) {
+            # Si hay búsqueda, agregamos el filtro
+            $builder->where("nombre", "LIKE", "%$busqueda%");       
+        }
+        $productos = $builder->paginate(12);  
+
+        $tipos = TipoProducto::all();
+        return view('pages.productos.catalogo', [
+            "productos" => $productos,
+            "tipos" => $tipos
+        ]);
+    }
+
 
     /**
      * Show the form for creating a new resource.
