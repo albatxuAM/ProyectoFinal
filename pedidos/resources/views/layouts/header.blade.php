@@ -13,6 +13,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
     @vite(['resources/js/app.js'])
     @vite(['resources/sass/app.scss'])
     
@@ -50,5 +52,14 @@
         #cardIndex {
             border: none;
         }
+        #volver{
+            color:#8b0066;
+            text-decoration: none;
+            
+            
+        }
+        
+    
+
     </style>
 </head>

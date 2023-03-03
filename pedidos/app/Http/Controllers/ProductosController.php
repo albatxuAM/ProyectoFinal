@@ -87,14 +87,18 @@ class ProductosController extends Controller
     public function show(Productos $producto)
     {
         $idTipo = $producto->idTipo;
-        $relacionados = Productos::where('idTipo','=',$idTipo)
+        $nombre = $producto->nombre;
+        $productos = Productos::where([
+                                ['idTipo','=',$idTipo],
+                                ['nombre','!=',$nombre]
+                            ])
                         ->take(4)
                         ->get();
         
         $tipos = TipoProducto::all();
         return view('pages.productos.show', [
             "producto" => $producto,
-            "relacionados" => $relacionados,
+            "productos" => $productos,
             "tipos" => $tipos
         ]);
     }

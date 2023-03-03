@@ -1,6 +1,13 @@
 @extends('layouts.layout')
 @section('content')
-
+<div class="row mt-5">
+    <div class="col">
+        <span class="material-symbols-outlined">
+            <a id='volver'  href="{{ route('productos.index') }}" >
+            arrow_back
+         </span>
+    </div>
+</div>
 <div class="row justify-content-center mt-5">
     <div class="card mb-3 p-0" style="max-width: 80%;">
         <div class="row g-0 " id="cont">
@@ -33,19 +40,7 @@
     <hr>
 </div>
 <div class="row justify-content-center p-5" id="rel">
-@foreach($relacionados as $relacionado)
-<div class="col-2 px-3 ms-4 card border-light">
-    <img class="card-img-top img-fluid img-thumbnail" alt="Bootstrap Thumbnail Second" src="{{ asset('images/croqueta.png') }}" />
-    <div class="card-body">
-        <div class="card-title">
-            <h6> {{ $relacionado->nombre }} </h6>
-        </div>
-    </div>
-    <div class="card-footer text-muted">
-        <a class="btn btn-outline-secondary" href="{{ route('productos.show', $relacionado) }}">Ver</a>
-    </div>
-</div>
-@endforeach
+    @include('layouts.cards')
 </div>
 
 @endsection
