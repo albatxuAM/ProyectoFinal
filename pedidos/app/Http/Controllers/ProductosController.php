@@ -6,6 +6,8 @@ use App\Models\Productos;
 use App\Models\TipoProducto;
 use Illuminate\Http\Request;
 
+use Illuminate\Http\RedirectResponse;
+
 class ProductosController extends Controller
 {
     /**
@@ -39,19 +41,6 @@ class ProductosController extends Controller
     public function catalogo($id = 0)
     {
         $builder = Productos::orderBy('idTipo');
-
-        if($id != 0){
-            $builder->where('idTipo','=',$id);
-        }
-        $busqueda = "";
-        if (isset($_REQUEST['busqueda'])) {
-            $busqueda = $_REQUEST['busqueda'];
-        }
-
-        if ($busqueda) {
-            # Si hay búsqueda, agregamos el filtro
-            $builder->where("nombre", "LIKE", "%$busqueda%");       
-        }
         $productos = $builder->paginate(8);  
 
         $tipos = TipoProducto::all();
@@ -76,9 +65,24 @@ class ProductosController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
-       
+        $validatedData = $request->validate([
+            'nombre' => 'required|unique:productos',
+            'idTipo' => 'required|in:1,2,3,4 5,6,7',
+            'pedidoMinimo' => 'required|min:1',
+            'precio' => 'required|numeric|gt:0',
+        ], [
+            'nombre.required' => 'Nombre es obligatorio.',
+            'nombre.unique' => 'Nombre ya existe.',
+            'idTipo.in' => 'Tipo es obligatorio.', 
+            'pedidoMinimo.required' => 'Pedido minimo es obligatorio.',
+            'precio.required' => 'Precio es obligatorio.'
+        ]);
+
+        $producto = Productos::create($validatedData);
+
+        return back()->with('success', 'producto creado correctamente.');
     }
 
     /**

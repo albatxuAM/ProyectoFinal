@@ -26,7 +26,7 @@ Route::get('/pedidos', [PedidoController::class, 'index'])->name('pedidos.index'
 Route::get('/pedidos/{pedido}/{estado}', [PedidoController::class, 'updateEstado'])->name('pedidos.update');
 
 Route::get('/producto/create', [ProductosController::class, 'create'])->name('producto.create');
-Route::post('/producto', [ProductosController::class, 'store'])->name('producto.store');
+Route::post('/producto/create', [ProductosController::class, 'store'])->name('producto.store');
 
 Route::get('/productos/{id?}', [ProductosController::class,'index'])->name('productos.index');
 Route::get('productos/show/{producto}',[ProductosController::class,'show'])->name('productos.show');
