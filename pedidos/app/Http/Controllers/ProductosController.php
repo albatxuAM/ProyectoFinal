@@ -58,6 +58,7 @@ class ProductosController extends Controller
     {
         $tipos = TipoProducto::all();
         return view('pages.productos.create', [
+            "producto" => null,
             'tipos' => $tipos,
         ]);
     }
@@ -106,17 +107,34 @@ class ProductosController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Productos $productos)
+    public function edit(Productos $producto)
     {
-        //
+        $tipos = TipoProducto::all();
+        return view('pages.productos.create', [
+            'producto' => $producto,
+            "tipos" => $tipos
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Productos $productos)
+    public function update(Request $request, Productos $producto)
     {
-        //
+        $validatedData = $request->validate([
+            'nombre' => 'required',
+            'idTipo' => 'required|in:1,2,3,4 5,6,7',
+            'pedidoMinimo' => 'required|min:1',
+            'precio' => 'required|numeric|gt:0',
+        ], [
+            'nombre.required' => 'Nombre es obligatorio.',
+            'idTipo.in' => 'Tipo es obligatorio.', 
+            'pedidoMinimo.required' => 'Pedido minimo es obligatorio.',
+            'precio.required' => 'Precio es obligatorio.'
+        ]);
+
+        $producto->update($validatedData);
+        return back()->with('success', 'producto actualizado correctamente.');
     }
 
     /**
