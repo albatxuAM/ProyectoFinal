@@ -95,7 +95,7 @@
                         </div>
                     </td>
                     <td data-th="Price" id="precio{{$id}}">${{ $details['precio'] }}</td>
-                    <td data-th="Quantity">
+                    <td data-th="Quantity" >
                     <div class="col d-flex">
                             <input type="button" id="-{{$id}}" class=" btn btn-primary me-2 cant" value="-">
                             <input type="text" id="{{$id}}" value="{{ $details['cantidad'] }}" class=" form-control quantity update me-2 disabled" />
