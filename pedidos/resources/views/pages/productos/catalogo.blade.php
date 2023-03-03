@@ -2,7 +2,7 @@
 @section('content')
 <div class="row mt-4 d-flex justify-content-center"><!-- PLATOS -->
     <div class="col-10 col-md-11 col-lg-10">
-
+        <a class="btn btn-outline-success float-end" href="{{ route('productos.create') }}"> Nuevo Producto </a>
         <h1>PLATOS PARA LLEVAR</h1>
         <div class="row gy-3 mt-4">
 
@@ -32,7 +32,7 @@
                                         </div>
                                     </div>
                                     <div class="card-footer text-muted d-flex justify-content-between">
-                                        <a class="btn btn-outline-secondary" href="{{ route('productos.show', $producto) }}"> Editar </a>
+                                        <a class="btn btn-outline-secondary" href="{{ route('productos.edit', $producto) }}"> Editar </a>
                                         <form action="{{ route('productos.destroy', $producto) }}" method="POST">
                                             @csrf
                                             @method("DELETE")
