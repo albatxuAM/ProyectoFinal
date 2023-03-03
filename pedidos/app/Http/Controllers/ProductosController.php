@@ -41,6 +41,10 @@ class ProductosController extends Controller
     public function catalogo($id = 0)
     {
         $builder = Productos::orderBy('idTipo');
+
+        if($id != 0){
+            $builder->where('idTipo','=',$id);
+        }
         $productos = $builder->paginate(8);  
 
         $tipos = TipoProducto::all();
@@ -66,7 +70,7 @@ class ProductosController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request)
     {
         $validatedData = $request->validate([
             'nombre' => 'required|unique:productos',
