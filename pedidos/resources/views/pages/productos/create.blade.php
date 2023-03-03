@@ -20,7 +20,7 @@
                         action="{{ route('productos.store') }}"     
                     @endif
                 >
-                    @csrf
+                    {{ csrf_field() }}
                     <div class="col-md-6 required">
                         <label for="nombre" class="form-label">Nombre Producto</label>
                         <input type="text" class="form-control" id="nombre" name="nombre" @if ($producto) value="{{$producto->nombre}}" @endif>
@@ -55,8 +55,11 @@
                         @endif
                     </div>
                     <div class="col">   
-                        <label for="formFile" class="form-label">Imagen producto</label>
-                        <input class="form-control" type="file" id="formFile">
+                        <label for="fotoFile" class="form-label">Imagen producto</label>
+                        <input class="form-control" type="file" id="fotoFile" name="foto">
+                        @if ($errors->has('foto'))
+                            <span class="text-danger">{{ $errors->first('foto') }}</span>
+                        @endif
                     </div>
                     <div class="col-12">
                         <button type="submit" class="btn btn-primary float-end">Guardar</button>

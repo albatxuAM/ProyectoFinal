@@ -70,19 +70,41 @@ class ProductosController extends Controller
     {
         $validatedData = $request->validate([
             'nombre' => 'required|unique:productos',
-            'idTipo' => 'required|in:1,2,3,4 5,6,7',
+            'idTipo' => 'required|in:1,2,3,4,5,6,7',
             'pedidoMinimo' => 'required|min:1',
             'precio' => 'required|numeric|gt:0',
+            'foto' => 'required',
+            'foto.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ], [
             'nombre.required' => 'Nombre es obligatorio.',
             'nombre.unique' => 'Nombre ya existe.',
             'idTipo.in' => 'Tipo es obligatorio.', 
             'pedidoMinimo.required' => 'Pedido minimo es obligatorio.',
-            'precio.required' => 'Precio es obligatorio.'
+            'precio.required' => 'Precio es obligatorio.',
+            'foto.image' => 'El archivo tiene que se una foto en formato jpeg,png,jpg,gif,svg'
         ]);
 
-        $producto = Productos::create($validatedData);
+        //Recibimos el archivo y lo guardamos en la carpeta storage/app/public
+        if($request->hasFile('foto')){
+            $request->file('foto')->store('public');
+            dd("subido y guardado");
+        }
+        // script para subir la imagen
+        // if($request->hasFile("imagen")){
 
+        //     $imagen = $request->file("imagen");
+        //     $nombreimagen = Str::slug($request->nombre).".".$imagen->guessExtension();
+        //     $ruta = public_path("img/post/");
+
+        //     //$imagen->move($ruta,$nombreimagen);
+        //     copy($imagen->getRealPath(),$ruta.$nombreimagen);
+
+        //     $producto->imagen = $nombreimagen;            
+        // }
+        $imagen = $request->file("foto");
+        $nombreimagen = Str::slug($request->nombre).".".$imagen->guessExtension();
+        $producto = Productos::create($validatedData);
+        dd($nombreimagen);
         return back()->with('success', 'producto creado correctamente.');
     }
 
@@ -123,15 +145,21 @@ class ProductosController extends Controller
     {
         $validatedData = $request->validate([
             'nombre' => 'required',
-            'idTipo' => 'required|in:1,2,3,4 5,6,7',
+            'idTipo' => 'in:1,2,3,4,5,6,7',
             'pedidoMinimo' => 'required|min:1',
             'precio' => 'required|numeric|gt:0',
+            'foto.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ], [
             'nombre.required' => 'Nombre es obligatorio.',
             'idTipo.in' => 'Tipo es obligatorio.', 
             'pedidoMinimo.required' => 'Pedido minimo es obligatorio.',
-            'precio.required' => 'Precio es obligatorio.'
+            'foto.mimes' => 'El archivo tiene que se una foto en formato jpeg,png,jpg,gif,svg'
         ]);
+        //Recibimos el archivo y lo guardamos en la carpeta storage/app/public
+        //if($request->hasFile('foto')){
+            $request->file('foto')->store('public');
+            dd("subido y guardado");
+        //}
 
         $producto->update($validatedData);
         return back()->with('success', 'producto actualizado correctamente.');
