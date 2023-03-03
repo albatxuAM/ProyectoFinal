@@ -1,15 +1,13 @@
 @extends('layouts.layout')
 @section('content')
-@vite(['resources/sass/app.scss', 'resources/js/app.js'])
-
         <div class="row justify-content-center">
-          <div class="col-12">
+          <div class="col-8">
           <h2 class="col  mb-4">Cesta</h2>
             <div class="card">
               <div class="card-body p-0">
                 <div class="table-responsive table-scroll rounded" data-mdb-perfect-scrollbar="true" >
                     <table class="table table-ligt mb-0">
-                    <thead class="sticky-top" style="background-color: #393939; ">
+                    <thead class="sticky" style="background-color: #393939; ">
                       <tr class="text-uppercase text-success ">
                         <th  class="text-center">Producto</th>
                         <th  class="text-center">Precio</th>
@@ -77,7 +75,6 @@
                       </tr>
                     </tbody>
                   </table>
-
                 </div>
               </div>
           </div>
@@ -92,7 +89,9 @@
     </div>
     <div class="row mt-1 justify-content-end">
         <div class="col-6">
-            <button type="button" class="btn btn-lg btn-success" >Finalizar </button>
-
+          <form action="{{route('cesta.formalizar')}}" method="get">
+            @csrf
+            <button type="submit" class="btn btn-lg btn-success" >Finalizar </button>
+          </form>
         </div>
 @endsection

@@ -11,4 +11,5 @@ function verregistro() {
         vista === null || vista === void 0 ? void 0 : vista.setAttribute("style", "display:block;");
         x.innerHTML = 'atras';
     }
+    vista === null || vista === void 0 ? void 0 : vista.classList.toggle('d-flex');
 }

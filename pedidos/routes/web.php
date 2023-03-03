@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ControlUsuarioController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PedidoController;
@@ -33,3 +34,8 @@ Route::get('productos/show/{producto}',[ProductosController::class,'show'])->nam
 
 Route::get('/catalogo/{id?}', [ProductosController::class,'catalogo'])->name('productos.catalogo');
 Route::delete('/catalogo/{producto}', [ProductosController::class, 'destroy'])->name('productos.destroy');
+
+Route::get('/cesta', [ControlUsuarioController::class, 'cesta'])->name('cesta.lista');
+Route::get('/cesta/formal',[ControlUsuarioController::class, 'formarusu'])->name('cesta.formalizar');
+Route::post('/cesta/formal/ver', [ControlUsuarioController::class, 'finalizarpedporusucreado'])->name('cesta.ver');
+Route::post('/cesta/crearusu', [ControlUsuarioController::class, 'crearusunormal'])->name('crearusu.normal');

@@ -12,6 +12,7 @@ function verregistro():void {
         vista?.setAttribute("style", "display:block;");
         x.innerHTML='atras';
     }
+    vista?.classList.toggle('d-flex');
     
 }
 
