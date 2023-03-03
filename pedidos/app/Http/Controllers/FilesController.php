@@ -29,7 +29,7 @@ class FilesController extends Controller
                 $picture = asset(storage::disk($this->disk)->url($name));
                 
                // dd($picture);
-               $files = [
+               $files[] = [
                 "picture"=>$picture,
                 "name"=>$name,
                 "size"=>storage::disk($this->disk)->size($name)

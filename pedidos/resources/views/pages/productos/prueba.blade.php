@@ -14,8 +14,9 @@
     <input type="text" name="name" id="" value="archivo1">
     <input type="submit" value="Guardar">
 </form>
+
 @foreach($files as $file)
-    <p>{{ $file }}</p>
+    <img src="{{ $file['picture'] }}" alt=""></p>
 @endforeach
 
 <h5>FORMULARIO DE PRUEBAS</h5>
