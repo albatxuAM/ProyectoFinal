@@ -1,5 +1,6 @@
 @extends('layouts.layout')
 @section('content')
+
 <div class="row mt-4 d-flex justify-content-center"><!-- PLATOS -->
     <div class="col-10 col-md-11 col-lg-10">
 
@@ -65,7 +66,6 @@
                     @endforeach
                 </div>
             </div>
-
 
         </div><!-- FIN BOTONES FILTROS -->
         <div class="row mt-4 d-flex gy-3"><!-- PLATOS -->

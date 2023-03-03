@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FilesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PedidoController;
@@ -33,3 +34,12 @@ Route::get('productos/show/{producto}',[ProductosController::class,'show'])->nam
 
 Route::get('/catalogo/{id?}', [ProductosController::class,'catalogo'])->name('productos.catalogo');
 Route::delete('/catalogo/{producto}', [ProductosController::class, 'destroy'])->name('productos.destroy');
+
+
+//PRUEBAS FILES
+
+Route::get('/files',[FilesController::class,'loadView'])->name('files.loadView');
+
+Route::post('/files',[FilesController::class,'storeFile'])->name('files.storeFile');
+
+Route::get('/descargar/{name}',[FilesController::class,'downloadFile'])->name('files.downloadFile');
