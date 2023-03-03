@@ -1,0 +1,22 @@
+[
+    {
+        "id": "1",
+        "nombre": "Recibido"
+    },
+    {
+        "id": "2",
+        "nombre": "En proceso"
+    },
+    {
+        "id": "3",
+        "nombre": "Preparado"
+    },
+    {
+        "id": "4",
+        "nombre": "Cancelado"
+    },
+    {
+        "id": "5",
+        "nombre": "Entregado"
+    }
+]

@@ -18,13 +18,13 @@ class Pedido extends Model
     ];
 
     public function productosPedido() {
-        return $this->hasMany(ProductosPedido::class, 'id');
+        return $this->hasMany(ProductosPedido::class, 'idPedido');
     }
 
     public function estadoPedido() {
-        return $this->belongsTo(EstadoPedido::class, 'id');
+        return $this->belongsTo(EstadoPedido::class, 'idEstado');
     }
-
+    
     public function datosPersonas() {
         return $this->belongsTo(DatosPersonas::class, 'id');
     }

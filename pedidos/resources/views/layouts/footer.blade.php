@@ -1,4 +1,4 @@
-<div class="container">
+<!--<div class="container">
 <div class="row" tabindex="0" aria-label="Mapa" aria-roledescription="mapa" role="region" style="position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; cursor: url('https://maps.gstatic.com/mapfiles/openhand_8_8.cur'), default; touch-action: pan-x pan-y;" aria-describedby="636A639A-06A5-4466-9B4A-2D7513F7038A">
 
     <div class="col-10" style="z-index: 3; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px; touch-action: pan-x pan-y;">
@@ -51,4 +51,4 @@
     </div>
 
 
-</footer>
+</footer> -->
