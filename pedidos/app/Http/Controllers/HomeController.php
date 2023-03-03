@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\TipoProducto;
 use Illuminate\Http\Request;
+use App\Models\Productos;
 
 class HomeController extends Controller
 {
@@ -25,6 +26,7 @@ class HomeController extends Controller
     public function index()
     {
         $tipos = TipoProducto::all();
-        return view('index', ["tipos" => $tipos]);
+        $productos = Productos::all();
+        return view('index', ["tipos" => $tipos, "productos" => $productos]);
     }
 }

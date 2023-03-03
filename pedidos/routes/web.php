@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CarritoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PedidoController;
@@ -32,3 +33,6 @@ Route::get('/pedidos/{pedido}/{estado}', [PedidoController::class, 'updateEstado
 Route::get('/producto/create', [ProductosController::class, 'create'])->name('producto.create');
 Route::post('/producto', [ProductosController::class, 'store'])->name('producto.store');
 
+Route::get('add/{id}', [CarritoController::class, 'store'])->name('store.carrito');
+Route::put('carrito/update', [CarritoController::class, 'update'])->name('update.carrito');
+Route::delete('carrito/remove', [CarritoController::class, 'remove'])->name('remove.carrito');
