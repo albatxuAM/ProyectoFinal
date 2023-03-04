@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Testing\MimeType;
 use Illuminate\Http\Request;
 
+
 class FilesController extends Controller
 {
     private $disk = "public";
@@ -14,32 +15,36 @@ class FilesController extends Controller
     public function loadView()
     {
         $files = [];
+        //ESTA PARTE DE CÓDIGO ES PARA MOSTRAR LA IMAGEN EN LA VISTA.
+        //Se guardan en variables los datos de la imagen que se necesitan y se crea un array con todas las imagenes  
+        //almacenadas en storage.
+        //Lo devuelve con la vista
 
-        foreach(storage::disk($this->disk)->files()as $file){
-            $name = str_replace("$this->disk/","",$file);
+        // foreach(storage::disk($this->disk)->files()as $file){
+        //     $name = str_replace("$this->disk/","",$file);
 
-            $type = pathinfo(storage_path('storage/app/public/archivo1.png'));
-            $picture = "";
-             //dump($file);
-             //dump($name);
-            // dd($type);
-            if(strpos($type["filename"],"archivo")!==false){
-                //$picture = ".".Storage::url($file);
+        //     $type = pathinfo(storage_path('storage/app/public/archivo1.png'));
+        //     $picture = "";
+        //      //dump($file);
+        //      //dump($name);
+        //     // dd($type);
+        //     if(strpos($type["filename"],"archivo")!==false){
+        //         //$picture = ".".Storage::url($file);
 
-                $picture = asset(storage::disk($this->disk)->url($name));
+        //         $picture = asset(storage::disk($this->disk)->url($name));
                 
-               // dd($picture);
-               $files[] = [
-                "picture"=>$picture,
-                "name"=>$name,
-                "size"=>storage::disk($this->disk)->size($name)
-               ];
+        //        // dd($picture);
+        //        $files[] = [
+        //         "picture"=>$picture,
+        //         "name"=>$name,
+        //         "size"=>storage::disk($this->disk)->size($name)
+        //        ];
                
-            }
+        //     }
             
-        }
+        // }
         
-        return view('pages.productos.prueba',["files"=>$files]);
+        return view('pages.productos.prueba');
     }
 
     
@@ -52,18 +57,27 @@ class FilesController extends Controller
        // Storage::put("prueba.txt","Esto es una prueba");
        //se guarda en storage/public
       // Storage::disk('public')->put("prueba.txt","sigo probando");
+
+      //Si recibe un POST
       if($request->isMethod('POST')){
-        $file = $request->file('file');
+        //con el método getMimeType() obtengo el tipo de archivo "image/png"
+        //dd($request->file('file')->getMimeType());
 
-        //Cogemos el nombre que el usuario a introducido
-        $name = $request->input('name');
-        //Para almacenar la imagen poniendole un nombre
-        $file->storeAs('',$name.".".$file->extension(),'public');
+        //Si el archivo que suben no es una imagen png no permite subirla.
+        if($request->file('file')->getMimeType()!=="image/png"){
+            echo "El tipo de archivo no es válido";
+        }else{
+            
+            $source = 
 
+            $file = $request->file('file');
+            //Cogemos el nombre que el usuario a introducido
+            $name = $request->input('name');
+            //Para almacenar la imagen poniendole un nombre
+            $file->storeAs('',$name.".".$file->extension(),'public');
+        }
       }
-
         return $this->loadView();
-
     }
 
     /**
