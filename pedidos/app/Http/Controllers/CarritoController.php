@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\rc;
 use Illuminate\Http\Request;
 use App\Models\Productos;
+use App\Models\TipoProducto;
 
 class CarritoController extends Controller
 {
@@ -13,42 +14,52 @@ class CarritoController extends Controller
      */
     public function index(Productos $producto)
     {
-        //dd(session("carrito"));
-        
+        $producto = $producto->attributesToArray();
+        // session()->flush();
         if(session()->missing('carrito')===true){
-            
-            echo "estoy donde no debo";
             session()->put('carrito',[]);
-           
         }
-        session()->push('carrito',$producto);
+        $productoExistente = false;
+        // dd(session('carrito'));
+
+        foreach(session('carrito') as $key => $value){
+            // crear una copia de session carrito para modificar datos
+            $copiacarrito[$key] = [
+                'producto' => $value['producto'],
+                'id' => $value['id'],
+                'cantidad' => $value['cantidad']
+            ];
+            if($value['producto'] == $producto['nombre']){
+                $productoExistente = true;
+                $copiacarrito[$key]['cantidad'] = $value['cantidad'] + 1;
+            };
+            // sesion -> put sobreescribe el array carrito por el nuevo
+            session()->put('carrito', $copiacarrito);            
+        }
         
+        if($productoExistente === false){
+            $lineaPedido = array(
+            "producto"=>$producto['nombre'],
+            "id"=>$producto['id'],
+            "cantidad" => 1
+            );
+            // sesion -> push añade un dato nuevo al array carrito
+            session()->push('carrito', $lineaPedido);
+        }
 
         return redirect(route('productos.index'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+    
 
     /**
      * Display the specified resource.
      */
     public function show()
     {
-        //
+        
+        $tipos = TipoProducto::all();
+        return view('pages.carrito.show',["tipos"=>$tipos]);
     }
 
     /**

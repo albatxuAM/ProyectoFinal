@@ -16,6 +16,7 @@ use App\Http\Controllers\CarritoController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/carrito/show',[CarritoController::class,'show'])->name('carrito.show');
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home.index');
 
