@@ -12,8 +12,11 @@
             </div>
             <div class="card-footer text-muted">
                 <a class="btn btn-outline-secondary" href="{{ route('productos.show', $producto) }}">Opciones</a> <!-- ENLACE A FORMULARIO PARA INICIAR SESION O SEGUIR COMO INVITADO -->
+                
             </div>
+            <a class="" href="{{ route('carrito.index',$producto) }}">Añadir a la cesta</a>
         </div>
     </div>
     @endforeach
+    
     

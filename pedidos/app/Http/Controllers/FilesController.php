@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Testing\MimeType;
 use Illuminate\Http\Request;
+use Image;
 
 
 class FilesController extends Controller
@@ -68,7 +69,9 @@ class FilesController extends Controller
             echo "El tipo de archivo no es válido";
         }else{
             
-            $source = 
+            // $manager = Image([]);
+            // $image = $manager->make('public/images/croqueta.png')->resize(100,100);
+            // $image->store($image);
 
             $file = $request->file('file');
             //Cogemos el nombre que el usuario a introducido

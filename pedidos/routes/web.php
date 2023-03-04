@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProductosController;
-
+use App\Http\Controllers\CarritoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,3 +43,7 @@ Route::get('/files',[FilesController::class,'loadView'])->name('files.loadView')
 Route::post('/files',[FilesController::class,'storeFile'])->name('files.storeFile');
 
 Route::get('/descargar/{name}',[FilesController::class,'downloadFile'])->name('files.downloadFile');
+
+//CARRITO
+
+Route::get('/carrito/{producto}',[CarritoController::class,'index'])->name('carrito.index');
