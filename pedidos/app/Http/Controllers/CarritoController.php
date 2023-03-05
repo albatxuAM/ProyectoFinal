@@ -96,7 +96,7 @@ class CarritoController extends Controller
 
 
         $tipos = TipoProducto::all();
-        return view('pages.carrito.show', ["tipos" => $tipos]);
+        return redirect(route('carrito.show'));
     }
 
     /**
