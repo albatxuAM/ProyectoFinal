@@ -55,8 +55,10 @@
         #volver{
             color:#8b0066;
             text-decoration: none;
-            
-            
+        }
+        a{
+            color:#8b0066;
+            text-decoration: none;
         }
         
     
