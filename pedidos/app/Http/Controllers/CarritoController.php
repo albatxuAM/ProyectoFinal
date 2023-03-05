@@ -16,32 +16,35 @@ class CarritoController extends Controller
     {
         $producto = $producto->attributesToArray();
         // session()->flush();
-        if(session()->missing('carrito')===true){
-            session()->put('carrito',[]);
+        if (session()->missing('carrito') === true) {
+            session()->put('carrito', []);
         }
         $productoExistente = false;
         // dd(session('carrito'));
 
-        foreach(session('carrito') as $key => $value){
+        foreach (session('carrito') as $key => $value) {
             // crear una copia de session carrito para modificar datos
             $copiacarrito[$key] = [
                 'producto' => $value['producto'],
-                'id' => $value['id'],
+                'precio' => $value['precio'],
+                'id'=>$value['id'],
                 'cantidad' => $value['cantidad']
             ];
-            if($value['producto'] == $producto['nombre']){
+
+            if ($value['id'] == $producto['id']) {
                 $productoExistente = true;
                 $copiacarrito[$key]['cantidad'] = $value['cantidad'] + 1;
             };
             // sesion -> put sobreescribe el array carrito por el nuevo
-            session()->put('carrito', $copiacarrito);            
+            session()->put('carrito', $copiacarrito);
         }
-        
-        if($productoExistente === false){
+
+        if ($productoExistente === false) {
             $lineaPedido = array(
-            "producto"=>$producto['nombre'],
-            "id"=>$producto['id'],
-            "cantidad" => 1
+                "producto" => $producto['nombre'],
+                "precio" => $producto['precio'],
+                "id"=>$producto['id'],
+                "cantidad" => 1
             );
             // sesion -> push añade un dato nuevo al array carrito
             session()->push('carrito', $lineaPedido);
@@ -50,16 +53,15 @@ class CarritoController extends Controller
         return redirect(route('productos.index'));
     }
 
-    
+
 
     /**
      * Display the specified resource.
      */
     public function show()
     {
-        
         $tipos = TipoProducto::all();
-        return view('pages.carrito.show',["tipos"=>$tipos]);
+        return view('pages.carrito.show', ["tipos" => $tipos]);
     }
 
     /**
@@ -73,9 +75,28 @@ class CarritoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, )
+    public function update($id)
     {
-        //
+        foreach (session('carrito') as $key => $value) {
+            // crear una copia de session carrito para modificar datos
+            $copiacarrito[$key] = [
+                'producto' => $value['producto'],
+                'precio' => $value['precio'],
+                'id'=>$value['id'],
+                'cantidad' => $value['cantidad']
+            ];
+
+            if ($value['id'] == $id) {
+                
+                $copiacarrito[$key]['cantidad'] = $value['cantidad'] + 1;
+            };
+            // sesion -> put sobreescribe el array carrito por el nuevo
+            session()->put('carrito', $copiacarrito);
+        }
+
+
+        $tipos = TipoProducto::all();
+        return view('pages.carrito.show', ["tipos" => $tipos]);
     }
 
     /**

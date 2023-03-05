@@ -48,3 +48,4 @@ Route::get('/descargar/{name}',[FilesController::class,'downloadFile'])->name('f
 //CARRITO
 
 Route::get('/carrito/{producto}',[CarritoController::class,'index'])->name('carrito.index');
+Route::get('/carrito/update/{nombre}',[CarritoController::class,'update'])->name('carrito.update');
