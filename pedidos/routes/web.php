@@ -30,8 +30,8 @@ Route::get('/pedidos/{pedido}/{estado}', [PedidoController::class, 'updateEstado
 
 Route::get('/productos/create', [ProductosController::class, 'create'])->name('productos.create');
 Route::post('/productos/create', [ProductosController::class, 'store'])->name('productos.store');
-Route::get('/producto/{producto}/edit', [ProductosController::class, 'edit'])->name('productos.edit');
-Route::post('/producto/{producto}/edit', [ProductosController::class, 'update'])->name('productos.update');
+Route::get('/productos/{producto}/edit', [ProductosController::class, 'edit'])->name('productos.edit');
+Route::post('/productos/{producto}/edit', [ProductosController::class, 'update'])->name('productos.update');
 
 Route::get('/productos/{id?}', [ProductosController::class,'index'])->name('productos.index');
 Route::get('productos/show/{producto}',[ProductosController::class,'show'])->name('productos.show');

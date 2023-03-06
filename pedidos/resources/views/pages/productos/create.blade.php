@@ -19,8 +19,9 @@
                     @else
                         action="{{ route('productos.store') }}"     
                     @endif
+                    enctype='multipart/form-data'
                 >
-                    @csrf
+                @csrf
                     <div class="col-md-6 required">
                         <label for="nombre" class="form-label">Nombre Producto</label>
                         <input type="text" class="form-control" id="nombre" name="nombre" @if ($producto) value="{{$producto->nombre}}" @endif>
@@ -55,8 +56,11 @@
                         @endif
                     </div>
                     <div class="col">   
-                        <label for="formFile" class="form-label">Imagen producto</label>
-                        <input class="form-control" type="file" id="formFile">
+                        <label for="fotoFile" class="form-label">Imagen producto</label>
+                        <input class="form-control" type="file" id="fotoFile" name="file">
+                        @if ($errors->has('file'))
+                            <span class="text-danger">{{ $errors->first('file') }}</span>
+                        @endif
                     </div>
                     <div class="col-12">
                         <button type="submit" class="btn btn-primary float-end">Guardar</button>

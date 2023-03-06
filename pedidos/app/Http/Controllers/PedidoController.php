@@ -105,7 +105,7 @@ class PedidoController extends Controller
     {
         $pedido->idEstado = $estado;
         $pedido->save();
-        return redirect()->route('pedidos.pendientes');
+        return redirect()->route('pedidos.index');
     }
 
 
