@@ -102,8 +102,18 @@ class CarritoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy()
+    public function destroy($id)
     {
-        //
+        //get the id of the product to delete
+        $id = $id;
+        //get the cart
+        $cart = session()->get('carrito');
+        //remove the product from the cart
+        unset($cart[$id]);
+        //reset the cart
+        session()->put('carrito', $cart);
+        //return to the cart
+        return redirect(route('carrito.show'));
+
     }
 }
