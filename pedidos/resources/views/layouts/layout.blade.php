@@ -7,7 +7,7 @@
 
     <div class="container-fluid">
         <p>{{Auth::user()}}</p>
-
+    
         @include('layouts.navbar')
         @yield('content')
 

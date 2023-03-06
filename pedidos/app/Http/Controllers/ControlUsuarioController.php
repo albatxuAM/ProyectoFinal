@@ -35,7 +35,6 @@ class ControlUsuarioController extends Controller
         } else {
             return redirect()->back()->withInput()->withErrors(['status' => 'La contraseña o el correo es incorrecto']);
         }
-
     }
     public function crearusunormal(Request $request)
     {
