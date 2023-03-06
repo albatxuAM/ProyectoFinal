@@ -1,0 +1,30 @@
+[
+    {
+        "id": "1",
+        "nombre": "FRITOS"
+    },
+    {
+        "id": "2",
+        "nombre": "ENTRANTES"
+    },
+    {
+        "id": "3",
+        "nombre": "PESCADOS"
+    },
+    {
+        "id": "4",
+        "nombre": "CARNES"
+    },
+    {
+        "id": "5",
+        "nombre": "SEMIFRIOS"
+    },
+    {
+        "id": "6",
+        "nombre": "TARTAS"
+    },
+    {
+        "id": "7",
+        "nombre": "VARIEDADES"
+    }
+]

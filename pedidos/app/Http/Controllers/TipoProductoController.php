@@ -12,7 +12,7 @@ class TipoProductoController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
