@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pedido;
+use App\Models\DatosPersona;
 use App\Models\TipoProducto;
 use App\Models\EstadoPedido;
 use Illuminate\Http\Request;
@@ -83,7 +84,18 @@ class PedidoController extends Controller
      */
     public function show(Pedido $pedido)
     {
-        //
+        
+        $persona =DatosPersona::where('id','=',$pedido->idPersona)->first();
+        // $pedidos = $builder->simplePaginate(5);
+
+        $tipos = TipoProducto::all();
+        $estados = EstadoPedido::all();
+        return view('pages.pedidos.detalle', [
+            'pedido' => $pedido,
+            'persona' => $persona,
+            'tipos' => $tipos,
+            'estados' => $estados
+        ]);
     }
 
     /**
@@ -105,7 +117,7 @@ class PedidoController extends Controller
     {
         $pedido->idEstado = $estado;
         $pedido->save();
-        return redirect()->route('pedidos.pendientes');
+        return redirect()->route('pedidos.index');
     }
 
 
