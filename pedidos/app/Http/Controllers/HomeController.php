@@ -24,6 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+
         $tipos = TipoProducto::all();
         return view('index', ["tipos" => $tipos]);
     }

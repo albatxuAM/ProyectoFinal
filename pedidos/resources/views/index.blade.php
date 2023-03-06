@@ -1,9 +1,13 @@
 @extends('layouts.layout')
 @section('content')
+<p>{{Auth::user()}}</p>
 <div class="row img-cover test d-flex justify-content-center my-3">
     <div class="col-11">
         <img class="img-fluid w-100 h-100" src="{{ asset('images/imagen2.jpeg') }}" alt="Imagen presentacion">
     </div>
+</div>
+<div>
+
 </div>
 <div class="row d-flex justify-content-center">
     <div class="col-10 card mb-3" id="cardIndex">
