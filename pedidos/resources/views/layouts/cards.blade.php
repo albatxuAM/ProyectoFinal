@@ -1,4 +1,4 @@
-    @foreach($productos as $producto)
+@foreach($productos as $producto)
     <div class="col-12 col-sm-6 col-md-4 col-lg-3 px-3 plato card-group">
         <div class="card border-light">
             <img class="card-img-top img-fluid img-thumbnail" alt="{{ asset('images/placeholder.png') }}" 
@@ -37,6 +37,4 @@
             @endif
         </div>
     </div>
-    @endforeach
-    
-    
+@endforeach  
