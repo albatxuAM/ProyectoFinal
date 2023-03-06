@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\FilesController;
+use App\Http\Controllers\ControlUsuarioController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProductosController;
-
+use App\Http\Controllers\CarritoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +17,7 @@ use App\Http\Controllers\ProductosController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/carrito/show',[CarritoController::class,'show'])->name('carrito.show');
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home.index');
 
@@ -35,3 +38,22 @@ Route::get('productos/show/{producto}',[ProductosController::class,'show'])->nam
 
 Route::get('/catalogo/{id?}', [ProductosController::class,'catalogo'])->name('productos.catalogo');
 Route::delete('/catalogo/{producto}', [ProductosController::class, 'destroy'])->name('productos.destroy');
+
+
+//PRUEBAS FILES
+
+Route::get('/files',[FilesController::class,'loadView'])->name('files.loadView');
+
+Route::post('/files',[FilesController::class,'storeFile'])->name('files.storeFile');
+
+Route::get('/descargar/{name}',[FilesController::class,'downloadFile'])->name('files.downloadFile');
+
+//CARRITO
+
+Route::get('/carrito/{producto}',[CarritoController::class,'index'])->name('carrito.index');
+Route::get('/carrito/update/{nombre}',[CarritoController::class,'update'])->name('carrito.update');
+
+Route::get('/cesta', [ControlUsuarioController::class, 'cesta'])->name('cesta.lista');
+Route::get('/cesta/formal',[ControlUsuarioController::class, 'formarusu'])->name('cesta.formalizar');
+Route::post('/cesta/formal/ver', [ControlUsuarioController::class, 'finalizarpedporusucreado'])->name('cesta.ver');
+Route::post('/cesta/crearusu', [ControlUsuarioController::class, 'crearusunormal'])->name('crearusu.normal');
