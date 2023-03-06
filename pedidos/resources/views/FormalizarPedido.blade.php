@@ -36,7 +36,7 @@
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label" for="exampleCheck1">Recordad</label>
             </div>
-            <button type="submit" class="btn btn-primary mt-3">registrar</button>
+            <button type="submit" class="btn btn-primary mt-3">Entrar</button>
             <a role="button" href="#" id="registrar" class="btn btn-link mt-3" value="Nuevo usuario">Nuevo usuario</a>
         </form>
     </div>
