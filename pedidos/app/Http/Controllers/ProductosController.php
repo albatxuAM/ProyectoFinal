@@ -7,15 +7,19 @@ use App\Models\TipoProducto;
 use Illuminate\Http\Request;
 
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Testing\MimeType;
 
 class ProductosController extends Controller
 {
+    private $disk = "public";
+
     /**
      * Display a listing of the resource.
      */
     public function index($id = 0)
     {
-        $builder = Productos::orderBy('idTipo');
+        $builder = Productos::orderBy('nombre');
 
         if($id != 0){
             $builder->where('idTipo','=',$id);
@@ -31,16 +35,35 @@ class ProductosController extends Controller
         }
         $productos = $builder->paginate(12);  
 
+        $files = [];
+        foreach(storage::disk($this->disk)->files()as $file){
+            $name = str_replace("$this->disk/","",$file);
+
+            $type = pathinfo(storage_path('/images/archivo1.png'));
+            $picture = "";
+            if(strpos($type["filename"],"archivo")!==false){
+                $picture = asset(storage::disk($this->disk)->url($name));
+             
+                // dd($picture);
+                $files[substr($name, 0 , (strrpos($name, ".")))] = [
+                        "picture"=>$picture,
+                        "name"=>$name,
+                        "size"=>storage::disk($this->disk)->size($name) 
+               ];
+            }
+         
+        }
         $tipos = TipoProducto::all();
         return view('pages.productos.index', [
             "productos" => $productos,
-            "tipos" => $tipos
+            "tipos" => $tipos,
+            "files" => $files
         ]);
     }
 
     public function catalogo($id = 0)
     {
-        $builder = Productos::orderBy('idTipo');
+        $builder = Productos::orderBy('nombre');
 
         if($id != 0){
             $builder->where('idTipo','=',$id);
@@ -72,45 +95,51 @@ class ProductosController extends Controller
      */
     public function store(Request $request)
     {
+        // dump($request);
         $validatedData = $request->validate([
             'nombre' => 'required|unique:productos',
             'idTipo' => 'required|in:1,2,3,4,5,6,7',
             'pedidoMinimo' => 'required|min:1',
             'precio' => 'required|numeric|gt:0',
-            'foto' => 'required',
-            'foto.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'file.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ], [
             'nombre.required' => 'Nombre es obligatorio.',
             'nombre.unique' => 'Nombre ya existe.',
             'idTipo.in' => 'Tipo es obligatorio.', 
             'pedidoMinimo.required' => 'Pedido minimo es obligatorio.',
             'precio.required' => 'Precio es obligatorio.',
-            'foto.image' => 'El archivo tiene que se una foto en formato jpeg,png,jpg,gif,svg'
+            'file.image' => 'El archivo tiene que se una foto en formato jpeg,png,jpg,gif,svg'
         ]);
 
-        //Recibimos el archivo y lo guardamos en la carpeta storage/app/public
-        if($request->hasFile('foto')){
-            $request->file('foto')->store('public');
-            dd("subido y guardado");
-        }
-        // script para subir la imagen
-        // if($request->hasFile("imagen")){
-
-        //     $imagen = $request->file("imagen");
-        //     $nombreimagen = Str::slug($request->nombre).".".$imagen->guessExtension();
-        //     $ruta = public_path("img/post/");
-
-        //     //$imagen->move($ruta,$nombreimagen);
-        //     copy($imagen->getRealPath(),$ruta.$nombreimagen);
-
-        //     $producto->imagen = $nombreimagen;            
-        // }
-        $imagen = $request->file("foto");
-        $nombreimagen = Str::slug($request->nombre).".".$imagen->guessExtension();
         $producto = Productos::create($validatedData);
-        dd($nombreimagen);
+
+        //Recibimos el archivo y lo guardamos en la carpeta storage/app/public
+        // Si recibe un POST
+        if($request->isMethod('POST')){
+            //con el método getMimeType() obtengo el tipo de archivo "image/png"
+            // dd($request->file('file'));
+
+            //Si el archivo que suben no es una imagen png no permite subirla.
+            if ($request->file('file')->getMimeType()!=="image/png") {
+                // echo "El tipo de archivo no es válido";
+            } else{
+                
+                // $manager = Image([]);
+                // $image = $manager->make('public/images/croqueta.png')->resize(100,100);
+                // $image->store($image);
+
+                $file = $request->file('file');
+                //Cogemos el nombre que el usuario a introducido
+                $name = $producto->id;
+                //Para almacenar la imagen poniendole un nombre
+                $file->storeAs('',$name.".".$file->extension(),'public');
+            }
+        }
+
         return back()->with('success', 'producto creado correctamente.');
     }
+
+
 
     /**
      * Display the specified resource.
@@ -125,12 +154,26 @@ class ProductosController extends Controller
                             ])
                         ->take(4)
                         ->get();
+
+        $filename = $producto->id . ".png";
+        $name = str_replace("$this->disk/","", $filename);
+        $picture = "";
+
+        $picture = asset(storage::disk($this->disk)->url($name));
         
+        // dd($picture);
+        $file[substr($name, 0 , (strrpos($name, ".")))] = [
+            "picture"=>$picture,
+            "name"=>$name
+        ];
+
+
         $tipos = TipoProducto::all();
         return view('pages.productos.show', [
             "producto" => $producto,
             "productos" => $productos,
-            "tipos" => $tipos
+            "tipos" => $tipos,
+            "files" => $file
         ]);
     }
 
@@ -163,11 +206,29 @@ class ProductosController extends Controller
             'pedidoMinimo.required' => 'Pedido minimo es obligatorio.',
             'foto.mimes' => 'El archivo tiene que se una foto en formato jpeg,png,jpg,gif,svg'
         ]);
+        
         //Recibimos el archivo y lo guardamos en la carpeta storage/app/public
-        //if($request->hasFile('foto')){
-            $request->file('foto')->store('public');
-            dd("subido y guardado");
-        //}
+        // Si recibe un POST
+        if($request->isMethod('POST')){
+            //con el método getMimeType() obtengo el tipo de archivo "image/png"
+            // dd($request->file('file'));
+
+            //Si el archivo que suben no es una imagen png no permite subirla.
+            if ($request->file('file')->getMimeType()!=="image/png") {
+                // echo "El tipo de archivo no es válido";
+            } else{
+                
+                // $manager = Image([]);
+                // $image = $manager->make('public/images/croqueta.png')->resize(100,100);
+                // $image->store($image);
+
+                $file = $request->file('file');
+                //Cogemos el nombre que el usuario a introducido
+                $name = $producto->id;
+                //Para almacenar la imagen poniendole un nombre
+                $file->storeAs('',$name.".".$file->extension(),'public');
+            }
+        }
 
         $producto->update($validatedData);
         return back()->with('success', 'producto actualizado correctamente.');

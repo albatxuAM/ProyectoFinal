@@ -18,5 +18,9 @@
 
 
 <h5>FORMULARIO DE PRUEBAS</h5>
+
+@foreach($files as $file)
+    <img src="{{ $file['picture'] }}" alt=""></p>
+@endforeach
 </body>
 </html>

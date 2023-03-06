@@ -21,31 +21,31 @@ class FilesController extends Controller
         //almacenadas en storage.
         //Lo devuelve con la vista
 
-        // foreach(storage::disk($this->disk)->files()as $file){
-        //     $name = str_replace("$this->disk/","",$file);
+        foreach(storage::disk($this->disk)->files()as $file){
+            $name = str_replace("$this->disk/","",$file);
 
-        //     $type = pathinfo(storage_path('storage/app/public/archivo1.png'));
-        //     $picture = "";
-        //      //dump($file);
-        //      //dump($name);
-        //     // dd($type);
-        //     if(strpos($type["filename"],"archivo")!==false){
-        //         //$picture = ".".Storage::url($file);
+            $type = pathinfo(storage_path('storage/app/public/archivo1.png'));
+            $picture = "";
+             //dump($file);
+             //dump($name);
+            // dd($type);
+            if(strpos($type["filename"],"archivo")!==false){
+                //$picture = ".".Storage::url($file);
 
-        //         $picture = asset(storage::disk($this->disk)->url($name));
-                
-        //        // dd($picture);
-        //        $files[] = [
-        //         "picture"=>$picture,
-        //         "name"=>$name,
-        //         "size"=>storage::disk($this->disk)->size($name)
-        //        ];
-               
-        //     }
+                $picture = asset(storage::disk($this->disk)->url($name));
+             
+               // dd($picture);
+               $files[] = [
+                "picture"=>$picture,
+                "name"=>$name,
+                "size"=>storage::disk($this->disk)->size($name)
+               ];
             
-        // }
+            }
+         
+        }
         
-        return view('pages.productos.prueba');
+        return view('pages.productos.prueba', ['files' => $files]);
     }
 
     
