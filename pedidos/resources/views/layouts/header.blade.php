@@ -26,5 +26,18 @@
         #cardIndex {
             border: none;
         }
+        #cont{
+            background-color: #9ea5ad;
+            color:white;
+            background-image: url("{{ asset('images/fondoCard.png') }}");
+            background-repeat: no-repeat;
+            background-position: right center;
+        }
+        a{
+            background-color: #8b0066!important;
+            color: white!important;
+            border-color: #8b0066!important;
+            text-decoration: none;
+        }
     </style>
 </head>

@@ -1,34 +1,34 @@
 @extends('layouts.layout')
 @section('content')
 <div class="row img-cover test d-flex justify-content-center my-3">
-    <div class="col-11">
+    <div class="col-11 d-none d-md-block">
         <img class="img-fluid w-100 h-100" src="{{ asset('images/imagen2.jpeg') }}" alt="Imagen presentacion">
     </div>
 </div>
 <div class="row d-flex justify-content-center">
     <div class="col-10 card mb-3" id="cardIndex">
-        <div class="row g-0 d-flex justify-content-center">
+        <div class="row g-0 d-flex justify-content-center" >
 
-            <div class="col-5 bg-light shadow d-flex align-items-center">
-                <div class="card-body">
+            <div class="col-10 col-lg-5 shadow d-flex align-items-center" id="cont" >
+                <div class="card-body" >
                     <div class="row">
-                        <div class="titulo col-10">
-                            ESCUELA DE HOSTELERÍA DE EGIBIDE MENDIZORROTZA
+                        <div class="titulo col-12 col-md-10">
+                            <p class="display-6">ESCUELA DE HOSTELERÍA DE EGIBIDE MENDIZORROTZA
                         </div>
-                        <span class="slogan col-10 mt-3 ">La Escuela de Hostelería de EGIBIDE-MENDIZORROTZA ofrece una variada oferta gastronómica, que podrás disfrutar en nuestro restaurante o disponible también para llevar.</span>
+                        <span class="slogan col-10 d-none d-md-block mt-3 ">La Escuela de Hostelería de EGIBIDE-MENDIZORROTZA ofrece una variada oferta gastronómica, que podrás disfrutar en nuestro restaurante o disponible también para llevar.</span>
 
                     </div>
                     <div class="d-flex justify-content-end mt-5 pe-5 me-5">
-                    <a href="" class="btn btn-outline-secondary">Carta</a>
+                        <a href="" class="btn btn-outline">Carta</a>
+                    </div>
                 </div>
-                </div>
-                
+
 
             </div>
 
 
 
-            <div id="carouselExampleControls" class="carousel slide col-5" data-bs-ride="carousel">
+            <div id="carouselExampleControls" class="carousel slide col-10 col-lg-5" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active ">
                         <img src="{{ asset('images/plato1.jpg') }}" class="d-block w-100 img-fluid" alt="Imagen plato 1">
