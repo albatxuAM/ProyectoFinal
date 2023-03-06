@@ -36,13 +36,13 @@
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label" for="exampleCheck1">Recordad</label>
             </div>
-            <button type="submit" class="btn btn-primary mt-3">registrar</button>
+            <button type="submit" class="btn btn-primary mt-3">Entrar</button>
             <a role="button" href="#" id="registrar" class="btn btn-link mt-3" value="Nuevo usuario">Nuevo usuario</a>
         </form>
     </div>
     <div id class="col-7 border p-md-5 " style="min-height: 75%;">
         <h4 class="card-title">Sin Registrarse</h4>
-        <form action="" method="get">
+        <form action="{{route('datosPersona.store')}}" method="post">
             @csrf
             <div class="row">
                 <div class="col-6">
@@ -54,10 +54,10 @@
                     <input type="email" class="form-control" id="correo" name="correo" value="{{old('correo')}}" placeholder="Correo">
                 </div>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-10">
-                    <label for="Direccion">Direccion</label>
-                    <input type="text" class="form-control" id="direccion" name="direccion" value="{{old('direccion')}}" placeholder="1234 Main St">
+            <div class="row justify-content-start">
+                <div class="col-6">
+                    <label for="Telefono">Telefono</label>
+                    <input type="text" class="form-control" id="telefono" name="telefono" value="{{old('telefono')}}" placeholder="666777888">
                 </div>
             </div>
             <button type="submit" class="btn btn-primary mt-3">Nuevo</button>

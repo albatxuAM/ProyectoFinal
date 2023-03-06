@@ -58,7 +58,7 @@
 
 <div class="row mt-4 justify-content-end">
   <div class="col-2">
-  <a href="" class="btn btn-outline-secondary">Finalizar </a>
+  <a href="{{route('cesta.formalizar')}}" class="btn btn-outline-secondary">Finalizar </a>
   </div>
 </div>
 

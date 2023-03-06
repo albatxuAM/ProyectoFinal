@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\DatosPersona;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
+use App\Models\TipoProducto;
 
 class DatosPersonaController extends Controller
 {
@@ -12,7 +14,9 @@ class DatosPersonaController extends Controller
      */
     public function index()
     {
-        //
+        $tipo = TipoProducto::all();
+
+        return view('index', ["tipos" => $tipo]);
     }
 
     /**
@@ -28,7 +32,19 @@ class DatosPersonaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $validate = $request->validate([
+            'nombre' => 'required|string|max:30',
+            'correo' => 'required|email',
+            'telefono' => 'required|digits:9'
+        ]);
+
+        DatosPersona::create([
+            'nombre'  => $validate['nombre'],
+            'email' => $validate['correo'],
+            'telefono'  => $validate['telefono'],
+        ]);
+        
+        return redirect(route('datosPersona.index'));
     }
 
     /**

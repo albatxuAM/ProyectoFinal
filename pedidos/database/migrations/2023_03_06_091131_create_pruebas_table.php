@@ -11,13 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('productos', function (Blueprint $table) {
+        Schema::create('pruebas', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->integer('pedidoMinimo')->nullable();
-            $table->float('precio');
-            $table->foreignId('idTipo')->constrained('tipo_productos')->cascadeOnDelete();
-            $table->string('imagen',255)->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('productos');
+        Schema::dropIfExists('pruebas');
     }
 };
