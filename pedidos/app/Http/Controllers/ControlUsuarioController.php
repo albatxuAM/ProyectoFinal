@@ -31,7 +31,7 @@ class ControlUsuarioController extends Controller
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
             $tipos = TipoProducto::all();
-            return view('cestaindex', ["tipos" => $tipos]);
+            return view('carrito.show', ["tipos" => $tipos]);
         } else {
             return redirect()->back()->withInput()->withErrors(['status' => 'La contraseña o el correo es incorrecto']);
         }
@@ -66,6 +66,6 @@ class ControlUsuarioController extends Controller
             'password' => Hash::make($validated['contrasena']),
         ]);
         $tipos = TipoProducto::all();
-        return view('cestaindex', ["tipos" => $tipos]);
+        return view('carrito.show', ["tipos" => $tipos]);
     }
 }

@@ -59,6 +59,7 @@ Route::get('/descargar/{name}',[FilesController::class,'downloadFile'])->name('f
 
 Route::get('/carrito/{producto}',[CarritoController::class,'index'])->name('carrito.index');
 Route::get('/carrito/update/{nombre}',[CarritoController::class,'update'])->name('carrito.update');
+Route::get('/carrito/restar/{nombre}',[CarritoController::class,'restar'])->name('carrito.restar');
 Route::get('/carrito/delete/{nombre}',[CarritoController::class,'destroy'])->name('carrito.borrar');
 
 Route::get('/cesta', [ControlUsuarioController::class, 'cesta'])->name('cesta.lista');
