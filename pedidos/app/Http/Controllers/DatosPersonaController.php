@@ -15,8 +15,9 @@ class DatosPersonaController extends Controller
     public function index()
     {
         $tipo = TipoProducto::all();
+        $persona = DatosPersona::latest('id')->first();
 
-        return view('index', ["tipos" => $tipo]);
+        return view('pages.carrito.index', ["tipos" => $tipo,"persona"=>$persona]);
     }
 
     /**
@@ -43,6 +44,9 @@ class DatosPersonaController extends Controller
             'email' => $validate['correo'],
             'telefono'  => $validate['telefono'],
         ]);
+        $persona = DatosPersona::latest('id')->first();
+
+        $tipos = TipoProducto::all();
         
         return redirect(route('datosPersona.index'));
     }

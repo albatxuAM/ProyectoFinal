@@ -3,14 +3,17 @@
 @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 @if ($errors->any())
 <div class="row justify-content-center">
-<div class="alert alert-danger col-11 p-md-5">
+    <div class="alert alert-danger col-11 p-md-5">
         @foreach ($errors->all() as $error)
-       {{ $error }}<br/>
+        {{ $error }}<br />
         @endforeach
     </div>
 </div>
 
 @endif
+
+    
+
 <div class="row justify-content-center mt-1">
     <div class="col-4 border p-md-5" style="min-height: 75%;">
         <h4 class="card-title">Iniciar Session / Registro</h4>
@@ -34,10 +37,10 @@
             </div>
             <div class="form-check mt-1">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Recordad</label>
+                <label class="form-check-label" for="exampleCheck1">Recordar</label>
             </div>
-            <button type="submit" class="btn btn-primary mt-3">registrar</button>
-            <a role="button" href="#" id="registrar" class="btn btn-link mt-3" value="Nuevo usuario">Nuevo usuario</a>
+            <button type="submit" class="btn btn-primary mt-3">Acceder</button>
+            <a role="button" href="#" id="registrar" class="btn btn-link mt-3" value="Nuevo usuario">Darse de alta</a>
         </form>
     </div>
     <div id class="col-7 border p-md-5 " style="min-height: 75%;">
@@ -60,7 +63,7 @@
                     <input type="text" class="form-control" id="telefono" name="telefono" value="{{old('telefono')}}" placeholder="666777888">
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary mt-3">Nuevo</button>
+            <button type="submit" class="btn btn-primary mt-3">Continuar como invitado</button>
         </form>
     </div>
 </div>
@@ -92,7 +95,7 @@
                 </div>
                 <div class="col-6">
                     <label for="Confirmar">Confirmar Contraseña</label>
-                    <input type="password" class="form-control" name="confirmar" value="{{old('confirmar')}}" >
+                    <input type="password" class="form-control" name="confirmar" value="{{old('confirmar')}}">
                 </div>
             </div>
             <button type="submit" class="btn btn-primary mt-3">Insertar Nuevo Usuario</button>

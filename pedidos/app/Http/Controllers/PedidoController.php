@@ -62,6 +62,9 @@ class PedidoController extends Controller
         ]);
     }
 
+    public function selectDisponibles(Request $request){
+        dd($request);
+    }
     /**
      * Show the form for creating a new resource.
      */

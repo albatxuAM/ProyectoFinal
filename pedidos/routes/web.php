@@ -33,6 +33,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/pedidos', [PedidoController::class, 'index'])->name('pedidos.index');
 Route::get('/pedidos/{pedido}/{estado}', [PedidoController::class, 'updateEstado'])->name('pedidos.update');
+Route::get('/pedidos/disponibles',[PedidoController::class,'selectDisponibles'])->name('pedidos.selectDisponibles');
 
 Route::get('/productos/create', [ProductosController::class, 'create'])->name('productos.create');
 Route::post('/productos/create', [ProductosController::class, 'store'])->name('productos.store');
@@ -70,3 +71,4 @@ Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 
 Route::post('/invitado', [DatosPersonaController::class, 'store'])->name('datosPersona.store');
 Route::get('/invitado', [DatosPersonaController::class, 'index'])->name('datosPersona.index');
+
