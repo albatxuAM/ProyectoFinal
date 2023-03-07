@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pedido;
 use App\Models\TipoProducto;
 use App\Models\EstadoPedido;
+use App\Models\ProductosPedido;
 use Illuminate\Http\Request;
 
 class PedidoController extends Controller
@@ -63,7 +64,17 @@ class PedidoController extends Controller
     }
 
     public function selectDisponibles(Request $request){
-        dd($request);
+
+        //select all pedidos where fecha is $request->fecha and estado is not 4
+        $pedidos = Pedido::where('fecha', $request->fecha)->whereNotIn('idEstado', [4])->get();
+        //if pedidos is more than 40 return true
+        if($pedidos->count() <= 40){
+            
+            return ['success' => true, 'data' => $pedidos->count(), 'message' => 'Hay cupo para pedidos'];
+            
+        }
+            return ['success' => false, 'data' => $pedidos->count(), 'message' => 'No hay cupo para pedidos'];
+
     }
     /**
      * Show the form for creating a new resource.
@@ -78,7 +89,28 @@ class PedidoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //insert pedido in database with estado 1 and fecha $request->fecha and idPersona $request->idPersona
+        $pedido = new Pedido();
+        $pedido->fecha = $request->fecha;
+        $pedido->idPersona = $request->idPersona;
+        $pedido->idEstado = 1;
+        $pedido->observaciones = $request->observaciones;
+        $pedido->save();
+        //get idPedido and insert in producto pedidos taking produtos from sesion carrito
+        $idPedido = $pedido->id;
+        $carrito = session('carrito');
+        
+        foreach($carrito as $producto){
+            $productoPedido = new ProductosPedido();
+            $productoPedido->idPedido = $idPedido;
+            $productoPedido->idProducto = $producto['id'];
+            $productoPedido->cantidad = $producto['cantidad'];
+            $productoPedido->save();
+        }
+        //clear carrito
+        session()->forget('carrito');
+
+        return ['success' => true, 'data' => $request->all(), 'message' => 'Pedido creado correctamente'];
     }
 
     /**

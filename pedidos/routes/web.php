@@ -32,6 +32,7 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/pedidos', [PedidoController::class, 'index'])->name('pedidos.index');
+Route::post('/pedidos/store', [PedidoController::class, 'store'])->name('pedidos.store');
 Route::get('/pedidos/{pedido}/{estado}', [PedidoController::class, 'updateEstado'])->name('pedidos.update');
 Route::get('/pedidos/disponibles',[PedidoController::class,'selectDisponibles'])->name('pedidos.selectDisponibles');
 
