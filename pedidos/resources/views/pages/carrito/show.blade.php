@@ -15,7 +15,7 @@
             <th class="text-center">Cant</th>
             <th class="text-center">Total</th>
             <th class="text-center">Eliminar</th>
-            <th class="text-center">Añadir</th>
+            <th class="text-center">Cantidad</th>
           </tr>
         </thead>
         <tbody>
@@ -31,9 +31,14 @@
                     <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
                   </svg></button>
               </a></td>
-            <td class="td text-center "><a href="{{ route('carrito.update', $value['id']) }}">
+            <td class="td text-center">
+              <a href="{{ route('carrito.restar', $value['id']) }}">
+                <span class="material-symbols-outlined me-3">remove</span>
+              </a>
+              <a href="{{ route('carrito.update', $value['id']) }}">
                 <span class="material-symbols-outlined">add</span>
               </a>
+
             </td>
           </tr>
           @endforeach
@@ -46,9 +51,9 @@
           @endif
           <tr>
             <td class="text-center">Total</td>
-            
-            <td class="" colspan="3"><input style="text-align:right"  type="text" name="total" id="total" class="form-control" value="0" disabled></input> </td>
-            <td >Precio total con IVA incluido</td>
+
+            <td class="" colspan="3"><input style="text-align:right" type="text" name="total" id="total" class="form-control" value="0" disabled></input> </td>
+            <td>Precio total con IVA incluido</td>
           </tr>
         </tbody>
       </table>
@@ -58,7 +63,7 @@
 
 <div class="row mt-4 justify-content-end">
   <div class="col-2">
-  <a href="{{route('cesta.formalizar')}}" class="btn btn-outline-secondary">Finalizar </a>
+    <a href="{{route('cesta.formalizar')}}" class="btn btn-outline-secondary">Finalizar </a>
   </div>
 </div>
 
