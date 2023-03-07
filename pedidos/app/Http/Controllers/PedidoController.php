@@ -89,12 +89,16 @@ class PedidoController extends Controller
      */
     public function store(Request $request)
     {
+          //select all pedidos where fecha is $request->fecha and estado is not 4
+          $pedidos = Pedido::where('fecha', $request->fecha)->whereNotIn('idEstado', [4])->get();
+          //if pedidos is more than 40 return true
+          if($pedidos->count() <= 40){
         //insert pedido in database with estado 1 and fecha $request->fecha and idPersona $request->idPersona
         $pedido = new Pedido();
         $pedido->fecha = $request->fecha;
         $pedido->idPersona = $request->idPersona;
         $pedido->idEstado = 1;
-        $pedido->observaciones = $request->observaciones;
+        $pedido->observacion = $request->observaciones;
         $pedido->save();
         //get idPedido and insert in producto pedidos taking produtos from sesion carrito
         $idPedido = $pedido->id;
@@ -107,10 +111,14 @@ class PedidoController extends Controller
             $productoPedido->cantidad = $producto['cantidad'];
             $productoPedido->save();
         }
-        //clear carrito
+        //clear carrito and persona
         session()->forget('carrito');
+        session()->forget('persona');
 
-        return ['success' => true, 'data' => $request->all(), 'message' => 'Pedido creado correctamente'];
+        
+        return redirect()->route('pedidos.index');
+
+        }
     }
 
     /**
