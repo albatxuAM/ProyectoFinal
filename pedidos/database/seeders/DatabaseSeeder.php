@@ -34,9 +34,7 @@ class DatabaseSeeder extends Seeder
             'id_persona' =>  1,
             'email' => 'admin@gmail.com',
             'password' => Hash::make('test'),
-            'admin' => 1,
-            'created_at' => $faker->dateTimeBetween('-1 years', 'now'),
-            'updated_at' => $faker->dateTimeBetween('-1 years', 'now'),
+            'admin' => 1
         ]);
 
 
