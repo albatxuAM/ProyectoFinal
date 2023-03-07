@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('pedidoMinimo')->nullable();
             $table->float('precio');
             $table->foreignId('idTipo')->constrained('tipo_productos')->cascadeOnDelete();
-            $table->string('imagen',255)->nullable();
+            $table->string('observacion', 255);
             $table->timestamps();
         });
     }

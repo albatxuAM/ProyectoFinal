@@ -101,14 +101,16 @@ class ProductosController extends Controller
             'idTipo' => 'required|in:1,2,3,4,5,6,7',
             'pedidoMinimo' => 'required|min:1',
             'precio' => 'required|numeric|gt:0',
-            'file.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'file.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'observacion' => 'min:0|max:1000'
         ], [
             'nombre.required' => 'Nombre es obligatorio.',
             'nombre.unique' => 'Nombre ya existe.',
             'idTipo.in' => 'Tipo es obligatorio.', 
             'pedidoMinimo.required' => 'Pedido minimo es obligatorio.',
             'precio.required' => 'Precio es obligatorio.',
-            'file.image' => 'El archivo tiene que se una foto en formato jpeg,png,jpg,gif,svg'
+            'file.image' => 'El archivo tiene que se una foto en formato jpeg,png,jpg,gif,svg',
+            'observacion' => 'La observacion no puede ser tan larga'
         ]);
 
         $producto = Productos::create($validatedData);
@@ -123,11 +125,6 @@ class ProductosController extends Controller
             if ($request->file('file')->getMimeType()!=="image/png") {
                 // echo "El tipo de archivo no es válido";
             } else{
-                
-                // $manager = Image([]);
-                // $image = $manager->make('public/images/croqueta.png')->resize(100,100);
-                // $image->store($image);
-
                 $file = $request->file('file');
                 //Cogemos el nombre que el usuario a introducido
                 $name = $producto->id;
@@ -135,11 +132,8 @@ class ProductosController extends Controller
                 $file->storeAs('',$name.".".$file->extension(),'public');
             }
         }
-
         return back()->with('success', 'producto creado correctamente.');
     }
-
-
 
     /**
      * Display the specified resource.
