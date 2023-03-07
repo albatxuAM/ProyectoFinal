@@ -44,11 +44,20 @@ class ChartJSController extends Controller
             $pedidos[] = Pedido::all()->where('idEstado', $e->id)->count();
         }
 
+        foreach ($tipos as $tipo) {
+            $categoria[] = $tipo->nombre;
+            // $productosTipo[] = Pedido::all()->where('idProducto', Producto::all()->where('idTipo', $tipo->id)->count();
+            $productosTipo[] = $tipo->productos()->count();
+        }
+
         return view('pages.estadisticas.index', [
             "chart_data" => $data,
             "tipos" => $tipos,
             "estados" => $nombres,
-            "pedidos" => $pedidos
+            "pedidos" => $pedidos,
+            "categoria" => $categoria,
+            "productosTipo" => $productosTipo
+            
         ]);
     }
 }

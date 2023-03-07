@@ -1,24 +1,15 @@
-<p>Polar area</p>
+{{-- <p>Pedidos por tipo de producto</p> --}}
+<p>Productos por tipo de pedido</p>
 <div id="chart">
     <canvas id="myChart"></canvas>
   </div>
 <script>
+    var categoria = <?php echo json_encode($categoria); ?>;
+    var productosTipo = <?php echo json_encode($productosTipo); ?>;
+
     var data = {
     datasets: [{
-        data: [
-            20,
-            50,
-            15,
-            30,
-            50, 
-            85,
-            50,
-            74,
-            37,
-            64,
-            100,
-            70
-        ],
+        data: productosTipo,
         backgroundColor: [
             "#FF6384",
             "#4BC0C0",
@@ -33,11 +24,7 @@
         ],
         label: 'My dataset' // for legend
     }],
-    labels: [
-        "Smart",
-        "Hard",
-        "Soft"
-    ]
+    labels: categoria
 };
 var ctx = $("#myChart");
 new Chart(ctx, {

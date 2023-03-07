@@ -1,4 +1,4 @@
-<p>Polar area</p>
+<p>Line</p>
 <div id="chart">
     <canvas id="line"></canvas>
 </div>
