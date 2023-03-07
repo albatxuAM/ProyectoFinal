@@ -5,6 +5,9 @@
         <img class="img-fluid w-100 h-100" src="{{ asset('images/imagen2.jpeg') }}" alt="Imagen presentacion">
     </div>
 </div>
+<div>
+
+</div>
 <div class="row d-flex justify-content-center">
     <div class="col-10 card mb-3" id="cardIndex">
         <div class="row g-0 d-flex justify-content-center">
