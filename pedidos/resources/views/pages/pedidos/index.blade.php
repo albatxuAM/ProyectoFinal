@@ -57,7 +57,26 @@
                             <td>
                                 <div class="d-flex justify-content-between">
                                     <div >
-                                        <span class="badge bg-primary rounded-pill d-inline"> {{ $pedido->estadoPedido->nombre }} </span>
+                                    @switch($pedido->estadoPedido->nombre)
+                                    @case('Recibido')
+                                    <span class="badge bg-secondary rounded-pill d-inline"> {{ $pedido->estadoPedido->nombre }} </span>
+                                    @break
+                                    @case('En proceso')
+                                    <span class="badge bg-warning rounded-pill d-inline">{{ $pedido->estadoPedido->nombre }}</span>
+                                    @break
+                                    @case('Proceso')
+                                    <span class="badge bg-warning rounded-pill d-inline">{{ $pedido->estadoPedido->nombre }}</span>
+                                    @break
+                                    @case('Preparado')
+                                    <span class="badge bg-success rounded-pill d-inline">{{ $pedido->estadoPedido->nombre }}</span>
+                                    @break
+                                    @case('Cancelado')
+                                    <span class="badge bg-danger rounded-pill d-inline">{{ $pedido->estadoPedido->nombre }}</span>
+                                    @break
+                                    @case('Entregado')
+                                    <span class="badge bg-primary rounded-pill d-inline">{{ $pedido->estadoPedido->nombre }}</span>
+                                    @break
+                                    @endswitch
                                     </div>
                                     <div >
                                         <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"> </a>
@@ -69,6 +88,8 @@
                                         </ul>
                                     </div>
                                 </div>
+                                <a role="button" href="{{ route('pedidos.show',$pedido) }}"  class="btn btn-link mt-3" value="Ver pedido">Ver pedido</a>
+    
                             </td>
                         </tr>
                     @endforeach
