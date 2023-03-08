@@ -104,7 +104,7 @@ class DatabaseSeeder extends Seeder
                 'id' =>  $i,
                 'idEstado' => $faker->numberBetween(1, 5),
                 'observacion' =>  $faker->realText(40,2),
-                'fecha' =>  $faker->dateTimeBetween('-1 years', 'now'),
+                'fecha' =>  $faker->dateTimeBetween('-1 years', '+1 weeks'),
                 'idPersona' => $faker->numberBetween(1, 10),
                 'created_at' => $faker->dateTimeBetween('-1 years', 'now'),
                 'updated_at' => $faker->dateTimeBetween('-1 years', 'now'),

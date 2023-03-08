@@ -19,46 +19,10 @@ class ChartJSController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $record = Pedido::select(DB::raw("COUNT(*) as count"), DB::raw("MONTHNAME(fecha) as month_name"), DB::raw("MONTH(fecha) as month"))
-        ->groupBy('month_name','month')
-        ->orderBy('month')
-        ->get();
-
-
-        foreach($record as $row) {
-            $data['label'][] = $row->month_name;
-            $data['data'][] = (int) $row->count;
-        }
-
-    
-        // $record = Pedido::select(DB::raw("COUNT(*) as count"), DB::raw("MONTHNAME(fecha) as month_name"), DB::raw("MONTH(fecha) as month"))
-            
-        //     ->groupBy('month_name','month')
-        //     ->orderBy('month')
-        //     ->get();
-    
-        // $data = [];
-    
-        // foreach($record as $row) {
-        //     $data['label'][] = $row->month_name;
-        //     $data['data'][] = (int) $row->count;
-        // }
-    
-        //$data['chart_data'] = json_encode($data);
-
-        // dd($data);
-
+    {   
         $tipos = TipoProducto::all();
-
-        return view('pages.estadisticas.index', [
-            // "chart_data" => $data,
-            "tipos" => $tipos,
-            "estados" => $nombres,
-            "pedidos" => $pedidos,
-            "categoria" => $categoria,
-            "productosTipo" => $productosTipo
-            
+        return view('pages.estadisticas.index', [ 
+            "tipos" => $tipos
         ]);
     }
 
@@ -72,7 +36,7 @@ class ChartJSController extends Controller
         return ['success' => true, 
                 "estados" => $nombres,
                 "pedidos" => $pedidos
-                ];
+            ];
     }
 
     public function ventas()
@@ -90,7 +54,40 @@ class ChartJSController extends Controller
         return ['success' => true, 
                 "mes" => $label,
                 "data" => $data,
-                ];
+            ];
+    }
+
+    public function ventasSemana()
+    {
+        $lastWeek = Pedido::select(DB::raw("COUNT(*) as count"), DB::raw("DAYNAME(fecha) as day_name"), \DB::raw("DAYOFWEEK(fecha) as day"))
+            ->whereBetween('fecha', 
+                [Carbon::now()->subWeek()->startOfWeek(), Carbon::now()->subWeek()->endOfWeek()]
+            )    
+            ->groupBy('day_name','day')
+            ->get();
+
+        $thisWeek = Pedido::select(DB::raw("COUNT(*) as count"), DB::raw("DAYNAME(fecha) as day_name"), \DB::raw("DAYOFWEEK(fecha) as day"))
+            ->whereBetween('fecha', 
+                [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()]
+            )    
+            ->groupBy('day_name','day')
+            ->get();
+
+        $dataPast = array_fill(0, 7, 0);
+        $dataCurr = array_fill(0, 7, 0);
+
+        foreach($lastWeek as $row) {
+            $dataPast[$row->day] = (int) $row->count;
+        }
+
+        foreach($thisWeek as $row) {
+            $dataCurr[$row->day] = (int) $row->count;
+        }
+
+        return ['success' => true, 
+                "dataPast" => $dataPast,
+                "dataCurr" => $dataCurr
+            ];
     }
 
 }

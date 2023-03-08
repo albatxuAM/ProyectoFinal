@@ -10,7 +10,6 @@ if(graficoEstadoPedidos) {
     })
         .then(response => response.json())
         .then(data => {
-            debugger
             var estados = data['estados'];
             var pedidos = data['pedidos'];
             
@@ -20,7 +19,7 @@ if(graficoEstadoPedidos) {
                 data: {
                     labels: estados,
                     datasets: [{
-                    label: '# of Tomatoes',
+                    label: 'Estado pedidos',
                     data: pedidos,
                     backgroundColor: [
                         'rgba(108, 117, 125, 0.2)',
@@ -54,7 +53,6 @@ if(line) {
     })
         .then(response => response.json())
         .then(data => {
-            debugger
             var mes = data['mes'];
             var pedidos = data['data'];
             
@@ -65,9 +63,8 @@ if(line) {
                 datasets: [
                 {
                     data: pedidos,
-                    label: "Left dataset",
+                    label: "Pedidos",
                     pointRadius: 0,
-
                     // This binds the dataset to the left y axis
                     yAxisID: "left-y-axis"
                 }
@@ -78,31 +75,85 @@ if(line) {
                 scales: {
                 yAxes: [
                     {
-                    id: "left-y-axis",
-                    type: "linear",
-                    position: "left"
-                    },
-                    {
-                    id: "right-y-axis",
-                    type: "linear",
-                    position: "right",
-                    gridLines: {
-                        display: false
-                    },
-                    ticks: {
-                        padding: 10,
-                        stepSize: 1,
-                        fontSize: 9,
-                        autoSkip: false,
-                        callback: (value) => {
-                        console.log(value);
-                        return value === 75 ? "test" : "";
+                        id: "left-y-axis",
+                        type: "linear",
+                        position: "left",
+                        ticks: {
+                            stepSize: 1
                         }
-                    }
                     }
                 ]
                 }
             }
             });
+    });
+}
+
+var ventasSemana = document.getElementById("ventasSemana");
+if(ventasSemana) {
+    fetch('estadisticas/ventasSemana', {
+        method: 'GET',
+    })
+        .then(response => response.json())
+        .then(data => {
+            var dataPast = data['dataPast'];
+            var dataCurr = data['dataCurr'];
+            
+            var ctx = document.getElementById("ventasSemana");
+            var line = new Chart(ctx, {
+                type: "line",
+                data: {
+                    datasets: [
+                    {
+                        data: dataPast,
+                        label: "Semana pasada",
+                        pointRadius: 0,
+            
+                        // This binds the dataset to the left y axis
+                        yAxisID: "left-y-axis"
+                    },
+                    {
+                        data: dataCurr,
+                        label: "Esta semana",
+            
+                        // This binds the dataset to the right y axis
+                        yAxisID: "right-y-axis"
+                    }
+                    ],
+                    labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+                },
+                options: {
+                    scales: {
+                    yAxes: [
+                        {
+                            id: "left-y-axis",
+                            type: "linear",
+                            position: "left",
+                            // ticks: {
+                            //     stepSize: 1
+                            // }
+                        },
+                        {
+                            id: "right-y-axis",
+                            type: "linear",
+                            position: "right",
+                            gridLines: {
+                                display: false
+                            },
+                            ticks: {
+                                padding: 10,
+                                stepSize: 1,
+                                fontSize: 9,
+                                autoSkip: false,
+                                callback: (value) => {
+                                    console.log(value);
+                                    return value === 75 ? "test" : "";
+                                }
+                            }
+                        }
+                    ]
+                    }
+                }
+                });
     });
 }
