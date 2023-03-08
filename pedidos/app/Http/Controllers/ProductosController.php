@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Testing\MimeType;
+use Intervention\Image\Facades\Image;
 
 class ProductosController extends Controller
 {
@@ -130,6 +131,12 @@ class ProductosController extends Controller
                 $name = $producto->id;
                 //Para almacenar la imagen poniendole un nombre
                 $file->storeAs('',$name.".".$file->extension(),'public');
+
+                $filePath = public_path('/thumbnails');
+                $img = Image::make($file->path());
+                $img->resize(110, 110, function ($const) {
+                    $const->aspectRatio();
+                    })->save($filePath.'/'.$name.".".$file->extension());
             }
         }
         return back()->with('success', 'producto creado correctamente.');
@@ -221,6 +228,12 @@ class ProductosController extends Controller
                 $name = $producto->id;
                 //Para almacenar la imagen poniendole un nombre
                 $file->storeAs('',$name.".".$file->extension(),'public');
+
+                $filePath = public_path('/thumbnails');
+                $img = Image::make($file->path());
+                $img->resize(110, 110, function ($const) {
+                    $const->aspectRatio();
+                    })->save($filePath.'/'.$name.".".$file->extension());
             }
         }
 
