@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="row mt-4 d-flex justify-content-center"><!-- PLATOS -->
-    <div class="col-10 col-md-11 col-lg-10">
+    <div class="col-10 col-md-11 col-lg-10 mb-1">
 
         <h1>PLATOS PARA LLEVAR</h1>
         <div class="row gy-4"> <!-- cards de condiciones y a tener en cuenta -->
@@ -55,8 +55,8 @@
             @endforeach
 
 
-            <div class="col-6 mt-4 ms-2 col-md dropdown">
-                <button class="btn btn-outline-secondary dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="col-6 mt-4 ms-2 col-md  dropdown">
+                <button class="btn btn-outline-secondary productillo dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     POSTRES
                 </button>
 
@@ -68,11 +68,12 @@
             </div>
 
         </div><!-- FIN BOTONES FILTROS -->
-        <div class="row mt-4 d-flex gy-3"><!-- PLATOS -->
+        <div class="row mt-4 d-flex gy-3 mb-3"><!-- PLATOS -->
             @include('layouts.cards')
             {{ $productos->links() }}
 
         </div><!-- FIN PLATOS -->
+
     </div>
 
 

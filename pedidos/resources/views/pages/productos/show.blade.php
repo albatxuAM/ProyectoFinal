@@ -27,7 +27,11 @@
                     <h3 class="card-title mt-3">{{ $producto->nombre }}</h3>
                     <p class="card-text"> <a class="btn btn-outline border-3 disabled" style="border-color: #8b0066; color:white" href="#">{{ $tipo->nombre }}</a></p>
                     <p class="card-text">Precio: {{ $producto->precio }}€</p>
-                    <p class="card-text">Observacion: {{ $producto->observacion }} </p>
+                    <p class="card-text">
+                        @if($producto->observacion)
+                        Observacion: {{ $producto->observacion }} 
+                        @endif
+                    </p>
                 </div>
                 <a href="{{ route('carrito.index',$producto) }}">
                     <span class=" ms-3 material-symbols-outlined mb-2">add</span>

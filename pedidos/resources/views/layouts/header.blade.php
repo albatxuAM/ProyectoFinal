@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <!-- Bootstrap core JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
 
@@ -17,27 +17,29 @@
 
     @vite(['resources/js/app.js'])
     @vite(['resources/sass/app.scss'])
-    
+
     <style>
-        .plato .card-footer{
+        .plato .card-footer {
             background-color: white;
         }
-        .filtro{
+
+        .filtro {
             width: 7em;
         }
-        #marco{
-            box-shadow: 5px 6px 16px -7px rgba(0,0,0,0.75);
+        #marco {
+            box-shadow: 5px 6px 16px -7px rgba(0, 0, 0, 0.75);
             background-color: #8b0066;
-            color:white;
+            color: white;
         }
-        #cont{
+
+        #cont {
             background-color: #3c4c5c;
-            color:white;
+            color: white;
             background-image: url("{{ asset('images/fondoCard.png') }}");
             background-repeat: no-repeat;
             background-position: right center;
         }
-        
+
         .titulo {
             font-size: 3rem;
             font-family: 'Dancing Script', cursive;
@@ -52,16 +54,34 @@
         #cardIndex {
             border: none;
         }
-        #volver{
-            color:#8b0066;
-            text-decoration: none;
-        }
-        a{
-            color:#8b0066;
-            text-decoration: none;
-        }
-        
-    
 
+        #volver {
+            color: #8b0066;
+            text-decoration: none;
+        }
+
+        a {
+            color: #8b0066;
+            text-decoration: none;
+        }
+
+        .productillo:hover, .filtro:hover {
+            transform: scale(1.05);
+            background-color: #3c4c5c;
+            color:whitesmoke;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
+        }
+
+        .productillo:hover>.card-footer {
+            background-color: #3c4c5c;
+            color:whitesmoke;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
+        }
+        .productillo:hover>.card-footer>a {
+            color:gray;
+        }
+        .productillo:hover>.card-footer>a:hover {
+            color:white;
+        }
     </style>
 </head>

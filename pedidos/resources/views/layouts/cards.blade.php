@@ -1,6 +1,6 @@
 @foreach($productos as $producto)
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3 px-3 plato card-group">
-        <div class="card border-light">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 px-3 plato card-group mb-4">
+        <div class="card productillo">
             <img class="card-img-top img-fluid img-thumbnail" alt="{{$producto->name}}" 
                 @if( file_exists('images/'.$producto->id.'.png') )
                     src="{{ asset('images/'.$producto->id.'.png') }}" 
@@ -30,7 +30,7 @@
                     </form>
                 </div>
             @else
-                <div class="card-footer text-muted">
+                <div class="card-footer">
                     <a class="btn btn-outline-secondary" href="{{ route('productos.show', $producto) }}">Opciones</a> <!-- ENLACE A FORMULARIO PARA INICIAR SESION O SEGUIR COMO INVITADO -->
                     <a class="ms-5" href="{{ route('carrito.index',$producto) }}">Lo quiero </a>
                 </div>

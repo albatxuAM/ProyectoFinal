@@ -57,7 +57,8 @@ class ProductosController extends Controller
         return view('pages.productos.index', [
             "productos" => $productos,
             "tipos" => $tipos,
-            "files" => $files
+            "files" => $files,
+            "id"=>$id,
         ]);
     }
 
@@ -73,7 +74,8 @@ class ProductosController extends Controller
         $tipos = TipoProducto::all();
         return view('pages.productos.catalogo', [
             "productos" => $productos,
-            "tipos" => $tipos
+            "tipos" => $tipos,
+            "id"=>$id,
         ]);
     }
 
@@ -101,15 +103,15 @@ class ProductosController extends Controller
             'idTipo' => 'required|in:1,2,3,4,5,6,7',
             'pedidoMinimo' => 'required|min:1',
             'precio' => 'required|numeric|gt:0',
-            'file.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'observacion' => 'min:0|max:1000'
+            'file.*' => 'image|mimes:png|max:2048',
+            'observacion' => 'nullable|min:1|max:1000'
         ], [
             'nombre.required' => 'Nombre es obligatorio.',
             'nombre.unique' => 'Nombre ya existe.',
             'idTipo.in' => 'Tipo es obligatorio.', 
             'pedidoMinimo.required' => 'Pedido minimo es obligatorio.',
             'precio.required' => 'Precio es obligatorio.',
-            'file.image' => 'El archivo tiene que se una foto en formato jpeg,png,jpg,gif,svg',
+            'file.image' => 'El archivo tiene que se una foto en formato png',
             'observacion' => 'La observacion no puede ser tan larga'
         ]);
 
@@ -152,17 +154,17 @@ class ProductosController extends Controller
         $filename = $producto->id . ".png";
         $name = str_replace("$this->disk/","", $filename);
         $picture = "";
-
+            
         $picture = asset(storage::disk($this->disk)->url($name));
         
-        // dd($picture);
+       
         $file[substr($name, 0 , (strrpos($name, ".")))] = [
             "picture"=>$picture,
             "name"=>$name
         ];
-
+        //dd($name);
         $tipo =TipoProducto::where('id','=',$idTipo)->first();
-        
+
         $tipos = TipoProducto::all();
         return view('pages.productos.show', [
             "producto" => $producto,
@@ -235,6 +237,11 @@ class ProductosController extends Controller
      */
     public function destroy(Productos $producto)
     {
+        $filename = $producto->id . ".png";
+        if(\File::exists(public_path('images/placeholdercopy.png'))){
+            \File::delete(public_path('images/placeholdercopy.png'));
+           // \File::delete(public_path('thunbnails/placeholdercopy.png'));
+        }
         $producto->delete();
         return redirect()->route('productos.catalogo');
     }
