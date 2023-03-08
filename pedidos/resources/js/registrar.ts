@@ -1,6 +1,6 @@
 const registrar = document.getElementById("registrar") as HTMLButtonElement;
 const vista = document.getElementById("vista");
-registrar.addEventListener('click',verregistro);
+registrar?.addEventListener('click',verregistro);
 
 
 function verregistro():void {

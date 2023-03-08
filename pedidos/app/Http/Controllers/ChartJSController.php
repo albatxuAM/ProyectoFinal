@@ -20,21 +20,20 @@ class ChartJSController extends Controller
      */
     public function index()
     {
- 
-    $record = User::select(\DB::raw("COUNT(*) as count"), \DB::raw("DAYNAME(created_at) as day_name"), \DB::raw("DAY(created_at) as day"))
-        ->where('created_at', '>', Carbon::today()->subDay(6))
-        ->groupBy('day_name','day')
-        ->orderBy('day')
-        ->get();
+        // $record = User::select(\DB::raw("COUNT(*) as count"), \DB::raw("DAYNAME(created_at) as day_name"), \DB::raw("DAY(created_at) as day"))
+        //     ->where('created_at', '>', Carbon::today()->subDay(6))
+        //     ->groupBy('day_name','day')
+        //     ->orderBy('day')
+        //     ->get();
     
-        $data = [];
+        // $data = [];
     
-        foreach($record as $row) {
-            $data['label'][] = $row->day_name;
-            $data['data'][] = (int) $row->count;
-        }
+        // foreach($record as $row) {
+        //     $data['label'][] = $row->day_name;
+        //     $data['data'][] = (int) $row->count;
+        // }
     
-        $data['chart_data'] = json_encode($data);
+        // $data['chart_data'] = json_encode($data);
 
         $tipos = TipoProducto::all();
 
@@ -51,7 +50,7 @@ class ChartJSController extends Controller
         }
 
         return view('pages.estadisticas.index', [
-            "chart_data" => $data,
+            // "chart_data" => $data,
             "tipos" => $tipos,
             "estados" => $nombres,
             "pedidos" => $pedidos,
@@ -60,4 +59,28 @@ class ChartJSController extends Controller
             
         ]);
     }
+
+    public function productosPedido()
+    {
+        $tipos = TipoProducto::all();
+
+        $estados = EstadoPedido::all();
+        foreach ($estados as $e) {
+            $nombres[] = $e->nombre;
+            $pedidos[] = Pedido::all()->where('idEstado', $e->id)->count();
+        }
+        return ['success' => true, 
+                "estados" => $nombres,
+                "pedidos" => $pedidos
+                ];
+        // return response([
+        //         "estados" => $nombres,
+        //         "pedidos" => $pedidos, 
+        //     ],
+        //     [
+        //         'Content-Type'=>'application/json',
+        //     ]
+        // );
+    }
+
 }
