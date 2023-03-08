@@ -36,9 +36,9 @@
 
     <!-- Estadisticas -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
-    
+
     <style>
         .plato .card-footer {
             background-color: white;
@@ -47,6 +47,7 @@
         .filtro {
             width: 7em;
         }
+
         #marco {
             box-shadow: 5px 6px 16px -7px rgba(0, 0, 0, 0.75);
             background-color: #8b0066;
@@ -86,23 +87,29 @@
             text-decoration: none;
         }
 
-        .productillo:hover, .filtro:hover {
+        .productillo:hover,
+        .filtro:hover {
             transform: scale(1.05);
             background-color: #3c4c5c;
-            color:whitesmoke;
+            color: whitesmoke;
             box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
         }
 
         .productillo:hover>.card-footer {
             background-color: #3c4c5c;
-            color:whitesmoke;
+            color: whitesmoke;
             box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
         }
+
         .productillo:hover>.card-footer>a {
-            color:gray;
+            color: gray;
         }
+
         .productillo:hover>.card-footer>a:hover {
-            color:white;
+            color: white;
+        }
+        body{
+            min-height: 100vh;
         }
     </style>
 </head>

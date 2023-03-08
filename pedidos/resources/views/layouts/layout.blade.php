@@ -1,14 +1,11 @@
 </html>
 
-
 @include('layouts.header')
 
-<body>
+<body class="d-flex flex-column min-vh-100">
 
-    <div class="container-fluid">
         @include('layouts.navbar')
         @yield('content')
         @include('layouts.footer')
-    </div>
 </body>
 </html>
