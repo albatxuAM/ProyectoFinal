@@ -88,21 +88,17 @@
 
         .productillo:hover, .filtro:hover {
             transform: scale(1.05);
-            background-color: #3c4c5c;
-            color:whitesmoke;
+            background-color: #f8f9fa;
+            color:#6c757d;
             box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
         }
 
         .productillo:hover>.card-footer {
-            background-color: #3c4c5c;
-            color:whitesmoke;
+            background-color: #f8f9fa;
             box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
         }
-        .productillo:hover>.card-footer>a {
-            color:gray;
-        }
         .productillo:hover>.card-footer>a:hover {
-            color:white;
+            color:gray;
         }
     </style>
 </head>
