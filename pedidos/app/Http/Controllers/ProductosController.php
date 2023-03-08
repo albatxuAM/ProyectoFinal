@@ -161,11 +161,13 @@ class ProductosController extends Controller
             "name"=>$name
         ];
 
-
+        $tipo =TipoProducto::where('id','=',$idTipo)->first();
+        
         $tipos = TipoProducto::all();
         return view('pages.productos.show', [
             "producto" => $producto,
             "productos" => $productos,
+            "tipo"=> $tipo,
             "tipos" => $tipos,
             "files" => $file
         ]);
