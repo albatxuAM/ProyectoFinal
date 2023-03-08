@@ -8,7 +8,7 @@ use App\Models\Pedido;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Redirect,Response;
-Use DB;
+use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
 class ChartJSController extends Controller
@@ -20,34 +20,36 @@ class ChartJSController extends Controller
      */
     public function index()
     {
-        // $record = User::select(\DB::raw("COUNT(*) as count"), \DB::raw("DAYNAME(created_at) as day_name"), \DB::raw("DAY(created_at) as day"))
-        //     ->where('created_at', '>', Carbon::today()->subDay(6))
-        //     ->groupBy('day_name','day')
-        //     ->orderBy('day')
+        $record = Pedido::select(DB::raw("COUNT(*) as count"), DB::raw("MONTHNAME(fecha) as month_name"), DB::raw("MONTH(fecha) as month"))
+        ->groupBy('month_name','month')
+        ->orderBy('month')
+        ->get();
+
+
+        foreach($record as $row) {
+            $data['label'][] = $row->month_name;
+            $data['data'][] = (int) $row->count;
+        }
+
+    
+        // $record = Pedido::select(DB::raw("COUNT(*) as count"), DB::raw("MONTHNAME(fecha) as month_name"), DB::raw("MONTH(fecha) as month"))
+            
+        //     ->groupBy('month_name','month')
+        //     ->orderBy('month')
         //     ->get();
     
         // $data = [];
     
         // foreach($record as $row) {
-        //     $data['label'][] = $row->day_name;
+        //     $data['label'][] = $row->month_name;
         //     $data['data'][] = (int) $row->count;
         // }
     
-        // $data['chart_data'] = json_encode($data);
+        //$data['chart_data'] = json_encode($data);
+
+        // dd($data);
 
         $tipos = TipoProducto::all();
-
-        $estados = EstadoPedido::all();
-        foreach ($estados as $e) {
-            $nombres[] = $e->nombre;
-            $pedidos[] = Pedido::all()->where('idEstado', $e->id)->count();
-        }
-
-        foreach ($tipos as $tipo) {
-            $categoria[] = $tipo->nombre;
-            // $productosTipo[] = Pedido::all()->where('idProducto', Producto::all()->where('idTipo', $tipo->id)->count();
-            $productosTipo[] = $tipo->productos()->count();
-        }
 
         return view('pages.estadisticas.index', [
             // "chart_data" => $data,
@@ -62,8 +64,6 @@ class ChartJSController extends Controller
 
     public function productosPedido()
     {
-        $tipos = TipoProducto::all();
-
         $estados = EstadoPedido::all();
         foreach ($estados as $e) {
             $nombres[] = $e->nombre;
@@ -73,14 +73,24 @@ class ChartJSController extends Controller
                 "estados" => $nombres,
                 "pedidos" => $pedidos
                 ];
-        // return response([
-        //         "estados" => $nombres,
-        //         "pedidos" => $pedidos, 
-        //     ],
-        //     [
-        //         'Content-Type'=>'application/json',
-        //     ]
-        // );
+    }
+
+    public function ventas()
+    {
+        $record = Pedido::select(DB::raw("COUNT(*) as count"), DB::raw("MONTHNAME(fecha) as month_name"), DB::raw("MONTH(fecha) as month"))
+            ->groupBy('month_name','month')
+            ->orderBy('month')
+            ->get();
+
+        foreach($record as $row) {
+            $label[] = $row->month_name;
+            $data[] = (int) $row->count;
+        }
+
+        return ['success' => true, 
+                "mes" => $label,
+                "data" => $data,
+                ];
     }
 
 }
