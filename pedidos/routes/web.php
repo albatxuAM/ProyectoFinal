@@ -72,3 +72,4 @@ Route::get('/invitado', [DatosPersonaController::class, 'index'])->name('datosPe
 Route::get('estadisticas', [ChartJSController::class, 'index'])->name('estadisticas.index');
 Route::get('estadisticas/productosPedido', [ChartJSController::class, 'productosPedido'])->name('estadisticas.productosPedido');
 Route::get('estadisticas/ventas', [ChartJSController::class, 'ventas'])->name('estadisticas.ventas');
+Route::get('estadisticas/ventasSemana', [ChartJSController::class, 'ventasSemana'])->name('estadisticas.ventasSemana');
