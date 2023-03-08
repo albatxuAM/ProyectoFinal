@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\CarritoController;
+use App\Http\Controllers\ChartJSController;
 
 
 use App\Http\Controllers\Auth\LogoutController;
@@ -46,15 +47,6 @@ Route::get('productos/show/{producto}',[ProductosController::class,'show'])->nam
 Route::get('/catalogo/{id?}', [ProductosController::class,'catalogo'])->name('productos.catalogo');
 Route::delete('/catalogo/{producto}', [ProductosController::class, 'destroy'])->name('productos.destroy');
 
-
-//PRUEBAS FILES
-
-Route::get('/files',[FilesController::class,'loadView'])->name('files.loadView');
-
-Route::post('/files',[FilesController::class,'storeFile'])->name('files.storeFile');
-
-Route::get('/descargar/{name}',[FilesController::class,'downloadFile'])->name('files.downloadFile');
-
 //CARRITO
 
 Route::get('/carrito/{producto}',[CarritoController::class,'index'])->name('carrito.index');
@@ -70,3 +62,6 @@ Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 
 Route::post('/invitado', [DatosPersonaController::class, 'store'])->name('datosPersona.store');
 Route::get('/invitado', [DatosPersonaController::class, 'index'])->name('datosPersona.index');
+
+//ESTADISTICAS
+Route::get('estadisticas', [ChartJSController::class, 'index']);
