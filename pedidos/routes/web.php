@@ -34,7 +34,9 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/pedidos', [PedidoController::class, 'index'])->name('pedidos.index');
 Route::get('/pedidos/{pedido}', [PedidoController::class, 'show'])->name('pedidos.show');
+Route::post('/pedidos/store', [PedidoController::class, 'store'])->name('pedidos.store');
 Route::get('/pedidos/{pedido}/{estado}', [PedidoController::class, 'updateEstado'])->name('pedidos.update');
+Route::get('/pedidos/disponibles',[PedidoController::class,'selectDisponibles'])->name('pedidos.selectDisponibles');
 
 Route::get('/productos/create', [ProductosController::class, 'create'])->name('productos.create');
 Route::post('/productos/create', [ProductosController::class, 'store'])->name('productos.store');
@@ -51,6 +53,8 @@ Route::delete('/catalogo/{producto}', [ProductosController::class, 'destroy'])->
 
 Route::get('/carrito/{producto}',[CarritoController::class,'index'])->name('carrito.index');
 Route::get('/carrito/update/{nombre}',[CarritoController::class,'update'])->name('carrito.update');
+Route::get('/carrito/restar/{nombre}',[CarritoController::class,'restar'])->name('carrito.restar');
+Route::get('/carrito/delete/{nombre}',[CarritoController::class,'destroy'])->name('carrito.borrar');
 
 Route::get('/cesta', [ControlUsuarioController::class, 'cesta'])->name('cesta.lista');
 Route::get('/cesta/formal',[ControlUsuarioController::class, 'formarusu'])->name('cesta.formalizar');

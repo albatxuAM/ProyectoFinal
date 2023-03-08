@@ -99,11 +99,55 @@ class CarritoController extends Controller
         return redirect(route('carrito.show'));
     }
 
+    public function restar($id)
+    {
+        foreach (session('carrito') as $key => $value) {
+            // crear una copia de session carrito para modificar datos
+            $copiacarrito[$key] = [
+                'producto' => $value['producto'],
+                'precio' => $value['precio'],
+                'id'=>$value['id'],
+                'cantidad' => $value['cantidad']
+            ];
+
+            if ($value['id'] == $id) {
+                
+                $copiacarrito[$key]['cantidad'] = $value['cantidad'] - 1;
+                if ($copiacarrito[$key]['cantidad'] <= 0) {
+                    unset($copiacarrito[$key]);
+                }
+            };
+            // sesion -> put sobreescribe el array carrito por el nuevo
+            session()->put('carrito', $copiacarrito);
+        }
+
+
+        $tipos = TipoProducto::all();
+        return redirect(route('carrito.show'));
+    }
+
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy()
+    public function destroy($id)
     {
-        //
+        //forget the id from the session array
+        foreach (session('carrito') as $key => $value) {
+            // crear una copia de session carrito para modificar datos
+            $copiacarrito[$key] = [
+                'producto' => $value['producto'],
+                'precio' => $value['precio'],
+                'id'=>$value['id'],
+                'cantidad' => $value['cantidad']
+            ];
+            if ($value['id'] == $id) {
+                unset($copiacarrito[$key]);
+            };
+            // sesion -> put sobreescribe el array carrito por el nuevo
+            session()->put('carrito', $copiacarrito);
+        }
+        
+        return redirect(route('carrito.show'));
+
     }
 }

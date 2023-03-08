@@ -19,8 +19,8 @@ class ControlUsuarioController extends Controller
     public function formarusu()
     {
         $tipos = TipoProducto::all();
-        if (Auth::user()) {
-            # code...
+        if (Auth::user() || session('persona') != null) {
+            return redirect(route('datosPersona.index'));
         } else {
             return view('FormalizarPedido', ["tipos" => $tipos]);
         }
@@ -30,8 +30,7 @@ class ControlUsuarioController extends Controller
     {
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            $tipos = TipoProducto::all();
-            return view('cestaindex', ["tipos" => $tipos]);
+            return redirect(route('datosPersona.index'));
         } else {
             return redirect()->back()->withInput()->withErrors(['status' => 'La contraseña o el correo es incorrecto']);
         }
@@ -66,6 +65,6 @@ class ControlUsuarioController extends Controller
             'password' => Hash::make($validated['contrasena']),
         ]);
         $tipos = TipoProducto::all();
-        return view('cestaindex', ["tipos" => $tipos]);
+        return view('carrito.show', ["tipos" => $tipos]);
     }
 }

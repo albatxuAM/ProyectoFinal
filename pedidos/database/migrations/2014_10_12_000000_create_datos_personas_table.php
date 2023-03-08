@@ -14,9 +14,8 @@ return new class extends Migration
         Schema::create('datos_personas', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->string('telefono');
-            // $table->foreignId('idUser')->constrained('users')->cascadeOnDelete();
             $table->timestamps();
         });
     }
