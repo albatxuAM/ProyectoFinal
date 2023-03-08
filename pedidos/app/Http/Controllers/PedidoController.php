@@ -7,7 +7,9 @@ use App\Models\TipoProducto;
 use App\Models\EstadoPedido;
 use App\Models\ProductosPedido;
 use Illuminate\Http\Request;
-
+use App\Mail\enviadorCorreos;
+use App\Models\DatosPersona;
+use Illuminate\Support\Facades\Mail;
 class PedidoController extends Controller
 {
     /**
@@ -56,6 +58,11 @@ class PedidoController extends Controller
 
         $tipos = TipoProducto::all();
         $estados = EstadoPedido::all();
+
+        
+          
+
+
         return view('pages.pedidos.index', [
             'pedidos' => $pedidos,
             'tipos' => $tipos,
@@ -148,7 +155,20 @@ class PedidoController extends Controller
     {
         $pedido->idEstado = $estado;
         $pedido->save();
-        return redirect()->route('pedidos.pendientes');
+        $nuevoEstado = EstadoPedido::find($estado);
+        $persona = DatosPersona::find($pedido->idPersona);
+        $platos = ProductosPedido::find($pedido->id);
+        
+        $mailData = ['title'=>'El estado de su pedido ha cambiado',
+        'body'=>'Su pedido número '.$pedido->id . ' a cambiado su estado a ' . $nuevoEstado->nombre,
+        'platos'=>$platos
+    ];
+        Mail::to($persona->email)->send(new enviadorCorreos($mailData));
+        //dd('el correo se ha mandado'. $persona->email);
+    
+        
+        
+        return redirect()->route('pedidos.index');
     }
 
 

@@ -7,7 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\CarritoController;
-
+use App\Http\Controllers\mailController;
 
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\DatosPersonaController;
@@ -28,6 +28,7 @@ Route::get('/carrito/show',[CarritoController::class,'show'])->name('carrito.sho
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
 Auth::routes();
+Route::get('/sendmail',[mailController::class,'index'])->name('sendmail.index');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
