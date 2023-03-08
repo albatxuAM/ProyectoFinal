@@ -9,7 +9,6 @@ use App\Models\EstadoPedido;
 use App\Models\ProductosPedido;
 use Illuminate\Http\Request;
 use App\Mail\MailSender;
-use App\Models\DatosPersona;
 use App\Models\Productos;
 use Illuminate\Support\Facades\Mail;
 class PedidoController extends Controller
