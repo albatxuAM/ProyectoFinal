@@ -8,6 +8,6 @@
 
     @include('pages.estadisticas.doughnut')
     {{-- @include('pages.estadisticas.timeScale') --}}
-    @include('pages.estadisticas.polarArea')
-    @include('pages.estadisticas.line')
+    {{-- @include('pages.estadisticas.polarArea') --}}
+    {{-- @include('pages.estadisticas.line') --}}
 @endsection

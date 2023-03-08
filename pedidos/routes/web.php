@@ -68,4 +68,5 @@ Route::post('/invitado', [DatosPersonaController::class, 'store'])->name('datosP
 Route::get('/invitado', [DatosPersonaController::class, 'index'])->name('datosPersona.index');
 
 //ESTADISTICAS
-Route::get('estadisticas', [ChartJSController::class, 'index']);
+Route::get('estadisticas', [ChartJSController::class, 'index'])->name('estadisticas.index');
+Route::get('estadisticas/productosPedido', [ChartJSController::class, 'productosPedido'])->name('estadisticas.productosPedido');

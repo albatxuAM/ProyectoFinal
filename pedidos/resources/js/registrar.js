@@ -1,6 +1,6 @@
 var registrar = document.getElementById("registrar");
 var vista = document.getElementById("vista");
-registrar.addEventListener('click', verregistro);
+registrar === null || registrar === void 0 ? void 0 : registrar.addEventListener('click', verregistro);
 function verregistro() {
     var x = registrar;
     if (x.innerHTML == 'atras') {

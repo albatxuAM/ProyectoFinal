@@ -18,7 +18,7 @@
             </div>
             @if (Auth::user() and Auth::user()->admin)
                 <div class="card-footer text-muted d-flex justify-content-between">
-                    <a class="btn btn-outline-secondary" href="{{ route('productos.edit', $producto) }}"> Editar </a>
+                    <a class="btn btn-outline-secondary" role='button' href="{{ route('productos.edit', $producto) }}"> Editar </a>
                     <form action="{{ route('productos.destroy', $producto) }}" method="POST">
                         @csrf
                         @method("DELETE")

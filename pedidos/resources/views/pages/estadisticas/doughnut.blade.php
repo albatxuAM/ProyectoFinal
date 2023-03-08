@@ -1,6 +1,6 @@
 <p>Pedidos por estado</p>
 <canvas id="estadoPedidos" width="400" height="400"></canvas>
-<script>
+{{-- <script>
     var estados = <?php echo json_encode($estados); ?>;
     var pedidos = <?php echo json_encode($pedidos); ?>;
     var ctx = document.getElementById("estadoPedidos");
@@ -33,4 +33,4 @@
             responsive: false,
         }
     });
-</script>
+</script> --}}
