@@ -16,7 +16,7 @@
                             <h3>Estado pedido</h3>
                         </div>
                         <div class="row card-body">
-                            <div class="col-md-6">
+                            <div class="col-6">
                                 @switch($pedido->estadoPedido->nombre)
                                     @case('Recibido')
                                         <span class="badge bg-secondary rounded-pill d-inline"> {{ $pedido->estadoPedido->nombre }} </span>
@@ -38,7 +38,7 @@
                                     @break
                                 @endswitch
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-6">
                                 <div class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"> </div>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                     <li> <a class="dropdown-item" href="{{ route('pedidos.update', ['pedido'=> $pedido, 'estado'=>1]) }}">Recibido</a> </li>
@@ -114,9 +114,9 @@
                         @foreach ($pedido->productosPedido as $producto)
                             <tr>
                                 <td>
-                                    <img class="card-img-top img-fluid img-thumbnail" alt="{{ asset('images/placeholder.png') }}" 
-                                        @if( file_exists('images/'.$producto->id.'.png') )
-                                            src="{{ asset('images/'.$producto->id.'.png') }}" 
+                                    <img class="card-img-top img-fluid img-thumbnail" style="width: 110px; alt="{{$producto->nombre}}" 
+                                        @if( file_exists('thumbnails/'.$producto->id.'.png') )
+                                            src="{{ asset('thumbnails/'.$producto->id.'.png') }}" 
                                         @else 
                                             src="{{ asset('images/placeholder.png') }}" 
                                         @endif
