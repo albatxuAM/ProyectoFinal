@@ -82,6 +82,7 @@ class DatabaseSeeder extends Seeder
                 'pedidoMinimo' => $obj->pedidoMinimo,
                 'precio' => $obj->precio,
                 'idTipo' => $obj->idTipo,
+                'observacion' =>  $faker->realText(80,2),
                 'created_at' => $faker->dateTimeBetween('-1 years', 'now'),
                 'updated_at' => $faker->dateTimeBetween('-1 years', 'now'),
             ));

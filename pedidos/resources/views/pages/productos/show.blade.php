@@ -12,12 +12,13 @@
         <div class="row g-0 " id="cont">
             <div class="col-md-4 p-5 " id='marco'>
                 <figure class="figure justify-content-center ">
-                    <img class="figure-img img-fluid rounded" alt="..."  
-                        @if(array_key_exists($producto->id, $files))
-                            src="{{ $files[$producto->id]['picture'] }}" 
+                    <img class="card-img-top img-fluid" alt="{{$producto->name}}" 
+                        @if( file_exists('images/'.$producto->id.'.png') )
+                            src="{{ asset('images/'.$producto->id.'.png') }}" 
                         @else 
                             src="{{ asset('images/placeholder.png') }}" 
-                        @endif>
+                        @endif
+                    />
                     <figcaption class="figure-caption text-white">{{ $producto->nombre }}</figcaption>
                 </figure>
             </div>

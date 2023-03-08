@@ -55,6 +55,13 @@
                             <span class="text-danger">{{ $errors->first('pedidoMinimo') }}</span>
                         @endif
                     </div>
+                    <div class="col-12">
+                        <label for="observacion" class="form-label">Observacion</label>
+                        <textarea class="form-control" id="observacion" rows="3" name="observacion" @if ($producto) value="{{$producto->observacion}}" @endif></textarea>
+                        @if ($errors->has('observacion'))
+                            <span class="text-danger">{{ $errors->first('observacion') }}</span>
+                        @endif
+                    </div>
                     <div class="col">   
                         <label for="fotoFile" class="form-label">Imagen producto</label>
                         <input class="form-control" type="file" id="fotoFile" name="file">

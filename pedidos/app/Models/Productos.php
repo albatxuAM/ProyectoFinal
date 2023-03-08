@@ -15,7 +15,8 @@ class Productos extends Model
         "pedidoMinimo",
         "precio",
         "idTipo",
-        "imagen"
+        "imagen",
+        "observacion"
     ];
 
     public function tipoProducto() {
