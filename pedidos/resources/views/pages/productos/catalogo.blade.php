@@ -8,9 +8,18 @@
 
             <div class="col-12 col-md-3"><!-- Col del groupList -->
                 <div class="list-group" id="list-tab" role="tablist">
-                    <a class="list-group-item list-group-item-action active" href="{{ route('productos.catalogo') }}" role="tab" aria-controls="list-profile"> TODOS </a>
+                @if ($id)
+                <a class="list-group-item list-group-item-action " href="{{ route('productos.catalogo') }}" role="tab" aria-controls="list-profile"> TODOS </a>
+                
+                @else
+                <a class="list-group-item list-group-item-action active" href="{{ route('productos.catalogo') }}" role="tab" aria-controls="list-profile"> TODOS </a>
+                   @endif
                     @foreach($tipos as $tipo)
-                        <a class="list-group-item list-group-item-action" href="{{ route('productos.catalogo', $tipo->id) }}" role="tab" aria-controls="list-profile">{{ $tipo->nombre }}</a>
+                    @if($id== $tipo->id)
+                        <a class="list-group-item list-group-item-action active" href="{{ route('productos.catalogo', $tipo->id) }}" role="tab" aria-controls="list-profile">{{ $tipo->nombre }}</a>
+                   @else
+                   <a class="list-group-item list-group-item-action" href="{{ route('productos.catalogo', $tipo->id) }}" role="tab" aria-controls="list-profile">{{ $tipo->nombre }}</a>
+                   @endif
                     @endforeach
                 </div>
             </div>
@@ -18,7 +27,7 @@
             
 
             <!-- COL DEL CONTENIDO -->
-                <div class="col-12 col-md-9 tab-content" id="nav-tabContent">
+                <div class="col-12 col-md-9 mb-4 tab-content" id="nav-tabContent">
                     <div class=" row tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
                         <div class="col-12 px-3 plato card-group">
                             <div class="row">
