@@ -34,7 +34,7 @@
                     </p>
                 </div>
                 <a href="{{ route('carrito.index',$producto) }}">
-                    <span class=" ms-3 material-symbols-outlined mb-2">add</span>
+                    <span class=" ms-3 material-symbols-outlined mb-2 text-white">add_box</span>
                 </a>
             </div>
 

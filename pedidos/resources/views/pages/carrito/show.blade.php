@@ -41,7 +41,7 @@
                   <span class="material-symbols-outlined me-3">remove</span>
                 </a>
                 <a href="{{ route('carrito.update', $value['id']) }}">
-                  <span class="material-symbols-outlined">add</span>
+                  <span class="material-symbols-outlined">add_box</span>
                 </a>
 
               </td>

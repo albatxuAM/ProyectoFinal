@@ -22,7 +22,7 @@ class ControlUsuarioController extends Controller
         if (Auth::user() || session('persona') != null) {
             return redirect(route('datosPersona.index'));
         } else {
-            return view('FormalizarPedido', ["tipos" => $tipos]);
+            return view('pages.pedidos.FormalizarPedido', ["tipos" => $tipos]);
         }
     }
 
