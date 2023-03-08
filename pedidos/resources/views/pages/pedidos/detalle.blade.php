@@ -114,7 +114,7 @@
                         @foreach ($pedido->productosPedido as $producto)
                             <tr>
                                 <td>
-                                    <img class="card-img-top img-fluid img-thumbnail" style="width: 110px; alt="{{$producto->nombre}}" 
+                                    <img class="card-img-top img-fluid img-thumbnail" style="width: 110px" alt="{{$producto->nombre}}" 
                                         @if( file_exists('thumbnails/'.$producto->id.'.png') )
                                             src="{{ asset('thumbnails/'.$producto->id.'.png') }}" 
                                         @else 

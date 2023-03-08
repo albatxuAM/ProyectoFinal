@@ -53,7 +53,7 @@
             background-color: #8b0066;
             color: white;
         }
-
+        
         #cont {
             background-color: #3c4c5c;
             color: white;
