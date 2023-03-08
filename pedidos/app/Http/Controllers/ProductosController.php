@@ -21,8 +21,8 @@ class ProductosController extends Controller
     {
         $builder = Productos::orderBy('nombre');
 
-        if($id != 0){
-            $builder->where('idTipo','=',$id);
+        if ($id != 0) {
+            $builder->where('idTipo', '=', $id);
         }
         $busqueda = "";
         if (isset($_REQUEST['busqueda'])) {
@@ -31,34 +31,33 @@ class ProductosController extends Controller
 
         if ($busqueda) {
             # Si hay búsqueda, agregamos el filtro
-            $builder->where("nombre", "LIKE", "%$busqueda%");       
+            $builder->where("nombre", "LIKE", "%$busqueda%");
         }
-        $productos = $builder->paginate(12);  
+        $productos = $builder->paginate(12);
 
         $files = [];
-        foreach(storage::disk($this->disk)->files()as $file){
-            $name = str_replace("$this->disk/","",$file);
+        foreach (storage::disk($this->disk)->files() as $file) {
+            $name = str_replace("$this->disk/", "", $file);
 
             $type = pathinfo(storage_path('/images/archivo1.png'));
             $picture = "";
-            if(strpos($type["filename"],"archivo")!==false){
+            if (strpos($type["filename"], "archivo") !== false) {
                 $picture = asset(storage::disk($this->disk)->url($name));
-             
+
                 // dd($picture);
-                $files[substr($name, 0 , (strrpos($name, ".")))] = [
-                        "picture"=>$picture,
-                        "name"=>$name,
-                        "size"=>storage::disk($this->disk)->size($name) 
-               ];
+                $files[substr($name, 0, (strrpos($name, ".")))] = [
+                    "picture" => $picture,
+                    "name" => $name,
+                    "size" => storage::disk($this->disk)->size($name)
+                ];
             }
-         
         }
         $tipos = TipoProducto::all();
         return view('pages.productos.index', [
             "productos" => $productos,
             "tipos" => $tipos,
             "files" => $files,
-            "id"=>$id,
+            "id" => $id,
         ]);
     }
 
@@ -66,16 +65,16 @@ class ProductosController extends Controller
     {
         $builder = Productos::orderBy('nombre');
 
-        if($id != 0){
-            $builder->where('idTipo','=',$id);
+        if ($id != 0) {
+            $builder->where('idTipo', '=', $id);
         }
-        $productos = $builder->paginate(8);  
+        $productos = $builder->paginate(8);
 
         $tipos = TipoProducto::all();
         return view('pages.productos.catalogo', [
             "productos" => $productos,
             "tipos" => $tipos,
-            "id"=>$id,
+            "id" => $id,
         ]);
     }
 
@@ -108,7 +107,7 @@ class ProductosController extends Controller
         ], [
             'nombre.required' => 'Nombre es obligatorio.',
             'nombre.unique' => 'Nombre ya existe.',
-            'idTipo.in' => 'Tipo es obligatorio.', 
+            'idTipo.in' => 'Tipo es obligatorio.',
             'pedidoMinimo.required' => 'Pedido minimo es obligatorio.',
             'precio.required' => 'Precio es obligatorio.',
             'file.image' => 'El archivo tiene que se una foto en formato png',
@@ -119,19 +118,19 @@ class ProductosController extends Controller
 
         //Recibimos el archivo y lo guardamos en la carpeta storage/app/public
         // Si recibe un POST
-        if($request->isMethod('POST')){
+        if ($request->isMethod('POST')) {
             //con el método getMimeType() obtengo el tipo de archivo "image/png"
             // dd($request->file('file'));
 
             //Si el archivo que suben no es una imagen png no permite subirla.
-            if ($request->file('file')->getMimeType()!=="image/png") {
+            if ($request->file('file')->getMimeType() !== "image/png") {
                 // echo "El tipo de archivo no es válido";
-            } else{
+            } else {
                 $file = $request->file('file');
                 //Cogemos el nombre que el usuario a introducido
                 $name = $producto->id;
                 //Para almacenar la imagen poniendole un nombre
-                $file->storeAs('',$name.".".$file->extension(),'public');
+                $file->storeAs('', $name . "." . $file->extension(), 'public');
             }
         }
         return back()->with('success', 'producto creado correctamente.');
@@ -145,31 +144,31 @@ class ProductosController extends Controller
         $idTipo = $producto->idTipo;
         $nombre = $producto->nombre;
         $productos = Productos::where([
-                                ['idTipo','=',$idTipo],
-                                ['nombre','!=',$nombre]
-                            ])
-                        ->take(4)
-                        ->get();
+            ['idTipo', '=', $idTipo],
+            ['nombre', '!=', $nombre]
+        ])
+            ->take(4)
+            ->get();
 
         $filename = $producto->id . ".png";
-        $name = str_replace("$this->disk/","", $filename);
+        $name = str_replace("$this->disk/", "", $filename);
         $picture = "";
-            
+
         $picture = asset(storage::disk($this->disk)->url($name));
-        
-       
-        $file[substr($name, 0 , (strrpos($name, ".")))] = [
-            "picture"=>$picture,
-            "name"=>$name
+
+
+        $file[substr($name, 0, (strrpos($name, ".")))] = [
+            "picture" => $picture,
+            "name" => $name
         ];
         //dd($name);
-        $tipo =TipoProducto::where('id','=',$idTipo)->first();
+        $tipo = TipoProducto::where('id', '=', $idTipo)->first();
 
         $tipos = TipoProducto::all();
         return view('pages.productos.show', [
             "producto" => $producto,
             "productos" => $productos,
-            "tipo"=> $tipo,
+            "tipo" => $tipo,
             "tipos" => $tipos,
             "files" => $file
         ]);
@@ -200,22 +199,22 @@ class ProductosController extends Controller
             'foto.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ], [
             'nombre.required' => 'Nombre es obligatorio.',
-            'idTipo.in' => 'Tipo es obligatorio.', 
+            'idTipo.in' => 'Tipo es obligatorio.',
             'pedidoMinimo.required' => 'Pedido minimo es obligatorio.',
             'foto.mimes' => 'El archivo tiene que se una foto en formato jpeg,png,jpg,gif,svg'
         ]);
-        
+
         //Recibimos el archivo y lo guardamos en la carpeta storage/app/public
         // Si recibe un POST
-        if($request->isMethod('POST')){
+        if ($request->isMethod('POST')) {
             //con el método getMimeType() obtengo el tipo de archivo "image/png"
             // dd($request->file('file'));
 
             //Si el archivo que suben no es una imagen png no permite subirla.
-            if ($request->file('file')->getMimeType()!=="image/png") {
+            if ($request->file('file')->getMimeType() !== "image/png") {
                 // echo "El tipo de archivo no es válido";
-            } else{
-                
+            } else {
+
                 // $manager = Image([]);
                 // $image = $manager->make('public/images/croqueta.png')->resize(100,100);
                 // $image->store($image);
@@ -224,7 +223,7 @@ class ProductosController extends Controller
                 //Cogemos el nombre que el usuario a introducido
                 $name = $producto->id;
                 //Para almacenar la imagen poniendole un nombre
-                $file->storeAs('',$name.".".$file->extension(),'public');
+                $file->storeAs('', $name . "." . $file->extension(), 'public');
             }
         }
 
@@ -238,9 +237,10 @@ class ProductosController extends Controller
     public function destroy(Productos $producto)
     {
         $filename = $producto->id . ".png";
-        if(\File::exists(public_path('images/placeholdercopy.png'))){
-            \File::delete(public_path('images/placeholdercopy.png'));
-           // \File::delete(public_path('thunbnails/placeholdercopy.png'));
+        // dd(public_path('images/'.$filename));
+        if (\File::exists(public_path('images/'.$filename))) {
+            \File::delete(public_path('images/'.$filename));
+            \File::delete(public_path('thumbnails/'.$filename));
         }
         $producto->delete();
         return redirect()->route('productos.catalogo');

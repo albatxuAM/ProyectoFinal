@@ -1,6 +1,4 @@
-<div class="container">
 
-</div>
 <footer class="container_wrap bg-black py-2 ">
     <div class="container text-white">
         <div class="row justify-content-center">
