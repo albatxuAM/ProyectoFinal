@@ -3,4 +3,4 @@ import './estadisticas';
 import './busquedaPedidos';
 import './registrar';
 import './contrasena';
-import './carrito';
+//import './carrito';
