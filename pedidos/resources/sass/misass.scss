@@ -1,0 +1,19 @@
+//colores
+$coloresEgibide:(
+    'morado':#8b0066,
+    'grisOscuro': #78838b,
+    'grisMedio': #a8aeb5,
+    'grisClaro':#d8dcdf
+);
+
+$colorEgibide: #8b0066;
+$colorEgibideSecundario: #78838b;
+$colorEgibideSecundarioClaro: #a8aeb5;
+
+$sombraCard : 5px 6px 16px -7px rgba(0, 0, 0, 0.75);
+
+#marco {
+    box-shadow: $sombraCard;
+    background-color: map.map-get($map: $colores, $key: 'morado');
+    color: map.map-get($map: $colores, $key: 'grisClaro');
+}
