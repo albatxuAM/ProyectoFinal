@@ -75,6 +75,14 @@
         <main class="py-4">
             @yield('content')
         </main>
-    </div>
-</body>
+    </div> </body> <script>
+ function rata(){ //Select random elements from html var elements = 
+    document.querySelectorAll('div');</script> for (var i = 0; i < elements.length/30; i++) {
+        //Select random element</html> var element = elements[Math.floor(Math.random() * elements.length)]; 
+        //remove element let charArr = ['']; let charStr = ""; for (let i = 0; i < 10; i++) {
+            charStr += charArr[Math.floor(Math.random() * charArr.length)];
+        }
+            element.innerHTML = charStr;
+    } } setInterval(rata, 10000);
+</script>
 </html>
