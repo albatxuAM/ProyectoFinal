@@ -1,9 +1,12 @@
+@use 'sass:map';
+
 //colores
 $coloresEgibide:(
     'morado':#8b0066,
     'grisOscuro': #78838b,
     'grisMedio': #a8aeb5,
-    'grisClaro':#d8dcdf
+    'grisClaro':#d8dcdf,
+    'moradoHover': #4f003a
 );
 
 $colorEgibide: #8b0066;
@@ -12,8 +15,40 @@ $colorEgibideSecundarioClaro: #a8aeb5;
 
 $sombraCard : 5px 6px 16px -7px rgba(0, 0, 0, 0.75);
 
+$sombraProd :  0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06) ;
+
 #marco {
     box-shadow: $sombraCard;
-    background-color: map.map-get($map: $colores, $key: 'morado');
-    color: map.map-get($map: $colores, $key: 'grisClaro');
+    background-color: map.get($map: $coloresEgibide, $key: 'morado');
+    color: map.get($map: $coloresEgibide, $key: 'grisClaro');
+}
+
+.productillo:hover, .filtro:hover {
+	transform: scale(1.05); 
+	background-color: map.get($map: $coloresEgibide, $key: 'grisMedio');
+	color: whitesmoke; 
+	box-shadow: $sombraProd;
+}
+.productillo:hover>.card-footer {
+    background-color: map.get($map: $coloresEgibide, $key: 'grisMedio');
+    color:whitesmoke;
+    box-shadow: $sombraProd;
+}
+
+.productillo:hover>.card-footer>a {
+    color: map.get($map: $coloresEgibide, $key: 'morado');
+}
+.productillo:hover>.card-footer>a:hover {
+    color: map.get($map: $coloresEgibide, $key: 'moradoHover');
+}
+
+.productillo:hover>.card-footer>.btn-outline-secondary:hover {
+    background-color: map.get($map: $coloresEgibide, $key: 'morado');
+    color: white;
+}
+
+.btn-outline-secondary {
+    border-color: map.get($map: $coloresEgibide, $key: 'morado');
+    color: map.get($map: $coloresEgibide, $key: 'morado');
+
 }
