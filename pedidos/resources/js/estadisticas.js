@@ -40,7 +40,7 @@ if(graficoEstadoPedidos) {
                 },
                 options: {
                     //cutoutPercentage: 40,
-                    responsive: false,
+                    // responsive: false,
             }
         });
     });
@@ -64,25 +64,26 @@ if(line) {
                 {
                     data: pedidos,
                     label: "Pedidos",
-                    pointRadius: 0,
                     // This binds the dataset to the left y axis
-                    yAxisID: "left-y-axis"
+                    yAxisID: "left-y-axis",
+                    borderColor: "rgba(255, 128, 64, 1)",
+                    backgroundColor: "rgba(245, 105, 37, 0.2)"
                 }
                 ],
                 labels: mes
             },
             options: {
                 scales: {
-                yAxes: [
-                    {
-                        id: "left-y-axis",
-                        type: "linear",
-                        position: "left",
-                        ticks: {
-                            stepSize: 1
+                    yAxes: [
+                        {
+                            id: "left-y-axis",
+                            type: "linear",
+                            position: "left",
+                            ticks: {
+                                stepSize: 1
+                            }
                         }
-                    }
-                ]
+                    ]
                 }
             }
             });
@@ -105,55 +106,55 @@ if(ventasSemana) {
                 data: {
                     datasets: [
                     {
-                        data: dataPast,
-                        label: "Semana pasada",
-                        pointRadius: 0,
-            
-                        // This binds the dataset to the left y axis
-                        yAxisID: "left-y-axis"
-                    },
-                    {
                         data: dataCurr,
                         label: "Esta semana",
-            
+                        // This binds the dataset to the left y axis
+                        yAxisID: "left-y-axis",
+                        borderColor: "rgba(145, 8, 163, 1)",
+                        backgroundColor: "rgba(145, 8, 163, 0.2)",
+                    },
+                    {
+                        data: dataPast,
+                        label: "Semana pasada",
                         // This binds the dataset to the right y axis
-                        yAxisID: "right-y-axis"
+                        yAxisID: "right-y-axis",
+                        borderColor: "rgba(163, 8, 42, 1)",
+                        backgroundColor: "rgba(163, 8, 42, 0.2)"
                     }
                     ],
-                    labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+                    labels: ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"]
                 },
                 options: {
                     scales: {
-                    yAxes: [
-                        {
-                            id: "left-y-axis",
-                            type: "linear",
-                            position: "left",
-                            // ticks: {
-                            //     stepSize: 1
-                            // }
-                        },
-                        {
-                            id: "right-y-axis",
-                            type: "linear",
-                            position: "right",
-                            gridLines: {
-                                display: false
+                        yAxes: [
+                            {
+                                id: "left-y-axis",
+                                type: "linear",
+                                position: "left",
+                                ticks: {
+                                    stepSize: 1
+                                }
                             },
-                            ticks: {
-                                padding: 10,
-                                stepSize: 1,
-                                fontSize: 9,
-                                autoSkip: false,
-                                callback: (value) => {
-                                    console.log(value);
-                                    return value === 75 ? "test" : "";
+                            {
+                                id: "right-y-axis",
+                                type: "linear",
+                                position: "right",
+                                gridLines: {
+                                    display: false
+                                },
+                                ticks: {
+                                    padding: 10,
+                                    stepSize: 1,
+                                    fontSize: 9,
+                                    autoSkip: false,
+                                    ticks: {
+                                        stepSize: 1
+                                    }
                                 }
                             }
-                        }
-                    ]
+                        ]
                     }
                 }
-                });
+            });
     });
 }

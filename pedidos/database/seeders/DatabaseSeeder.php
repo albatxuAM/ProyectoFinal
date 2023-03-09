@@ -120,5 +120,28 @@ class DatabaseSeeder extends Seeder
                 ]);
             }
         } 
+
+        $faker = \Faker\Factory::create();
+        for($i=31;$i<=50;$i++){
+            DB::table('pedidos')->insert([
+                'id' =>  $i,
+                'idEstado' => $faker->numberBetween(1, 5),
+                'observacion' =>  $faker->realText(40,2),
+                'fecha' =>  $faker->dateTimeBetween('-3 weeks', '+1 weeks'),
+                'idPersona' => $faker->numberBetween(1, 10),
+                'created_at' => $faker->dateTimeBetween('-1 years', 'now'),
+                'updated_at' => $faker->dateTimeBetween('-1 years', 'now'),
+            ]);
+
+            for($j=0; $j<$faker->numberBetween(1,5); $j++) {
+                DB::table('productos_pedidos')->insert([
+                    'cantidad' => $faker->numberBetween(1,10),
+                    'idProducto' => $faker->numberBetween(1,74),
+                    'idPedido' => $i,
+                    'created_at' => $faker->dateTimeBetween('-1 years', 'now'),
+                    'updated_at' => $faker->dateTimeBetween('-1 years', 'now'),
+                ]);
+            }
+        } 
     }
 }
