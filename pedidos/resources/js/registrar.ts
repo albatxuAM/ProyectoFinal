@@ -1,21 +1,20 @@
+//control botones
 const registrar:HTMLElement =<HTMLElement> document.getElementById("registrar");
-const vista:HTMLDivElement = <HTMLDivElement>document.getElementById("vista");
+const iratras:HTMLElement =<HTMLElement> document.getElementById("volveratras");
+//control vistas
+const vistageneral:HTMLDivElement = <HTMLDivElement>document.getElementById("cardPrincipal");
+const vistaregistro:HTMLDivElement = <HTMLDivElement>document.getElementById("vista");
 registrar?.addEventListener('click',verRegistro);
-var cardPrincipal:HTMLElement =<HTMLElement> document.getElementById('cardPrincipal');
-
+iratras?.addEventListener('click',volveratras);
 
 
 function verRegistro():void {
-    var x = registrar;
-    if (x.innerHTML=='atras') {
-      vista?.setAttribute("style", "display:none;");
-        x.innerHTML='nuevo usuario';
-    } else {
-        vista?.setAttribute("style", "display:block;");
-       // cardPrincipal.setAttribute('style','display:none;');
-        x.innerHTML='atras';
-    }
-    vista?.classList.toggle('d-flex');
+        vistageneral?.setAttribute("style", "display:none;");
+        vistaregistro?.setAttribute("style", "display:flex;");
+}
+function volveratras():void{
+    vistaregistro?.setAttribute("style", "display:none;");
+    vistageneral?.setAttribute("style", "display:flex;");
 }
 
 
