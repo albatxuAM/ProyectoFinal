@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Http\Request;
+
 use App\Models\Productos;
 use App\Models\TipoProducto;
-use Illuminate\Http\Request;
 
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
@@ -20,6 +23,9 @@ class ProductosController extends Controller
      */
     public function index($id = 0)
     {
+        if (Gate::allows('admin'))
+            return redirect()->route('productos.catalogo');
+
         $builder = Productos::orderBy('nombre');
 
         if ($id != 0) {
@@ -64,19 +70,24 @@ class ProductosController extends Controller
 
     public function catalogo($id = 0)
     {
-        $builder = Productos::orderBy('nombre');
+        if (Gate::allows('admin')) {
+            $builder = Productos::orderBy('nombre');
 
-        if ($id != 0) {
-            $builder->where('idTipo', '=', $id);
+            if ($id != 0) {
+                $builder->where('idTipo', '=', $id);
+            }
+            $productos = $builder->paginate(8);
+
+            $tipos = TipoProducto::all();
+            return view('pages.productos.catalogo', [
+                "productos" => $productos,
+                "tipos" => $tipos,
+                "id" => $id,
+            ]);
         }
-        $productos = $builder->paginate(8);
-
-        $tipos = TipoProducto::all();
-        return view('pages.productos.catalogo', [
-            "productos" => $productos,
-            "tipos" => $tipos,
-            "id" => $id,
-        ]);
+        else {
+            return redirect()->route('productos.index');
+        }
     }
 
 

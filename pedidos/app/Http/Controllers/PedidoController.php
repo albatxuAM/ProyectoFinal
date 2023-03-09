@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Http\Request;
+
 use App\Models\Pedido;
 use App\Models\DatosPersona;
 use App\Models\TipoProducto;
 use App\Models\EstadoPedido;
 use App\Models\ProductosPedido;
-use Illuminate\Http\Request;
 use App\Mail\MailSender;
 use App\Models\Productos;
 use Illuminate\Support\Facades\Mail;
@@ -18,57 +21,50 @@ class PedidoController extends Controller
      */
     public function index()
     {
-        // $pedidos = Pedido::whereNotIn('idEstado', [3,5]);
-        // $pedidos = $pedidos->paginate(6);
-        // $tipos = TipoProducto::all();
-        // return view('pages.pedidos.index', [
-        //     'pedidos' => $pedidos,
-        //     'tipos' => $tipos,
-        // ]);
+        if (Gate::allows('admin')) {
+            $busqueda = "";
+            if (isset($_REQUEST['idPedido'])) {
+                $busqueda = $_REQUEST['idPedido'];
+            }
+            # Exista o no exista búsqueda, los ordenamos
+            // $builder = Pedido::orderBy('idEstado');
+            $builder = Pedido::orderBy('id');
+            if ($busqueda) {
+                $builder->where("id", "LIKE", "%$busqueda%"); 
+            }
 
-        $busqueda = "";
-        if (isset($_REQUEST['idPedido'])) {
-            $busqueda = $_REQUEST['idPedido'];
-        }
-        # Exista o no exista búsqueda, los ordenamos
-        // $builder = Pedido::orderBy('idEstado');
-        $builder = Pedido::orderBy('id');
-        if ($busqueda) {
-            $builder->where("id", "LIKE", "%$busqueda%"); 
-        }
+            $estado = "";
+            if (isset($_REQUEST['estadoP'])) {
+            
+                if($_REQUEST['estadoP'] != 0)
+                    // $options = implode(',', $_POST['estadoP']);
+                    $estado = $_REQUEST['estadoP'];
+            }
+            if ($estado) {
+                # Si hay búsqueda, agregamos el filtro
+                $builder->where("idEstado", $estado);   
+            }
+            else {
+                $builder->whereNotIn('idEstado', [3,5]);
+            }
+            
+            # Al final de todo, invocamos a paginate que tendrá todos los filtros
+            //$pedidos = $builder->whereNotIn('idEstado', [3,5]);
+            $pedidos = $builder->paginate(5);
+            // $pedidos = $builder->simplePaginate(5);
 
-        $estado = "";
-        if (isset($_REQUEST['estadoP'])) {
-           
-            if($_REQUEST['estadoP'] != 0)
-                // $options = implode(',', $_POST['estadoP']);
-                $estado = $_REQUEST['estadoP'];
-        }
-        if ($estado) {
-            # Si hay búsqueda, agregamos el filtro
-            $builder->where("idEstado", $estado);   
+            $tipos = TipoProducto::all();
+            $estados = EstadoPedido::all();
+
+            return view('pages.pedidos.index', [
+                'pedidos' => $pedidos,
+                'tipos' => $tipos,
+                'estados' => $estados
+            ]);
         }
         else {
-            $builder->whereNotIn('idEstado', [3,5]);
+            return redirect()->route('home');
         }
-        
-        # Al final de todo, invocamos a paginate que tendrá todos los filtros
-        //$pedidos = $builder->whereNotIn('idEstado', [3,5]);
-        $pedidos = $builder->paginate(5);
-        // $pedidos = $builder->simplePaginate(5);
-
-        $tipos = TipoProducto::all();
-        $estados = EstadoPedido::all();
-
-        
-          
-
-
-        return view('pages.pedidos.index', [
-            'pedidos' => $pedidos,
-            'tipos' => $tipos,
-            'estados' => $estados
-        ]);
     }
 
     public function selectDisponibles(Request $request){
@@ -97,34 +93,34 @@ class PedidoController extends Controller
      */
     public function store(Request $request)
     {
-          //select all pedidos where fecha is $request->fecha and estado is not 4
-          $pedidos = Pedido::where('fecha', $request->fecha)->whereNotIn('idEstado', [4])->get();
-          //if pedidos is more than 40 return true
-          if($pedidos->count() <= 40){
-        //insert pedido in database with estado 1 and fecha $request->fecha and idPersona $request->idPersona
-        $pedido = new Pedido();
-        $pedido->fecha = $request->fecha;
-        $pedido->idPersona = $request->idPersona;
-        $pedido->idEstado = 1;
-        $pedido->observacion = $request->observaciones;
-        $pedido->save();
-        //get idPedido and insert in producto pedidos taking produtos from sesion carrito
-        $idPedido = $pedido->id;
-        $carrito = session('carrito');
-        
-        foreach($carrito as $producto){
-            $productoPedido = new ProductosPedido();
-            $productoPedido->idPedido = $idPedido;
-            $productoPedido->idProducto = $producto['id'];
-            $productoPedido->cantidad = $producto['cantidad'];
-            $productoPedido->save();
-        }
-        //clear carrito and persona
-        session()->forget('carrito');
-        session()->forget('persona');
+        //select all pedidos where fecha is $request->fecha and estado is not 4
+        $pedidos = Pedido::where('fecha', $request->fecha)->whereNotIn('idEstado', [4])->get();
+        //if pedidos is more than 40 return true
+        if($pedidos->count() <= 40){
+            //insert pedido in database with estado 1 and fecha $request->fecha and idPersona $request->idPersona
+            $pedido = new Pedido();
+            $pedido->fecha = $request->fecha;
+            $pedido->idPersona = $request->idPersona;
+            $pedido->idEstado = 1;
+            $pedido->observacion = $request->observaciones;
+            $pedido->save();
+            //get idPedido and insert in producto pedidos taking produtos from sesion carrito
+            $idPedido = $pedido->id;
+            $carrito = session('carrito');
+            
+            foreach($carrito as $producto){
+                $productoPedido = new ProductosPedido();
+                $productoPedido->idPedido = $idPedido;
+                $productoPedido->idProducto = $producto['id'];
+                $productoPedido->cantidad = $producto['cantidad'];
+                $productoPedido->save();
+            }
+            //clear carrito and persona
+            session()->forget('carrito');
+            session()->forget('persona');
 
-        
-        return redirect()->route('pedidos.index');
+            
+            return redirect()->route('pedidos.index');
 
         }
     }
@@ -134,18 +130,22 @@ class PedidoController extends Controller
      */
     public function show(Pedido $pedido)
     {
-        
-        $persona =DatosPersona::where('id','=',$pedido->idPersona)->first();
-        // $pedidos = $builder->simplePaginate(5);
+        if (Gate::allows('admin')) {
+            $persona =DatosPersona::where('id','=',$pedido->idPersona)->first();
+            // $pedidos = $builder->simplePaginate(5);
 
-        $tipos = TipoProducto::all();
-        $estados = EstadoPedido::all();
-        return view('pages.pedidos.detalle', [
-            'pedido' => $pedido,
-            'persona' => $persona,
-            'tipos' => $tipos,
-            'estados' => $estados
-        ]);
+            $tipos = TipoProducto::all();
+            $estados = EstadoPedido::all();
+            return view('pages.pedidos.detalle', [
+                'pedido' => $pedido,
+                'persona' => $persona,
+                'tipos' => $tipos,
+                'estados' => $estados
+            ]);
+        }
+        else {
+            return redirect()->route('home');
+        }
     }
 
     /**
