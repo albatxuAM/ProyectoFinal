@@ -6,7 +6,7 @@
             <div class="col-12 col-md-6">
                 <div class="card text-center">
                     <div class="card-header">
-                        Pedidos por estado
+                        Nº pedidos por estado
                     </div>
                     <div class="card-body justify-content-center">
                         <canvas class="" id="estadoPedidos"></canvas>
@@ -19,10 +19,10 @@
             <div class="col-12 col-md-6">
                 <div class="card text-center">
                     <div class="card-header">
-                        Pedidos por estado
+                        Nº productos por categoria
                     </div>
-                    <div class="card-body" style="width: 100%">
-                        dsf
+                    <div class="card-body justify-content-center">
+                        <canvas class="" id="productosTipo"></canvas>
                     </div>
                     <div class="card-footer text-muted">
                       2 days ago
@@ -34,9 +34,9 @@
             <div class="col-12 col-md-6">
                 <div class="card text-center">
                     <div class="card-header">
-                        Pedidos por mes
+                        Nº pedidos por mes
                     </div>
-                    <div class="card-body" style="width: 100%">
+                    <div class="card-body justify-content-center">
                         <canvas id="line"></canvas>
                     </div>
                     <div class="card-footer text-muted">
@@ -49,7 +49,7 @@
                     <div class="card-header">
                         Pedidos esta semana vs semana pasada
                     </div>
-                    <div class="card-body" style="width: 100%">
+                    <div class="card-body justify-content-center">
                         <canvas id="ventasSemana"></canvas>
                     </div>
                     <div class="card-footer text-muted">

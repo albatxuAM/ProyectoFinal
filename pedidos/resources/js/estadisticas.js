@@ -158,3 +158,38 @@ if(ventasSemana) {
             });
     });
 }
+
+var graficoProductosTipo = document.getElementById("productosTipo");
+if(graficoProductosTipo) {
+    fetch('estadisticas/productosTipo', {
+        method: 'GET',
+    })
+        .then(response => response.json())
+        .then(data => {
+            var categoria = data['categoria'];
+            var productosTipo = data['productosTipo'];
+            
+            var data = {
+            datasets: [{
+                data: productosTipo,
+                backgroundColor: [
+                    "#F26052",  
+                    "#8C6D8C",
+                    "#57A7AF",
+                    "#6BC2C7",
+                    "#8CAA8A",
+                    "#FBDB87",
+                    "#F0A457"
+                ],
+                label: 'Categorias' // for legend
+            }],
+            labels: categoria
+        };
+
+        var ctx = document.getElementById("productosTipo");
+        new Chart(ctx, {
+            data: data,
+            type: 'polarArea'
+        });
+    });
+}

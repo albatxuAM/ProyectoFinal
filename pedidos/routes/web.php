@@ -73,3 +73,4 @@ Route::get('estadisticas', [ChartJSController::class, 'index'])->name('estadisti
 Route::get('estadisticas/productosPedido', [ChartJSController::class, 'productosPedido'])->name('estadisticas.productosPedido');
 Route::get('estadisticas/ventas', [ChartJSController::class, 'ventas'])->name('estadisticas.ventas');
 Route::get('estadisticas/ventasSemana', [ChartJSController::class, 'ventasSemana'])->name('estadisticas.ventasSemana');
+Route::get('estadisticas/productosTipo', [ChartJSController::class, 'productosTipo'])->name('estadisticas.productosTipo');

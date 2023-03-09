@@ -90,4 +90,19 @@ class ChartJSController extends Controller
             ];
     }
 
+    public function productosTipo()
+    {
+        $tipos = TipoProducto::all();
+        foreach ($tipos as $tipo) {
+            $categoria[] = $tipo->nombre;
+            // $productosTipo[] = Pedido::all()->where('idProducto', Producto::all()->where('idTipo', $tipo->id)->count();
+            $productosTipo[] = $tipo->productos()->count();
+        }
+
+        return ['success' => true, 
+                "categoria" => $categoria,
+                "productosTipo" => $productosTipo
+            ];
+    }
+
 }
