@@ -23,6 +23,13 @@ $sombraProd :  0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06) ;
     color: map.get($map: $coloresEgibide, $key: 'grisClaro');
 }
 
+.titulo {
+    font-size: 3rem;
+    font-family: 'Dancing Script', cursive;
+    font-weight: bold;
+    color: #8b0066;
+}
+
 .productillo:hover, .filtro:hover {
 	transform: scale(1.05); 
 	background-color: map.get($map: $coloresEgibide, $key: 'grisMedio');
