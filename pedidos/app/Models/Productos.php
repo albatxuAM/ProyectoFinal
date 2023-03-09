@@ -14,14 +14,16 @@ class Productos extends Model
         "nombre",
         "pedidoMinimo",
         "precio",
-        "idTipo"
+        "idTipo",
+        "imagen",
+        "observacion"
     ];
 
     public function tipoProducto() {
-        return $this->belongsTo(TipoProducto::class, 'id');
+        return $this->belongsTo(TipoProducto::class, 'idTipo');
     }
 
     public function productosPedidos() {
-        return $this->hasMany(ProductosPedidos::class, 'id');
+        return $this->HasMany(ProductosPedidos::class, 'id');
     }
 }

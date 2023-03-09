@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\DatosPersona;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
+use App\Models\TipoProducto;
+use Illuminate\Support\Facades\Auth;
 
 class DatosPersonaController extends Controller
 {
@@ -12,7 +15,27 @@ class DatosPersonaController extends Controller
      */
     public function index()
     {
-        //
+        $tipo = TipoProducto::all();
+        if (Auth::user()) {
+            $persona = DatosPersona::where('email', Auth::user()->email)->first();
+            if ($persona) {
+                    //if session called carrito is empty then redirect productos
+                if (session('carrito') != null) {
+                    return view('pages.carrito.index', ["tipos" => $tipo, "persona" => $persona]);
+                } else {
+                    return redirect(route('productos.index'));
+                }
+                return view('pages.carrito.index', ["tipos" => $tipo, "persona" => $persona]);
+            }
+        } else {
+            $persona = session('persona');
+                if (session('carrito') != null) {
+                    return view('pages.carrito.index', ["tipos" => $tipo, "persona" => $persona]);
+                } else {
+                    return redirect(route('productos.index'));
+                }
+            return view('pages.carrito.index', ["tipos" => $tipo, "persona" => $persona]);
+        }
     }
 
     /**
@@ -28,7 +51,20 @@ class DatosPersonaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validate = $request->validate([
+            'nombre' => 'required|string|max:30',
+            'correo' => 'required|email',
+            'telefono' => 'required|digits:9'
+        ]);
+
+        DatosPersona::create([
+            'nombre'  => $validate['nombre'],
+            'email' => $validate['correo'],
+            'telefono'  => $validate['telefono'],
+        ]);
+        $persona = DatosPersona::latest('id')->first();
+        session()->put(['persona' => $persona]);
+        return redirect(route('datosPersona.index'));
     }
 
     /**
