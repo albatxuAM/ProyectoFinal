@@ -23,12 +23,14 @@
 
                     </div>
                     <div class="d-flex justify-content-end mt-5 pe-5 me-5">
-                    <a href="{{ route('productos.index') }}" class="btn btn-outline-secondary">Carta</a>
+                    <a href="" class="btn btn-outline-secondary">Carta</a>
                 </div>
                 </div>
                 
 
             </div>
+
+
 
             <div id="carouselExampleControls" class="carousel slide col-5" data-bs-ride="carousel">
                 <div class="carousel-inner">
