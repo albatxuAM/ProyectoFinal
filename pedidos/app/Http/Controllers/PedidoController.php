@@ -122,7 +122,7 @@ class PedidoController extends Controller
         //clear carrito and persona
         session()->forget('carrito');
         session()->forget('persona');
-
+            
         
         return redirect()->route('pedidos.index');
 

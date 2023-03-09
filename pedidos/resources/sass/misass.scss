@@ -8,15 +8,17 @@ $coloresEgibide:(
     'grisClaro':#d8dcdf,
     'moradoHover': #4f003a
 );
-
-$colorEgibide: #8b0066;
-$colorEgibideSecundario: #78838b;
-$colorEgibideSecundarioClaro: #a8aeb5;
-
 $sombraCard : 5px 6px 16px -7px rgba(0, 0, 0, 0.75);
 
 $sombraProd :  0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06) ;
+.card{
+    box-shadow: $sombraCard;
+}
+#cont{
+    background-image: url("{{ asset('images/simboloEgibide.png') }}");
 
+    background-position: right center;
+}
 #marco {
     box-shadow: $sombraCard;
     background-color: map.get($map: $coloresEgibide, $key: 'morado');
@@ -27,10 +29,15 @@ $sombraProd :  0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06) ;
     font-size: 3rem;
     font-family: 'Dancing Script', cursive;
     font-weight: bold;
-    color: #8b0066;
+    color: map.get($map: $coloresEgibide, $key: 'morado');;
 }
-
-.productillo:hover, .filtro:hover {
+.filtro:hover {
+	transform: scale(1.05); 
+	background-color: map.get($map: $coloresEgibide, $key: 'morado');
+	color: whitesmoke; 
+	box-shadow: $sombraProd;
+}
+.productillo:hover {
 	transform: scale(1.05); 
 	background-color: map.get($map: $coloresEgibide, $key: 'grisMedio');
 	color: whitesmoke; 
@@ -58,4 +65,17 @@ $sombraProd :  0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06) ;
     border-color: map.get($map: $coloresEgibide, $key: 'morado');
     color: map.get($map: $coloresEgibide, $key: 'morado');
 
+}
+
+nav {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
+}
+
+a {
+    color: map.get($map: $coloresEgibide, $key: 'morado');;
+    text-decoration: none;
+}
+
+dt{
+    color:map.get($map: $coloresEgibide, $key: 'morado');;
 }

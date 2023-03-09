@@ -12,12 +12,14 @@
                         Condiciones
                     </h5>
                     <div class="card-body">
-                        <ul class="card-text">
-                            <li>Únicamente se puede hacer reserva de pedidos a través de egibide.org</li>
-                            <li>No se atenderán a través del teléfono.</li>
-                            <li>Para que un pedido se pueda interpretar como firme, el solicitante deberá recibir un mensaje de conformidad con el pedido solicitado.
-                                El número mínimo de raciones de cada producto es de 2 y siempre deben ser múltiplos de 2, salvo la repostería.</li>
-                        </ul>
+                        <dl class="card-text">
+                            <dt>REALIZACION DE PEDIDOS</dt>
+                            <dd>Únicamente se puede hacer reserva de pedidos a través de egibide.org.</dd>
+                            <dd>No se atenderán a través del teléfono.</dd>
+                            <dt>CONFIRMACION DE PEDIDOS</dt>
+                            <dd>Para que un pedido se pueda interpretar como firme, el solicitante deberá recibir un mensaje de conformidad con el pedido solicitado.
+                                El número mínimo de raciones de cada producto es de 2 y siempre deben ser múltiplos de 2, salvo la repostería.</dd>
+                        </dl>
                     </div>
                 </div>
             </div>
