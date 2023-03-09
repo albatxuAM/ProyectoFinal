@@ -101,7 +101,7 @@
 
 {{ $pedidos->links() }}
 
-<div class="row my-4 justify-content-center">
+{{-- <div class="row my-4 justify-content-center">
     <div class="col-10 ">
         <div class="table-responsive">
             <table class="table align-middle mb-0 caption-top table-hover">
@@ -165,6 +165,6 @@
             </table>
         </div>
     </div>
-</div>
+</div> --}}
 
 @endsection
