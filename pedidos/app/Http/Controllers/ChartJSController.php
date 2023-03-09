@@ -47,6 +47,21 @@ class ChartJSController extends Controller
             ];
     }
 
+    public function productosPedidoPendiente()
+    {
+        $estados = EstadoPedido::all();
+        foreach ($estados as $e) {
+            if($e->id != 4 && $e->id != 5) {
+                $nombres[] = $e->nombre;
+                $pedidos[] = Pedido::all()->where('idEstado', $e->id)->count();
+            }
+        }
+        return ['success' => true, 
+                "estados" => $nombres,
+                "pedidos" => $pedidos
+            ];
+    }
+
     public function ventas()
     {
         $record = Pedido::select(DB::raw("COUNT(*) as count"), DB::raw("MONTHNAME(fecha) as month_name"), DB::raw("MONTH(fecha) as month"))

@@ -7,13 +7,13 @@
             <div class="card-header">
               <form action="{{ route('pedidos.index') }}" id="formPedidos">
                 <div class="row g-3 justify-content-between">
-                    <div class="col-12 col-md-6 col-xl-3">
+                    <div class="col-12 col-md-4 col-xl-3">
                         <div class="input-group">
                             <input type="number" min="0" id="idPedido" name="idPedido" class="form-control rounded" value="@if(isset($_GET['idPedido'])){{$_GET['idPedido']}}@endif" placeholder="Busqueda por idPedido" aria-label="Search" aria-describedby="search-addon" />
                             <button id="buscarP" class="btn btn-primary" hidden>Buscar</button>
                         </div>
                     </div>
-                    <div class="col-12 col-md-6 col-xl-3">
+                    <div class="col-12 col-md-4 col-xl-3">
                         {{-- Multiple Select Dropdown --}}
                         {{-- <select name="estadoP[]" id="estadoP" class="form-select" multiple> --}}
                         <select name="estadoP" id="estadoP" class="form-select">
@@ -23,7 +23,7 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="col-12 col-md-6 col-xl-1">
+                    <div class="col-12 col-md-2 col-xl-1">
                         <button id="buscarP" class="btn btn-primary">Buscar</button>
                     </div>
                 </div>  
@@ -35,15 +35,17 @@
                 <!-- <caption>Pedidos Pendientes:</caption> -->
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Platos</th>
-                        <th scope="col">Estados</th>
+                        {{-- class="d-none d-sm-block" --}}
+                        <th>#</th>
+                        <th>Platos</th>
+                        <th>Estados</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($pedidos as $pedido)
+                        {{-- <tr onclick="window.location='{{ route('pedidos.show',  $pedido) }}'"> --}}
                         <tr>
-                            <th scope="row"> {{ $pedido->id }} </th>
+                            <th> {{ $pedido->id }} </th>
                             <td>
                                 <ul class="list-group">
                                     @foreach ($pedido->productosPedido as $producto)
@@ -55,31 +57,31 @@
                                 </ul>
                             </td>
                             <td>
-                                <div class="d-flex justify-content-between">
-                                    <div >
-                                    @switch($pedido->estadoPedido->nombre)
-                                    @case('Recibido')
-                                    <span class="badge bg-secondary rounded-pill d-inline"> {{ $pedido->estadoPedido->nombre }} </span>
-                                    @break
-                                    @case('En proceso')
-                                    <span class="badge bg-warning rounded-pill d-inline">{{ $pedido->estadoPedido->nombre }}</span>
-                                    @break
-                                    @case('Proceso')
-                                    <span class="badge bg-warning rounded-pill d-inline">{{ $pedido->estadoPedido->nombre }}</span>
-                                    @break
-                                    @case('Preparado')
-                                    <span class="badge bg-success rounded-pill d-inline">{{ $pedido->estadoPedido->nombre }}</span>
-                                    @break
-                                    @case('Cancelado')
-                                    <span class="badge bg-danger rounded-pill d-inline">{{ $pedido->estadoPedido->nombre }}</span>
-                                    @break
-                                    @case('Entregado')
-                                    <span class="badge bg-primary rounded-pill d-inline">{{ $pedido->estadoPedido->nombre }}</span>
-                                    @break
-                                    @endswitch
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        @switch($pedido->estadoPedido->nombre)
+                                        @case('Recibido')
+                                        <span class="badge bg-secondary rounded-pill d-inline"> {{ $pedido->estadoPedido->nombre }} </span>
+                                        @break
+                                        @case('En proceso')
+                                        <span class="badge bg-warning rounded-pill d-inline">{{ $pedido->estadoPedido->nombre }}</span>
+                                        @break
+                                        @case('Proceso')
+                                        <span class="badge bg-warning rounded-pill d-inline">{{ $pedido->estadoPedido->nombre }}</span>
+                                        @break
+                                        @case('Preparado')
+                                        <span class="badge bg-success rounded-pill d-inline">{{ $pedido->estadoPedido->nombre }}</span>
+                                        @break
+                                        @case('Cancelado')
+                                        <span class="badge bg-danger rounded-pill d-inline">{{ $pedido->estadoPedido->nombre }}</span>
+                                        @break
+                                        @case('Entregado')
+                                        <span class="badge bg-primary rounded-pill d-inline">{{ $pedido->estadoPedido->nombre }}</span>
+                                        @break
+                                        @endswitch
                                     </div>
                                     <div >
-                                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"> </a>
+                                        <button class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"> </button>
                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                             <li> <a class="dropdown-item" href="{{ route('pedidos.update', ['pedido'=> $pedido, 'estado'=>1]) }}">Recibido</a> </li>
                                             <li> <a class="dropdown-item" href="{{ route('pedidos.update', ['pedido'=> $pedido, 'estado'=>2]) }}">Proceso</a> </li>

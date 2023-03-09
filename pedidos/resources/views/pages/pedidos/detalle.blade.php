@@ -5,12 +5,12 @@
 	<div class="col-10 col-md-11">
 		<div class="page-header">
             <div class="row">
-                <div class="col-4 align-self-center">
+                <div class="col-12 col-md-4 align-self-center">
                     <h1>
                         Detalles pedido #{{ $pedido->id }} 
                     </h1>
                 </div>
-                <div class="col-8">
+                <div class="col-12 col-md-8">
                     <div class="card my-3"> 
                         <div class="card-header">
                             <h3>Estado pedido</h3>
@@ -54,10 +54,13 @@
 		</div>
 		<div class="row">
 			<div class="col-md-4 pt-5">
-                <div class="card">
+                <div class="card my-3">
+                    <div class="card-header">
+                        <h3>Datos solicitante</h3>
+                    </div>
                     <div class="card-body">
-                      <h5 class="card-title"> Datos solicitante</h5>
-                      <div class="table-responsive my-5">
+                      {{-- <h5 class="card-title"> </h5> --}}
+                      <div class="table-responsive">
                         <table class="table align-middle mb-0 caption-top table-hover">
                             <tr>
                                 <td>

@@ -6,60 +6,74 @@
             <div class="col-12 col-md-6">
                 <div class="card text-center">
                     <div class="card-header">
-                        Nº pedidos por estado
+                        <b> Nº pedidos pendientes por estado </b>
                     </div>
                     <div class="card-body justify-content-center">
-                        <canvas class="" id="estadoPedidos"></canvas>
+                        <canvas class="" id="productosPedidoPendiente"></canvas>
                     </div>
                     <div class="card-footer text-muted">
-                      2 days ago
+                       <br>
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-6">
                 <div class="card text-center">
                     <div class="card-header">
-                        Nº productos por categoria
-                    </div>
-                    <div class="card-body justify-content-center">
-                        <canvas class="" id="productosTipo"></canvas>
-                    </div>
-                    <div class="card-footer text-muted">
-                      2 days ago
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-md-6">
-                <div class="card text-center">
-                    <div class="card-header">
-                        Nº pedidos por mes
-                    </div>
-                    <div class="card-body justify-content-center">
-                        <canvas id="line"></canvas>
-                    </div>
-                    <div class="card-footer text-muted">
-                      2 days ago
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-6">
-                <div class="card text-center">
-                    <div class="card-header">
-                        Pedidos esta semana vs semana pasada
+                        <b> Pedidos esta semana vs semana pasada </b> 
                     </div>
                     <div class="card-body justify-content-center">
                         <canvas id="ventasSemana"></canvas>
                     </div>
                     <div class="card-footer text-muted">
-                      2 days ago
+                        <br>
                     </div>
                 </div>
             </div>
         </div>
-
-        
+        <div class="row mb-3">
+            <div class="col-12 col-md-6">
+                <div class="card text-center">
+                    <div class="card-header">
+                        <b> Nº pedidos por mes </b>
+                    </div>
+                    <div class="card-body justify-content-center">
+                        <canvas id="line"></canvas>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="card text-center">
+                    <div class="card-header">
+                        <b> Nº productos por categoria </b>
+                    </div>
+                    <div class="card-body justify-content-center">
+                        <canvas class="" id="productosTipo"></canvas>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-12 col-md-6">
+                <div class="card text-center">
+                    <div class="card-header">
+                        <b> Nº pedidos totales por estado </b>
+                    </div>
+                    <div class="card-body justify-content-center">
+                        <canvas class="" id="estadoPedidos"></canvas>
+                    </div>
+                    <div class="card-footer text-muted">
+                       <br>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
     </div>
 </div>
 

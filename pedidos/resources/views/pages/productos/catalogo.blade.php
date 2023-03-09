@@ -25,7 +25,6 @@
             </div>
 
             
-
             <!-- COL DEL CONTENIDO -->
                 <div class="col-12 col-md-9 mb-4 tab-content" id="nav-tabContent">
                     <div class=" row tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">

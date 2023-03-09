@@ -70,6 +70,7 @@ Route::get('/invitado', [DatosPersonaController::class, 'index'])->name('datosPe
 //ESTADISTICAS
 Route::get('estadisticas', [ChartJSController::class, 'index'])->name('estadisticas.index');
 Route::get('estadisticas/productosPedido', [ChartJSController::class, 'productosPedido'])->name('estadisticas.productosPedido');
+Route::get('estadisticas/productosPedidoPendiente', [ChartJSController::class, 'productosPedidoPendiente'])->name('estadisticas.productosPedidoPendiente');
 Route::get('estadisticas/ventas', [ChartJSController::class, 'ventas'])->name('estadisticas.ventas');
 Route::get('estadisticas/ventasSemana', [ChartJSController::class, 'ventasSemana'])->name('estadisticas.ventasSemana');
 Route::get('estadisticas/productosTipo', [ChartJSController::class, 'productosTipo'])->name('estadisticas.productosTipo');
