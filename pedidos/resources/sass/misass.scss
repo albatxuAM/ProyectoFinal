@@ -15,8 +15,10 @@ $sombraProd :  0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06) ;
     box-shadow: $sombraCard;
 }
 #cont{
+    background-color: map.get($map: $coloresEgibide, $key: 'grisMedio');
+    color: white;
     background-image: url("{{ asset('images/simboloEgibide.png') }}");
-
+    background-repeat: no-repeat;
     background-position: right center;
 }
 #marco {
