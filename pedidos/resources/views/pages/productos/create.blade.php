@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 @section('content')
 <div class="row justify-content-center">
-    <div class="col-md-8 my-5">
+    <div class="col-11 col-md-8 my-5">
         @if(Session::has('success'))
             <div class="alert alert-success">
                 {{ Session::get('success') }}
