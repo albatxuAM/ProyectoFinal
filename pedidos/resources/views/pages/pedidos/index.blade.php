@@ -48,7 +48,7 @@
                                 <ul class="list-group">
                                     @foreach ($pedido->productosPedido as $producto)
                                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            {{ $producto->producto->nombre }}
+                                            {{-- $producto->producto->nombre --}}
                                             <span class="badge bg-info rounded-pill">{{ $producto->cantidad }}</span>
                                         </li>
                                     @endforeach
@@ -99,7 +99,7 @@
     </div>
 </div>
 
-{{ $pedidos->links() }}
+{{ $pedidos->render() }}
 
 {{-- <div class="row my-4 justify-content-center">
     <div class="col-10 ">

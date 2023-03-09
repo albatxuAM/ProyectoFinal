@@ -54,16 +54,18 @@ class PedidoController extends Controller
         
         # Al final de todo, invocamos a paginate que tendrá todos los filtros
         //$pedidos = $builder->whereNotIn('idEstado', [3,5]);
-        $pedidos = $builder->paginate(5);
-        // $pedidos = $builder->simplePaginate(5);
-
         $tipos = TipoProducto::all();
         $estados = EstadoPedido::all();
 
-        
-          
+        $pedidos = $builder->paginate(5)->setPath(route('pedidos.index'))
+        ->appends([
+            'idPedido' => $_REQUEST['idPedido'],
+            'estadoP' => $_REQUEST['estadoP']
+        ]
+    );
+        // $pedidos = $builder->simplePaginate(5);
 
-
+    
         return view('pages.pedidos.index', [
             'pedidos' => $pedidos,
             'tipos' => $tipos,
