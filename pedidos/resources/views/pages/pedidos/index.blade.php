@@ -101,7 +101,7 @@
     </div>
 </div>
 
-{{ $pedidos->links() }}
+{{ $pedidos->render() }}
 
 {{-- <div class="row my-4 justify-content-center">
     <div class="col-10 ">
