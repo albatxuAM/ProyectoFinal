@@ -44,7 +44,7 @@
                 <tbody>
                     @foreach ($pedidos as $pedido)
                         {{-- <tr onclick="window.location='{{ route('pedidos.show',  $pedido) }}'"> --}}
-                        <tr>
+                        <tr class='lineaPedido'>
                             <th> {{ $pedido->id }} </th>
                             <td>
                                 <ul class="list-group">

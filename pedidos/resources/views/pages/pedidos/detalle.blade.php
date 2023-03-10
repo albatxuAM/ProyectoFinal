@@ -115,7 +115,7 @@
                     </thead>
                     <tbody>
                         @foreach ($pedido->productosPedido as $producto)
-                            <tr>
+                            <tr class='lineaPedido'>
                                 <td>
                                     <img class="card-img-top img-fluid img-thumbnail" style="width: 110px" alt="{{$producto->nombre}}" 
                                         @if( file_exists('thumbnails/'.$producto->id.'.png') )
