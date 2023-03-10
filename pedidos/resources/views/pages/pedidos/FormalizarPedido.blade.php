@@ -18,16 +18,16 @@
             <h5>Invitado</h5>
         </div>
         <div class="card-body text-white">
-            <form action="{{route('datosPersona.store')}}" method="post">
+            <form action="{{route('datosPersona.store')}}" id="formularioInvitado" method="post">
                 @csrf
                 <div class="row">
                     <div class="col-6">
                         <label for="nombre">Nombre</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" value="{{old('nombre')}}" placeholder="Nombre">
+                        <input type="text" class="form-control" id="nombreInvitado" name="nombre" value="{{old('nombre')}}" placeholder="Nombre">
                     </div>
                     <div class="col-6">
                         <label for="Telefono">Telefono</label>
-                        <input type="text" class="form-control" id="telefono" name="telefono" value="{{old('telefono')}}" placeholder="666777888">
+                        <input type="text" class="form-control" id="telefonoInvitado" name="telefono" value="{{old('telefono')}}" placeholder="666777888">
                     </div>
 
                 </div>
@@ -37,7 +37,7 @@
                         <label class="sr-only" for="correo">Email</label>
                         <div class="input-group mb-2">
                             <div class="input-group-text">@</div>
-                            <input type="text" class="form-control" id="correo" name="correo" value="{{old('correo')}}" placeholder="email">
+                            <input type="text" class="form-control" id="correoInvitado" name="correo" value="{{old('correo')}}" placeholder="email">
                         </div>
                     </div>
                 </div>
@@ -45,12 +45,12 @@
             </form>
         </div>
     </div>
-    <div class="card text-white bg-secondary  " id='inicio' style="max-width: 30rem; ">
+    <div class="card text-white grisMedio" id='inicio' style="max-width: 30rem; ">
         <div class="card-header">
             <h5>Iniciar sesion</h5>
         </div>
         <div class="card-body text-white">
-            <form action="{{route('cesta.ver')}}" method="post">
+            <form action="{{route('cesta.ver')}}"id='forma' method="post">
                 @csrf
                 <div class="form-group">
                     <label for="usuario">Usuario</label>
@@ -79,30 +79,30 @@
     </div>
 </div>
 
-<div class="card-group justify-content-center mt-5 mb-5" id="vista" style="display:none;">
-    <div class="col-8 col-md-6">
-        <div class="card text-white bg-secondary" >
+<div class="row justify-content-center">
+    <div class="col-10">
+        <div class="card text-white grisMedio" id="vista" style="display:none;">
             <div class="card-header">
                 <h5>Nuevo usuario</h5>
             </div>
             <div class="card-body">
-                <form action="{{route('crearusu.normal')}}" class="row" method="post">
+                <form action="{{route('crearusu.normal')}}" id="nuevoUsuario" class="row" method="post">
                     @csrf
                     <div class="col-6">
                         <div class="row">
                             <div class="col-6">
                                 <label for="Nombre">Nombre</label>
-                                <input type="text" class="form-control" name="nombre" value="{{old('nombre')}}" placeholder="Nombre">
+                                <input type="text" class="form-control" id='nuevoNombre' name="nombre" value="{{old('nombre')}}" placeholder="Nombre">
                             </div>
                             <div class="col-6">
                                 <label for="telefono">telefono</label>
-                                <input type="number" class="form-control" name="telefono" value="{{old('telefono')}}" placeholder="666555444">
+                                <input type="text"  class="form-control" id='nuevoTelefono' name="telefono" value="{{old('telefono')}}" placeholder="666555444">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
                                 <label for="Correo">Correo</label>
-                                <input type="email" class="form-control" name="correo" value="{{old('correo')}}" placeholder="Correo">
+                                <input type="email" class="form-control" id='nuevoCorreo' name="correo" value="{{old('correo')}}" placeholder="Correo">
                             </div>
                         </div>
                     </div>
@@ -118,10 +118,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-2">
                         <button type="submit" id='btnSubmit' class="btn  mt-3">Crear</button>
-                        <a role="button" href="#" id="volveratras" class="btn btn-link mt-3" value="atras">volver inicio session</a>
-           
                     </div>
                 </form>
             </div>
