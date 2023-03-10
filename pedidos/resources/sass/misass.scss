@@ -8,6 +8,12 @@ $coloresEgibide:(
     'grisClaro':#d8dcdf,
     'moradoHover': #4f003a
 );
+$color-col-hover: #8b00661b;
+
+.lineaPedido:hover{
+    background-color: $color-col-hover;
+}
+
 $sombraCard : 5px 6px 16px -7px rgba(0, 0, 0, 0.75);
 
 $sombraProd :  0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06) ;
@@ -77,6 +83,9 @@ nav {
 a {
     color: map.get($map: $coloresEgibide, $key: 'morado');
     text-decoration: none;
+}
+td>a:hover{
+    color: map.get($map: $coloresEgibide, $key: 'moradoHover');
 }
 
 dt{
