@@ -1,3 +1,4 @@
+form1 = document.getElementById('form1');
 form1.addEventListener('submit', function (e) {
     e.preventDefault();
     console.log("Formulario 1 enviado");
