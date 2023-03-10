@@ -18,16 +18,16 @@
             <h5>Invitado</h5>
         </div>
         <div class="card-body text-white">
-            <form action="{{route('datosPersona.store')}}" id="form1" method="post">
+            <form action="{{route('datosPersona.store')}}" id="formularioInvitado" method="post">
                 @csrf
                 <div class="row">
                     <div class="col-6">
                         <label for="nombre">Nombre</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" value="{{old('nombre')}}" placeholder="Nombre">
+                        <input type="text" class="form-control" id="nombreInvitado" name="nombre" value="{{old('nombre')}}" placeholder="Nombre">
                     </div>
                     <div class="col-6">
                         <label for="Telefono">Telefono</label>
-                        <input type="text" class="form-control" id="telefono1" name="telefono" value="{{old('telefono')}}" placeholder="666777888">
+                        <input type="text" class="form-control" id="telefonoInvitado" name="telefono" value="{{old('telefono')}}" placeholder="666777888">
                     </div>
 
                 </div>
@@ -37,7 +37,7 @@
                         <label class="sr-only" for="correo">Email</label>
                         <div class="input-group mb-2">
                             <div class="input-group-text">@</div>
-                            <input type="text" class="form-control" id="correo" name="correo" value="{{old('correo')}}" placeholder="email">
+                            <input type="text" class="form-control" id="correoInvitado" name="correo" value="{{old('correo')}}" placeholder="email">
                         </div>
                     </div>
                 </div>
@@ -50,7 +50,7 @@
             <h5>Iniciar sesion</h5>
         </div>
         <div class="card-body text-white">
-            <form action="{{route('cesta.ver')}}" method="post">
+            <form action="{{route('cesta.ver')}}"id='forma' method="post">
                 @csrf
                 <div class="form-group">
                     <label for="usuario">Usuario</label>
@@ -86,23 +86,23 @@
                 <h5>Nuevo usuario</h5>
             </div>
             <div class="card-body">
-                <form action="{{route('crearusu.normal')}}" id="form2" class="row" method="post">
+                <form action="{{route('crearusu.normal')}}" id="nuevoUsuario" class="row" method="post">
                     @csrf
                     <div class="col-6">
                         <div class="row">
                             <div class="col-6">
                                 <label for="Nombre">Nombre</label>
-                                <input type="text" class="form-control" name="nombre" value="{{old('nombre')}}" placeholder="Nombre">
+                                <input type="text" class="form-control" id='nuevoNombre' name="nombre" value="{{old('nombre')}}" placeholder="Nombre">
                             </div>
                             <div class="col-6">
                                 <label for="telefono">telefono</label>
-                                <input type="number" id="telefono2" class="form-control" name="telefono" value="{{old('telefono')}}" placeholder="666555444">
+                                <input type="text"  class="form-control" id='nuevoTelefono' name="telefono" value="{{old('telefono')}}" placeholder="666555444">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
                                 <label for="Correo">Correo</label>
-                                <input type="email" class="form-control" name="correo" value="{{old('correo')}}" placeholder="Correo">
+                                <input type="email" class="form-control" id='nuevoCorreo' name="correo" value="{{old('correo')}}" placeholder="Correo">
                             </div>
                         </div>
                     </div>
@@ -127,5 +127,5 @@
     </div>
 </div>
 
-<script src="validarTel.js"></script>
+
 @endsection

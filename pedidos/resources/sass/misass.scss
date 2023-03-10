@@ -103,3 +103,6 @@ dt{
 .grisMedio{
     background-color: map.get($map: $coloresEgibide, $key: 'grisMedio');
 }
+.modal-backdrop{
+    z-index:-1;
+}
