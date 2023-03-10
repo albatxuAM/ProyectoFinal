@@ -1,0 +1,108 @@
+@use 'sass:map';
+
+//colores
+$coloresEgibide:(
+    'morado':#8b0066,
+    'grisOscuro': #78838b,
+    'grisMedio': #a8aeb5,
+    'grisClaro':#d8dcdf,
+    'moradoHover': #4f003a
+);
+$color-col-hover: #8b00661b;
+
+.lineaPedido:hover{
+    background-color: $color-col-hover;
+}
+
+$sombraCard : 5px 6px 16px -7px rgba(0, 0, 0, 0.75);
+
+$sombraProd :  0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06) ;
+.card{
+    box-shadow: $sombraCard;
+}
+#cont,#cont1{
+    background-color: map.get($map: $coloresEgibide, $key: 'grisClaro');;
+    color: black;
+    background-image: url("{{asset('images/logo.png')}}");
+    background-repeat: no-repeat;
+    background-position: right center;
+
+}
+#marco {
+    box-shadow: $sombraCard;
+    background-color: map.get($map: $coloresEgibide, $key: 'morado');
+    color: map.get($map: $coloresEgibide, $key: 'grisClaro');
+}
+
+.titulo {
+    font-size: 3rem;
+    font-family: 'Dancing Script', cursive;
+    font-weight: bold;
+    color: map.get($map: $coloresEgibide, $key: 'morado');;
+}
+.filtro:hover {
+	transform: scale(1.05); 
+	background-color: map.get($map: $coloresEgibide, $key: 'morado');
+	color: whitesmoke; 
+	box-shadow: $sombraProd;
+}
+.productillo:hover {
+	transform: scale(1.05); 
+	background-color: map.get($map: $coloresEgibide, $key: 'grisClaro');
+	color: whitesmoke; 
+	box-shadow: $sombraProd;
+}
+.productillo:hover>.card-footer {
+    background-color: map.get($map: $coloresEgibide, $key: 'grisClaro');
+    color:whitesmoke;
+    box-shadow: $sombraProd;
+}
+
+.productillo:hover>.card-footer>a {
+    color: map.get($map: $coloresEgibide, $key: 'morado');
+}
+.productillo:hover>.card-footer>a:hover {
+    color: map.get($map: $coloresEgibide, $key: 'moradoHover');
+}
+
+.productillo:hover>.card-footer>.btn-outline-secondary:hover {
+    background-color: map.get($map: $coloresEgibide, $key: 'morado');
+    color: white;
+}
+
+.btn-outline-secondary {
+    border-color: map.get($map: $coloresEgibide, $key: 'morado');
+    color: map.get($map: $coloresEgibide, $key: 'morado');
+
+}
+ 
+nav {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
+}
+.btn:hover{
+    background-color: map.get($map: $coloresEgibide, $key: 'morado');
+    color: white;
+
+}
+a {
+    color: map.get($map: $coloresEgibide, $key: 'morado');
+    text-decoration: none;
+}
+td>a:hover{
+    color: map.get($map: $coloresEgibide, $key: 'moradoHover');
+}
+
+dt{
+    color:map.get($map: $coloresEgibide, $key: 'morado');
+}
+
+.etiqueta{
+    font-size: 10px;
+}
+
+.grisMedio{
+    background-color: map.get($map: $coloresEgibide, $key: 'grisMedio');
+}
+.modal-backdrop{
+    z-index:-1;
+}

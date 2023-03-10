@@ -1,27 +1,28 @@
 @extends('layouts.layout')
 @section('content')
 
-<div class="row mt-4 d-flex justify-content-center"><!-- PLATOS -->
-    <div class="col-10 col-md-11 col-lg-10 mb-1">
-
-        <h1>PLATOS PARA LLEVAR</h1>
+<div class="row pt-4 d-flex justify-content-center"><!-- PLATOS -->
+    <div class="col-10 col-md-11 col-lg-10 pb-1">
         <div class="row gy-4"> <!-- cards de condiciones y a tener en cuenta -->
-            <div class="d-none d-sm-block col-sm-12 col-md-12 col-lg-6 avisos">
+            <h1>PLATOS PARA LLEVAR</h1>
+            <div class="col-sm-12 col-md-12 col-lg-6 d-none d-sm-block avisos">
                 <div class="card">
                     <h5 class="card-header">
                         Condiciones
                     </h5>
                     <div class="card-body">
-                        <ul class="card-text">
-                            <li>Únicamente se puede hacer reserva de pedidos a través de egibide.org</li>
-                            <li>No se atenderán a través del teléfono.</li>
-                            <li>Para que un pedido se pueda interpretar como firme, el solicitante deberá recibir un mensaje de conformidad con el pedido solicitado.
-                                El número mínimo de raciones de cada producto es de 2 y siempre deben ser múltiplos de 2, salvo la repostería.</li>
-                        </ul>
+                        <dl class="card-text">
+                            <dt>REALIZACION DE PEDIDOS</dt>
+                            <dd>Únicamente se puede hacer reserva de pedidos a través de egibide.org.</dd>
+                            <dd>No se atenderán a través del teléfono.</dd>
+                            <dt>CONFIRMACION DE PEDIDOS</dt>
+                            <dd>Para que un pedido se pueda interpretar como firme, el solicitante deberá recibir un mensaje de conformidad con el pedido solicitado.
+                                El número mínimo de raciones de cada producto es de 2 y siempre deben ser múltiplos de 2, salvo la repostería.</dd>
+                        </dl>
                     </div>
                 </div>
             </div>
-            <div class="d-none d-sm-block col-sm-12 col-md-12 col-lg-6 avisos">
+            <div class="col-sm-12 col-md-12 col-lg-6 d-none d-sm-block avisos">
                 <div class="card">
                     <h5 class="card-header">
                         A tener en cuenta
@@ -36,7 +37,6 @@
                             <dd>Los fritos se entregan sin cocinar. Los debe freír el usuario.</dd>
                         </dl>
                     </div>
-
                 </div>
             </div>
         </div><!-- FIN cards de condiciones y a tener en cuenta -->
@@ -54,32 +54,21 @@
             <?php } ?>
             @endforeach
 
-
             <div class="col-6 mt-4 ms-2 col-md  dropdown">
                 <button class="btn btn-outline-secondary productillo dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     POSTRES
                 </button>
-
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     @foreach($arrayPostres as $postre)
                     <a class="dropdown-item" href="{{ route('productos.index', $tipo->id) }}">{{ $postre->nombre }}</a>
                     @endforeach
                 </div>
             </div>
-
         </div><!-- FIN BOTONES FILTROS -->
-        <div class="row mt-4 d-flex gy-3 mb-3"><!-- PLATOS -->
+        <div class="row mt-4 d-flex gy-3 mb-3">
             @include('layouts.cards')
             {{ $productos->links() }}
-
         </div><!-- FIN PLATOS -->
-
     </div>
-
-
-
-
-
-
 </div>
 @endsection

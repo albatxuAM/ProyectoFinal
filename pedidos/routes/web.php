@@ -24,7 +24,6 @@ use App\Models\DatosPersona;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/carrito/show',[CarritoController::class,'show'])->name('carrito.show');
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
@@ -45,13 +44,13 @@ Route::get('/productos/{producto}/edit', [ProductosController::class, 'edit'])->
 Route::post('/productos/{producto}/edit', [ProductosController::class, 'update'])->name('productos.update');
 
 Route::get('/productos/{id?}', [ProductosController::class,'index'])->name('productos.index');
-Route::get('productos/show/{producto}',[ProductosController::class,'show'])->name('productos.show');
+Route::get('productos/{producto}',[ProductosController::class,'show'])->name('productos.show');
 
 Route::get('/catalogo/{id?}', [ProductosController::class,'catalogo'])->name('productos.catalogo');
 Route::delete('/catalogo/{producto}', [ProductosController::class, 'destroy'])->name('productos.destroy');
 
 //CARRITO
-
+Route::get('/carrito',[CarritoController::class,'show'])->name('carrito.show');
 Route::get('/carrito/{producto}',[CarritoController::class,'index'])->name('carrito.index');
 Route::get('/carrito/update/{nombre}',[CarritoController::class,'update'])->name('carrito.update');
 Route::get('/carrito/restar/{nombre}',[CarritoController::class,'restar'])->name('carrito.restar');
@@ -71,5 +70,7 @@ Route::get('/invitado', [DatosPersonaController::class, 'index'])->name('datosPe
 //ESTADISTICAS
 Route::get('estadisticas', [ChartJSController::class, 'index'])->name('estadisticas.index');
 Route::get('estadisticas/productosPedido', [ChartJSController::class, 'productosPedido'])->name('estadisticas.productosPedido');
+Route::get('estadisticas/productosPedidoPendiente', [ChartJSController::class, 'productosPedidoPendiente'])->name('estadisticas.productosPedidoPendiente');
 Route::get('estadisticas/ventas', [ChartJSController::class, 'ventas'])->name('estadisticas.ventas');
 Route::get('estadisticas/ventasSemana', [ChartJSController::class, 'ventasSemana'])->name('estadisticas.ventasSemana');
+Route::get('estadisticas/productosTipo', [ChartJSController::class, 'productosTipo'])->name('estadisticas.productosTipo');

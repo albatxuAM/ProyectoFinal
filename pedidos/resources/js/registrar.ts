@@ -1,19 +1,17 @@
-const registrar = document.getElementById("registrar") as HTMLButtonElement;
-const vista = document.getElementById("vista");
-registrar?.addEventListener('click',verregistro);
+//control botones
+const registrar:HTMLElement =<HTMLElement> document.getElementById("registrar");
+const iratras:HTMLElement =<HTMLElement> document.getElementById("volveratras");
+//control vistas
+const vistageneral:HTMLDivElement = <HTMLDivElement>document.getElementById("cardPrincipal");
+const vistaregistro:HTMLDivElement = <HTMLDivElement>document.getElementById("vista");
+registrar?.addEventListener('click',verRegistro);
+iratras?.addEventListener('click',volveratras);
 
-
-function verregistro():void {
-    var x = registrar;
-    if (x.innerHTML=='atras') {
-      vista?.setAttribute("style", "display:none;");
-        x.innerHTML='nuevo usuario';
-    } else {
-        vista?.setAttribute("style", "display:block;");
-        x.innerHTML='atras';
-    }
-    vista?.classList.toggle('d-flex');
-    
+function verRegistro():void {
+        vistageneral?.setAttribute("style", "display:none;");
+        vistaregistro?.setAttribute("style", "display:flex;");
 }
-
-
+function volveratras():void{
+    vistaregistro?.setAttribute("style", "display:none;");
+    vistageneral?.setAttribute("style", "display:flex;");
+}

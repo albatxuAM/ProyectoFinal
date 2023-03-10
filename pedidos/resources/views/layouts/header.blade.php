@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,84 +29,10 @@
 
     @vite(['resources/js/app.js'])
     @vite(['resources/sass/app.scss'])
-
+    @vite(['resources/css/app.css'])
 
     <!-- Estadisticas -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
-
-    <style>
-        .plato .card-footer {
-            background-color: white;
-        }
-
-        .filtro {
-            width: 7em;
-        }
-
-        #marco {
-            box-shadow: 5px 6px 16px -7px rgba(0, 0, 0, 0.75);
-            background-color: #8b0066;
-            color: white;
-        }
-
-        #cont {
-            background-color: #3c4c5c;
-            color: white;
-            background-image: url("{{ asset('images/fondoCard.png') }}");
-            background-repeat: no-repeat;
-            background-position: right center;
-        }
-
-        .titulo {
-            font-size: 3rem;
-            font-family: 'Dancing Script', cursive;
-            font-weight: bold;
-            color: #8b0066;
-        }
-
-        nav {
-            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
-        }
-
-        #cardIndex {
-            border: none;
-        }
-
-        #volver {
-            color: #8b0066;
-            text-decoration: none;
-        }
-
-        a {
-            color: #8b0066;
-            text-decoration: none;
-        }
-
-        .productillo:hover,
-        .filtro:hover {
-            transform: scale(1.05);
-            background-color: #3c4c5c;
-            color: whitesmoke;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
-        }
-
-        .productillo:hover>.card-footer {
-            background-color: #3c4c5c;
-            color: whitesmoke;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
-        }
-
-        .productillo:hover>.card-footer>a {
-            color: gray;
-        }
-
-        .productillo:hover>.card-footer>a:hover {
-            color: white;
-        }
-        body{
-            min-height: 100vh;
-        }
-    </style>
 </head>
