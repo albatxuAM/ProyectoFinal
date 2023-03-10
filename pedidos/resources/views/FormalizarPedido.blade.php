@@ -18,7 +18,7 @@
             <h5>Invitado</h5>
         </div>
         <div class="card-body text-white">
-            <form action="{{route('datosPersona.store')}}" method="post">
+            <form action="{{route('datosPersona.store')}}" id="form1" method="post">
                 @csrf
                 <div class="row">
                     <div class="col-6">
@@ -27,7 +27,7 @@
                     </div>
                     <div class="col-6">
                         <label for="Telefono">Telefono</label>
-                        <input type="text" class="form-control" id="telefono" name="telefono" value="{{old('telefono')}}" placeholder="666777888">
+                        <input type="text" class="form-control" id="telefono1" name="telefono" value="{{old('telefono')}}" placeholder="666777888">
                     </div>
 
                 </div>
@@ -45,7 +45,7 @@
             </form>
         </div>
     </div>
-    <div class="card text-white bg-secondary  " id='inicio' style="max-width: 30rem; ">
+    <div class="card text-white grisMedio" id='inicio' style="max-width: 30rem; ">
         <div class="card-header">
             <h5>Iniciar sesion</h5>
         </div>
@@ -81,12 +81,12 @@
 
 <div class="row justify-content-center">
     <div class="col-10">
-        <div class="card text-white bg-secondary" id="vista" style="display:none;">
+        <div class="card text-white grisMedio" id="vista" style="display:none;">
             <div class="card-header">
                 <h5>Nuevo usuario</h5>
             </div>
             <div class="card-body">
-                <form action="{{route('crearusu.normal')}}" class="row" method="post">
+                <form action="{{route('crearusu.normal')}}" id="form2" class="row" method="post">
                     @csrf
                     <div class="col-6">
                         <div class="row">
@@ -96,7 +96,7 @@
                             </div>
                             <div class="col-6">
                                 <label for="telefono">telefono</label>
-                                <input type="number" class="form-control" name="telefono" value="{{old('telefono')}}" placeholder="666555444">
+                                <input type="number" id="telefono2" class="form-control" name="telefono" value="{{old('telefono')}}" placeholder="666555444">
                             </div>
                         </div>
                         <div class="row">
@@ -127,11 +127,5 @@
     </div>
 </div>
 
-
-<div class="row justify-content-center">
-    <div class="col-11 border p-md-5">
-
-
-    </div>
-</div>
+<script src="validarTel.js"></script>
 @endsection

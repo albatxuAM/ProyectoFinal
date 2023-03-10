@@ -97,6 +97,7 @@ class PedidoController extends Controller
      */
     public function store(Request $request)
     {
+
           //select all pedidos where fecha is $request->fecha and estado is not 4
           $pedidos = Pedido::where('fecha', $request->fecha)->whereNotIn('idEstado', [4])->get();
           //if pedidos is more than 40 return true
