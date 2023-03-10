@@ -79,7 +79,7 @@
     </div>
 </div>
 
-<div class="row justify-content-center mt-5 mb-5" id="vista" style="display:none;">
+<div class="card-group justify-content-center mt-5 mb-5" id="vista" style="display:none;">
     <div class="col-8 col-md-6">
         <div class="card text-white bg-secondary" >
             <div class="card-header">
