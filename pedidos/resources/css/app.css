@@ -6,8 +6,6 @@
     width: 7em;
 }
 
-
-
 .titulo {
     font-size: 3rem;
     font-family: 'Dancing Script', cursive;
@@ -50,7 +48,7 @@ a {
     text-decoration: none;
 }
 
-#registrar {
+#registrar, #volveratras{
     color: #8b0066;
     text-decoration: none;
 }

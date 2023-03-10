@@ -79,9 +79,9 @@
     </div>
 </div>
 
-<div class="row justify-content-center">
-    <div class="col-10">
-        <div class="card text-white bg-secondary" id="vista" style="display:none;">
+<div class="row justify-content-center mt-5 mb-5" id="vista" style="display:none;">
+    <div class="col-8 col-md-6">
+        <div class="card text-white bg-secondary" >
             <div class="card-header">
                 <h5>Nuevo usuario</h5>
             </div>
@@ -118,8 +118,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-2">
+                    <div class="col-4">
                         <button type="submit" id='btnSubmit' class="btn  mt-3">Crear</button>
+                        <a role="button" href="#" id="volveratras" class="btn btn-link mt-3" value="atras">volver inicio session</a>
+           
                     </div>
                 </form>
             </div>
@@ -128,10 +130,4 @@
 </div>
 
 
-<div class="row justify-content-center">
-    <div class="col-11 border p-md-5">
-
-
-    </div>
-</div>
 @endsection
