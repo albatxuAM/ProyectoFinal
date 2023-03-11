@@ -27,10 +27,10 @@
                                         <label for="input_from">¿Cuando quiere recoger su pedido?</label>
                                         <div class="input-group mb-3">
 
-                                        <input type="text" name='fecha' class="form-control" id="input" placeholder="Seleccione la fecha">
+                                            <input type="text" name='fecha' class="form-control" id="input" placeholder="Seleccione la fecha">
                                             <span class="input-group-text" id="basic-addon1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
-  <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
-</svg></span>
+                                                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+                                                </svg></span>
                                         </div>
                                         <input type="hidden" name="idPersona" value="{{$persona->id}}">
                                     </div>
@@ -51,24 +51,27 @@
                                     <th scope="col">#</th>
                                     <th scope="col"></th>
                                     <th scope="col"></th>
-                                    <th scope="col"></th>
+                                    <th></th>
+
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach(session('carrito') as $key => $value)
-                                <tr>
+                                <tr class='lineaPedido'>
                                     <td>
                                         <img class="card-img-top img-fluid img-thumbnail" style="width: 110px" alt="{{$value['producto']}}" @if( file_exists('thumbnails/'.$value['id'].'.png') ) src="{{ asset('thumbnails/'.$value['id'].'.png') }}" @else src="{{ asset('images/placeholder.png') }}" @endif />
                                     </td>
-                                    <td class="td text-center">{{ $value['producto'] }}</td>
+                                    <td class="td ">{{ $value['producto'] }}</td>
                                     <td class="td text-center ">{{ $value['cantidad'] }}</td>
                                     <td class="text-center subtotal" id="{{ $value['id'] }}">{{ $value['precio'] * $value['cantidad'] }}€</td>
+
                                 </tr>
                                 @endforeach
                                 <tr>
+                                    <td></td>
+                                    <td></td>
                                     <td class="text-center">Total</td>
-                                    <td class="" colspan="4"><input style="text-align:right" type="text" name="total" id="total" class="form-control" value="0" disabled></input> </td>
-                                    <td>Precio total con IVA incluido</td>
+                                    <td class=""><span class="d-inline-block custom-tooltip" data-bs-toggle="tooltip" data-bs-placement="right" title="Precio total con iva incluido"> <input style="text-align:right" type="text" size="4" name="total" id="total" class="form-control " value="0" disabled> </span></input> </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -79,7 +82,7 @@
     </div>
 
 </div>
-<script src="validar.js"></script>
+
 <script src="calendar-14/js/jquery-3.3.1.min.js"></script>
 <script src="calendar-14/js/popper.min.js"></script>
 <script src="calendar-14/js/bootstrap.min.js"></script>
