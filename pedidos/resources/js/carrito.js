@@ -12,7 +12,7 @@
   
         }
       }
-      inputTotal.value = totalCesta + "€";
+      inputTotal.value = totalCesta.toFixed(2) + "€";
     }
 
 
