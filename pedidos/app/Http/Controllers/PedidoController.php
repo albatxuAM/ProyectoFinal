@@ -16,7 +16,7 @@ class PedidoController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($idPedido = 0,$estadoP = 0)
     {
         // $pedidos = Pedido::whereNotIn('idEstado', [3,5]);
         // $pedidos = $pedidos->paginate(6);
@@ -56,13 +56,59 @@ class PedidoController extends Controller
         //$pedidos = $builder->whereNotIn('idEstado', [3,5]);
         $tipos = TipoProducto::all();
         $estados = EstadoPedido::all();
+        
+        $pedidos = $builder->paginate(5);
+        // $pedidos = $builder->simplePaginate(5);
 
-        $pedidos = $builder->paginate(5)->setPath(route('pedidos.index'))
-        ->appends([
-            'idPedido' => $_REQUEST['idPedido'],
-            'estadoP' => $_REQUEST['estadoP']
-        ]
-    );
+       
+        return view('pages.pedidos.index', [
+            'pedidos' => $pedidos,
+            'tipos' => $tipos,
+            'estados' => $estados
+        ]);
+    }
+    public function filter()
+    {
+        // $pedidos = Pedido::whereNotIn('idEstado', [3,5]);
+        // $pedidos = $pedidos->paginate(6);
+        // $tipos = TipoProducto::all();
+        // return view('pages.pedidos.index', [
+        //     'pedidos' => $pedidos,
+        //     'tipos' => $tipos,
+        // ]);
+
+        $busqueda = "";
+        if (isset($_REQUEST['idPedido'])) {
+            $busqueda = $_REQUEST['idPedido'];
+        }
+        # Exista o no exista búsqueda, los ordenamos
+        // $builder = Pedido::orderBy('idEstado');
+        $builder = Pedido::orderBy('id');
+        if ($busqueda) {
+            $builder->where("id", "LIKE", "%$busqueda%"); 
+        }
+
+        $estado = "";
+        if (isset($_REQUEST['estadoP'])) {
+           
+            if($_REQUEST['estadoP'] != 0)
+                // $options = implode(',', $_POST['estadoP']);
+                $estado = $_REQUEST['estadoP'];
+        }
+        if ($estado) {
+            # Si hay búsqueda, agregamos el filtro
+            $builder->where("idEstado", $estado);   
+        }
+        else {
+            $builder->whereNotIn('idEstado', [3,5]);
+        }
+        
+        # Al final de todo, invocamos a paginate que tendrá todos los filtros
+        //$pedidos = $builder->whereNotIn('idEstado', [3,5]);
+        $tipos = TipoProducto::all();
+        $estados = EstadoPedido::all();
+        
+        $pedidos = $builder->paginate(5);
         // $pedidos = $builder->simplePaginate(5);
 
     
@@ -72,7 +118,6 @@ class PedidoController extends Controller
             'estados' => $estados
         ]);
     }
-
     public function selectDisponibles(Request $request){
 
         //select all pedidos where fecha is $request->fecha and estado is not 4

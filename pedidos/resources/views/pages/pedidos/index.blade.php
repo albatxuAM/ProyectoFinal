@@ -27,7 +27,6 @@
                         <button id="buscarP" class="btn btn-primary">Buscar</button>
                     </div>
                 </div>  
-                </form>
             </div>
         </div>
         <div class="table-responsive">
@@ -46,10 +45,11 @@
                             <th scope="row"> {{ $pedido->id }} </th>
                             <td>
                                 <ul class="list-group">
-                                    @foreach ($pedido->productosPedido as $producto)
+                                    @foreach ($pedido->productosPedido as $productos)
                                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            {{-- $producto->producto->nombre --}}
-                                            <span class="badge bg-info rounded-pill">{{ $producto->cantidad }}</span>
+                                           
+                                        {{$productos->producto->nombre}}
+                                            <span class="badge bg-info rounded-pill">{{ $productos->cantidad }}</span>
                                         </li>
                                     @endforeach
                                 </ul>
@@ -98,8 +98,8 @@
         </div>
     </div>
 </div>
-
-{{ $pedidos->render() }}
+</form>
+{{ $pedidos->appends(request()->query())->links() }}
 
 {{-- <div class="row my-4 justify-content-center">
     <div class="col-10 ">
