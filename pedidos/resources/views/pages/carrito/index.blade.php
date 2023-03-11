@@ -1,19 +1,23 @@
 @extends('layouts.layout')
 @section('content')
-<h1>Confirmar pedido</h1>
+
 
 <div class="content">
-
     <div class="container text-left">
         <div class="row justify-content-center">
-            <div class="col-lg-3">
-                <form method="POST" action="{{route('pedidos.store')}}" id='formulario' class="row">
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="input_from">¿Cuando quiere recoger su pedido?</label>
-                            <input type="text" name='fecha' class="form-control" id="input">
-                            <input type="hidden" name="idPersona" value="{{$persona->id}}">
+            <div class="col">
+                <div class="card row bg-light ">
+                    <div class="card-header text-white bg-secondary col">
+                        <h5>Confirmaci&oacute;n del pedido</h5>
+                    </div>
+                    <div class="row">
+                        <div class="card-body bg-light col-6">
+                            <h5 class="card-title "><b>Datos del cliente</b></h5>
+                            <ul class="list-group list-group-flush bg-light">
+                                <li class="list-group-item bg-light"><b> Nombre:</b> {{ $persona->nombre }}</li>
+                                <li class="list-group-item bg-light"><b>Email:</b> {{ $persona->email }}</li>
+                                <li class="list-group-item bg-light"><b>Tel&eacute;fono:</b> {{ $persona->telefono }}</li>
+                            </ul>
                         </div>
                         <div class="card-body bg-light col-6">
                             <form method="POST" action="{{route('pedidos.store')}}" id='form' class="row">
@@ -39,17 +43,39 @@
                             </form>
                         </div>
                     </div>
-                    <button type="submit" id="enviar">Enviar</button>
-                </form>
+                    <div class="card-body bg-light col">
+                        <h5 class="card-title "><b>Detalle del pedido</b></h5>
+                        <table class="table align-middle  mb-0">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach(session('carrito') as $key => $value)
+                                <tr>
+                                    <td>
+                                        <img class="card-img-top img-fluid img-thumbnail" style="width: 110px" alt="{{$value['producto']}}" @if( file_exists('thumbnails/'.$value['id'].'.png') ) src="{{ asset('thumbnails/'.$value['id'].'.png') }}" @else src="{{ asset('images/placeholder.png') }}" @endif />
+                                    </td>
+                                    <td class="td text-center">{{ $value['producto'] }}</td>
+                                    <td class="td text-center ">{{ $value['cantidad'] }}</td>
+                                    <td class="text-center subtotal" id="{{ $value['id'] }}">{{ $value['precio'] * $value['cantidad'] }}€</td>
+                                </tr>
+                                @endforeach
+                                <tr>
+                                    <td class="text-center">Total</td>
+                                    <td class="" colspan="4"><input style="text-align:right" type="text" name="total" id="total" class="form-control" value="0" disabled></input> </td>
+                                    <td>Precio total con IVA incluido</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
-
         </div>
-
-        <h4>Datos del pedido</h4>
-        <p>{{ $persona->nombre }}</p>
-        <p>{{ $persona->email }}</p>
-        <p>{{ $persona->telefono }}</p>
-
     </div>
 
 </div>
