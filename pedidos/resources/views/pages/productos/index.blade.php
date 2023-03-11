@@ -1,10 +1,10 @@
 @extends('layouts.layout')
 @section('content')
 
-<div class="row pt-4 d-flex justify-content-center"><!-- PLATOS -->
+<div class="row pt-4 mt-5 d-flex justify-content-center"><!-- PLATOS -->
     <div class="col-10 col-md-11 col-lg-10 pb-1">
         <div class="row gy-4"> <!-- cards de condiciones y a tener en cuenta -->
-            <h1>PLATOS PARA LLEVAR</h1>
+            
             <div class="col-sm-12 col-md-12 col-lg-6 d-none d-sm-block avisos">
                 <div class="card">
                     <h5 class="card-header">
@@ -40,7 +40,7 @@
                 </div>
             </div>
         </div><!-- FIN cards de condiciones y a tener en cuenta -->
-        <div class="row">
+        <div class="row mt-5">
 
             <?php $arrayPostres = []; ?>
             @foreach($tipos as $tipo)

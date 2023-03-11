@@ -35,7 +35,7 @@
                                         <input type="hidden" name="idPersona" value="{{$persona->id}}">
                                     </div>
                                     <div class="form-group">
-                                        <textarea class="form-control" name="observaciones" id="exampleFormControlTextarea1" rows="3" placeholder="&#63;Quiere decirnos algo&iquest;"></textarea>
+                                        <textarea class="form-control" name="observaciones" id="exampleFormControlTextarea1" rows="3" placeholder="&iquest;Quiere decirnos algo&#63;"></textarea>
 
                                     </div>
                                 </div>
