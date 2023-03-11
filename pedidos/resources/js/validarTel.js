@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', comprobaciones);
 function comprobaciones(){
     var form1 = document.getElementById('formularioInvitado');

@@ -14,6 +14,4 @@
       }
       inputTotal.value = totalCesta.toFixed(2) + "€";
     }
-
-
   })
