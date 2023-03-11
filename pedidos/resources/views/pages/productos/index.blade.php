@@ -12,12 +12,12 @@
                     </h5>
                     <div class="card-body">
                         <dl class="card-text">
-                            <dt>REALIZACION DE PEDIDOS</dt>
-                            <dd>Únicamente se puede hacer reserva de pedidos a través de egibide.org.</dd>
-                            <dd>No se atenderán a través del teléfono.</dd>
-                            <dt>CONFIRMACION DE PEDIDOS</dt>
+                            <dt>REALIZACI&Oacute;N DE PEDIDOS</dt>
+                            <dd>&Uacute;nicamente se puede hacer reserva de pedidos a trav&eacute;s de egibide&#46;org.</dd>
+                            <dd>No se atender&aacute;n a trav&eacute;s del tel&eacute;fono.</dd>
+                            <dt>CONFIRMACI&Oacute;N DE PEDIDOS</dt>
                             <dd>Para que un pedido se pueda interpretar como firme, el solicitante deberá recibir un mensaje de conformidad con el pedido solicitado.
-                                El número mínimo de raciones de cada producto es de 2 y siempre deben ser múltiplos de 2, salvo la repostería.</dd>
+                                El n&uacute;mero m&iacute;nimo de raciones de cada producto es de 2 y siempre deben ser m&uacute;ltiplos de 2, salvo la reposter&iacute;a.</dd>
                         </dl>
                     </div>
                 </div>
@@ -29,12 +29,12 @@
                     </h5>
                     <div class="card-body">
                         <dl class="card-text">
-                            <dt>CONSERVACION DE ALIMENTOS REFRIGERADOS</dt>
-                            <dd>Deben mantenerse a una temperatura comprendida entre 1 y 4 °C hasta su posterior recalentamiento o consumo final.</dd>
-                            <dt>REGENERACION</dt>
+                            <dt>CONSERVACI&Oacute;N DE ALIMENTOS REFRIGERADOS</dt>
+                            <dd>Deben mantenerse a una temperatura comprendida entre 1 y 4 &deg;C hasta su posterior recalentamiento o consumo final.</dd>
+                            <dt>REGENERACI&Oacute;N</dt>
                             <dd>Los alimentos recalentados deben consumirse lo antes posible y un alimento recalentado no debe volverse a refrigerar o congelar.</dd>
                             <dt>FRITOS</dt>
-                            <dd>Los fritos se entregan sin cocinar. Los debe freír el usuario.</dd>
+                            <dd>Los fritos se entregan sin cocinar. Los debe freir el usuario.</dd>
                         </dl>
                     </div>
                 </div>

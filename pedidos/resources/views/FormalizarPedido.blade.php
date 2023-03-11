@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 @section('content')
-@vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
 @if ($errors->any())
 <div class="row justify-content-center">
     <div class="alert alert-danger col-11 p-md-5">
@@ -29,9 +29,7 @@
                         <label for="Telefono">Telefono</label>
                         <input type="text" class="form-control" id="telefonoInvitado" name="telefono" value="{{old('telefono')}}" placeholder="666777888">
                     </div>
-
                 </div>
-
                 <div class="row justify-content-start">
                     <div class="col-12">
                         <label class="sr-only" for="correo">Email</label>
@@ -47,7 +45,7 @@
     </div>
     <div class="card text-white grisMedio" id='inicio' style="max-width: 30rem; ">
         <div class="card-header">
-            <h5>Iniciar sesion</h5>
+            <h5>Iniciar sesi&oacute;n</h5>
         </div>
         <div class="card-body text-white">
             <form action="{{route('cesta.ver')}}"id='forma' method="post">
@@ -57,7 +55,7 @@
                     <input type="email" class="form-control" id="email" name="email" value="{{old('email')}}" placeholder="Enter email">
                 </div>
                 <div class="form-group">
-                    <label for="Contraseña">Contraseña</label>
+                    <label for="Contraseña">Contrase&ntilde;a</label>
                     <div class="input-group mb-3">
                         <input type="password" class="form-control" id="password" name="password" value="{{old('password')}}" placeholder="Password">
                         <span class="input-group-text">
@@ -95,7 +93,7 @@
                                 <input type="text" class="form-control" id='nuevoNombre' name="nombre" value="{{old('nombre')}}" placeholder="Nombre">
                             </div>
                             <div class="col-6">
-                                <label for="telefono">telefono</label>
+                                <label for="telefono">tel&eacute;fono</label>
                                 <input type="text"  class="form-control" id='nuevoTelefono' name="telefono" value="{{old('telefono')}}" placeholder="666555444">
                             </div>
                         </div>
@@ -109,11 +107,11 @@
                     <div class="col-6">
                         <div class="row">
                             <div class="col-12">
-                                <label for="Contraseña">Contraseña</label>
+                                <label for="Contraseña">Contrase&ntilde;a</label>
                                 <input type="password" class="form-control" name="contrasena" value="{{old('contrasena')}}">
                             </div>
                             <div class="col-12">
-                                <label for="Confirmar">Confirmar Contraseña</label>
+                                <label for="Confirmar">Confirmar Contrase&ntilde;a</label>
                                 <input type="password" class="form-control" name="confirmar" value="{{old('confirmar')}}">
                             </div>
                         </div>

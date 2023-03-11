@@ -44,7 +44,7 @@ Route::get('/productos/{producto}/edit', [ProductosController::class, 'edit'])->
 Route::post('/productos/{producto}/edit', [ProductosController::class, 'update'])->name('productos.update');
 
 Route::get('/productos/{id?}', [ProductosController::class,'index'])->name('productos.index');
-Route::get('productos/{producto}',[ProductosController::class,'show'])->name('productos.show');
+Route::get('productos/show/{producto}',[ProductosController::class,'show'])->name('productos.show');
 
 Route::get('/catalogo/{id?}', [ProductosController::class,'catalogo'])->name('productos.catalogo');
 Route::delete('/catalogo/{producto}', [ProductosController::class, 'destroy'])->name('productos.destroy');

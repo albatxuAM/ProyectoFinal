@@ -24,7 +24,7 @@
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="input_from">¿Cuando quiere recoger su pedido?</label>
+                                        <label for="input_from">&iquest;Cu&aacute;ndo quiere recoger su pedido&#63;</label>
                                         <div class="input-group mb-3">
 
                                             <input type="text" name='fecha' class="form-control" id="input" placeholder="Seleccione la fecha">
@@ -35,7 +35,7 @@
                                         <input type="hidden" name="idPersona" value="{{$persona->id}}">
                                     </div>
                                     <div class="form-group">
-                                        <textarea class="form-control" name="observaciones" id="exampleFormControlTextarea1" rows="3" placeholder="¿Quieres decirnos algo?"></textarea>
+                                        <textarea class="form-control" name="observaciones" id="exampleFormControlTextarea1" rows="3" placeholder="&#63;Quiere decirnos algo&iquest;"></textarea>
 
                                     </div>
                                 </div>
@@ -63,12 +63,12 @@
                                     </td>
                                     <td class="td ">{{ $value['producto'] }}</td>
                                     <td class="td text-center ">{{ $value['cantidad'] }}</td>
-                                    <td class="text-center subtotal" id="{{ $value['id'] }}">{{ $value['precio'] * $value['cantidad'] }}€</td>
+                                    <td class="text-center subtotal" id="{{ $value['id'] }}">{{ $value['precio'] * $value['cantidad'] }}&euro;</td>
 
                                 </tr>
                                 @endforeach
                                 <tr>
-                                    <td></td>
+                                    <td> <a class="btn btn-outline-secondary" href="{{ route('carrito.show') }}">Mi cesta</a></td>
                                     <td></td>
                                     <td class="text-center">Total</td>
                                     <td class=""><span class="d-inline-block custom-tooltip" data-bs-toggle="tooltip" data-bs-placement="right" title="Precio total con iva incluido"> <input style="text-align:right" type="text" size="4" name="total" id="total" class="form-control " value="0" disabled> </span></input> </td>

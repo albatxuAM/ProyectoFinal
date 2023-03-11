@@ -4,13 +4,13 @@
 
             <div class="col-12 col-md-6">
                 <ul class="list-group list-group-dark list-group-flush my-2">
-                    <li class="list-group-item border-right-0 border-left-0" style="background-color: transparent;color:white;">ESCUELA DE HOSTELERÍA DE EGIBIDE MENDIZORROTZA</li>
+                    <li class="list-group-item border-right-0 border-left-0" style="background-color: transparent;color:white;">ESCUELA DE HOSTELER&Iacute;A DE EGIBIDE MENDIZORROTZA</li>
                     <li class="list-group-item border-right-0 border-left-0" style="background-color: transparent;color:white;">
-                        Amadeo Garcia de Salazar Plaza, 2<br>
-                        01007 Vitoria-Gasteiz Araba </li>
+                        Amadeo Garc&iacute;a de Salazar Plaza, 2<br>
+                        01007 Vitoria&#45;Gasteiz Araba </li>
                 </ul>
                 <ul class="list-group bg-black border-top list-group-flush my-2">
-                    <li class="list-group-item " style="background-color: transparent;color:white;">Síguenos en</li>
+                    <li class="list-group-item " style="background-color: transparent;color:white;">S&iacute;guenos en</li>
                     <li class="list-group-item " style="background-color: transparent;color:white;">
                         <ul class="list-group list-group-horizontal justify-content-center">
                             <li class="list-group-item border-0" style="background-color: transparent;color:white;">

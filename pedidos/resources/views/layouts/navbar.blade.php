@@ -14,10 +14,10 @@
                             <a class="nav-link" href="{{ route('pedidos.index') }}">Pedidos Pendientes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('productos.catalogo') }}">Catalogo</a>
+                            <a class="nav-link" href="{{ route('productos.catalogo') }}">Cat&aacute;logo</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('estadisticas.index') }}">Estadisticas</a>
+                            <a class="nav-link" href="{{ route('estadisticas.index') }}">Estad&iacute;sticas</a>
                         </li>
 
                     @endif
@@ -41,7 +41,7 @@
 
                 <form class="d-flex mx-4 mb-2 mb-lg-0" action="{{ route('productos.index', 0) }}" >
                     <input class="form-control me-2" type="search" placeholder="Buscar" name="busqueda" value="@if(isset($_GET['busqueda'])){{$_GET['busqueda']}}@endif" aria-label="Buscar">
-                    <button class="btn btn-outline-primary" type="submit">Buscar</button>
+                    <button class="btn btn-outline-secondary" type="submit">Buscar</button>
                 </form>            
                 {{-- <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-box-arrow-in-left" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M10 3.5a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 1 1 0v2A1.5 1.5 0 0 1 9.5 14h-8A1.5 1.5 0 0 1 0 12.5v-9A1.5 1.5 0 0 1 1.5 2h8A1.5 1.5 0 0 1 11 3.5v2a.5.5 0 0 1-1 0v-2z"/>

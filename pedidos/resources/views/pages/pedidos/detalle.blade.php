@@ -80,7 +80,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    Telefono
+                                    Tel&eacute;fono
                                 </td>
                                 <td>
                                     {{ $persona->telefono }}
@@ -92,11 +92,11 @@
                 </div>
 				<div class="card my-3"> 
                     <div class="card-header">
-                    <h3>Observacion</h3>
+                    <h3>Observaci&oacute;n</h3>
                     </div>
                     <div class="card-body">
                         @if ($pedido->observacion == "")
-                        no tiene observaciones
+                        No tiene observaciones
                         @else
                         {{ $pedido->observacion }}
                         @endif

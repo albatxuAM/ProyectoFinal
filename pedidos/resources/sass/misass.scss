@@ -18,6 +18,9 @@ $color-col-hover: #8b00661b;
 $sombraCard : 5px 6px 16px -7px rgba(0, 0, 0, 0.75);
 
 $sombraProd :  0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06) ;
+.plato .card-footer {
+    background-color: white;
+}
 .card{
     box-shadow: $sombraCard;
 }
@@ -29,6 +32,19 @@ $sombraProd :  0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06) ;
     background-position: right center;
 
 }
+#btnMorado {
+    background-color: map.get($map: $coloresEgibide, $key: 'morado');
+
+    color: white;
+}
+
+#cardIndex {
+    border: none;
+}
+#volver {
+    color:map.get($map: $coloresEgibide, $key: 'morado'); ;
+    text-decoration: none;
+}
 #marco {
     box-shadow: $sombraCard;
     background-color: map.get($map: $coloresEgibide, $key: 'morado');
@@ -36,10 +52,13 @@ $sombraProd :  0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06) ;
 }
 
 .titulo {
-    font-size: 3rem;
+    font-size: 2rem;
     font-family: 'Dancing Script', cursive;
     font-weight: bold;
     color: map.get($map: $coloresEgibide, $key: 'morado');;
+}
+.filtro {
+    width: 7em;
 }
 .filtro:hover {
 	transform: scale(1.05); 
@@ -88,7 +107,17 @@ nav {
 .btn:hover{
     background-color: map.get($map: $coloresEgibide, $key: 'morado');
     color: white;
-
+}
+#formularioInvitado {
+    background-color: map.get($map: $coloresEgibide, $key: 'morado');
+    
+}
+#formularioInvitado .card-header {
+    background-color: map.get($map: $coloresEgibide, $key: 'morado'); 
+}
+#registrar, #volveratras{
+    color: map.get($map: $coloresEgibide, $key: 'morado');
+    text-decoration: none;
 }
 a {
     color: map.get($map: $coloresEgibide, $key: 'morado');
@@ -115,3 +144,7 @@ dt{
 .custom-tooltip {
     --bs-tooltip-bg: var(--bs-primary);
   }
+  #btnSubmit {
+    background-color: map.get($map: $coloresEgibide, $key: 'morado');;
+    color: white;
+}

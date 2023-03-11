@@ -30,7 +30,7 @@
               </td>
               <td class="td text-center">{{ $value['producto'] }}</td>
               <td class="td text-center ">{{ $value['cantidad'] }}</td>
-              <td class="text-center subtotal" id="{{ $value['id'] }}">{{ $value['precio'] * $value['cantidad'] }}€</td>
+              <td class="text-center subtotal" id="{{ $value['id'] }}">{{ $value['precio'] * $value['cantidad'] }}&euro;</td>
               <td class="d-md-none"><button class="btn btn-outline-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">...</button></td>
               <!--Cuando es movil no aparecen la papelera ni el sumar y restar-->
               <div class="offcanvas offcanvas-bottom"style="width: 100%;" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
@@ -81,21 +81,21 @@
             @endif
             <tr>
               <td class="text-center"></td>
-              <td colspan="2"></td>
-              <td>
+              <td ></td>
+              <td colspan="2">
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text d-none d-md-block" id="basic-addon1" style="background-color:white;">Total</span>
                   </div>
-                  <input style="text-align:right; width:3em; background-color:white;" type="text" name="total" id="total" class="form-control" value="0"  disabled></input>
+                  <input style="text-align:right; width:3em; background-color:white;" type="text" size="6" name="total" id="total" class="form-control" value="0"  disabled></input>
                 </div>
               </td>
               <td colspan="2"></td>
               <td></td>
             </tr>
             <tr>
-              <td colspan="2"></td>
-              <td><a href="{{ route('productos.index') }}"></a></td>
+              <td ></td>
+              <td colspan="2"><a href="{{ route('productos.index') }}" class="btn btn-outline-secondary">Seguir mirando</a></td>
               <td><a href="{{route('cesta.formalizar')}}" class="btn btn-outline-secondary">Finalizar </a></td>
               <td colspan="2"></td>
             </tr>
