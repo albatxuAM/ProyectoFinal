@@ -60,7 +60,7 @@
                 </button>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     @foreach($arrayPostres as $postre)
-                    <a class="dropdown-item" href="{{ route('productos.index', $tipo->id) }}">{{ $postre->nombre }}</a>
+                    <a class="dropdown-item" href="{{ route('productos.index', $postre->id) }}">{{ $postre->nombre  }}</a>
                     @endforeach
                 </div>
             </div>
