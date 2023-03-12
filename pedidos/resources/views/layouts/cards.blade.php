@@ -26,7 +26,7 @@
                             <button class="btn btn-outline-danger">Eliminar</button>
                         </form>
                     </div>
-                </div>º
+                </div>
             @else
                 <div class="card-footer">
                     <a class="btn btn-outline-secondary" href="{{ route('productos.show', $producto) }}">Detalles</a> <!-- ENLACE A FORMULARIO PARA INICIAR SESION O SEGUIR COMO INVITADO -->
