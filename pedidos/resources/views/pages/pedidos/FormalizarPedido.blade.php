@@ -11,7 +11,17 @@
 </div>
 
 @endif
-
+<div id='toast' class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+        <img src="..." class="rounded me-2" alt="">
+        <strong class="me-auto">Error al iniciar</strong>
+        <small>11 mins ago</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body" id='body'>
+        
+    </div>
+</div>
 <div class="card-group justify-content-center mt-5 mb-5" id='cardPrincipal'>
     <div class="card " id='formularioInvitado' style="max-width: 18rem;">
         <div class="card-header text-white">
@@ -50,7 +60,7 @@
             <h5>Iniciar sesi&oacute;n</h5>
         </div>
         <div class="card-body text-white">
-            <form action="{{route('cesta.ver')}}"id='forma' method="post">
+            <form action="{{route('cesta.ver')}}" id='forma' method="post">
                 @csrf
                 <div class="form-group">
                     <label for="usuario">Usuario</label>
@@ -96,7 +106,7 @@
                             </div>
                             <div class="col-6">
                                 <label for="telefono">tel&eacute;fono</label>
-                                <input type="text"  class="form-control" id='nuevoTelefono' name="telefono" value="{{old('telefono')}}" placeholder="666555444">
+                                <input type="text" class="form-control" id='nuevoTelefono' name="telefono" value="{{old('telefono')}}" placeholder="666555444">
                             </div>
                         </div>
                         <div class="row">
@@ -126,6 +136,8 @@
         </div>
     </div>
 </div>
+<script>
 
+</script>
 
 @endsection
