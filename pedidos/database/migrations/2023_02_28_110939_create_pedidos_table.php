@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('pedidos', function (Blueprint $table) {
             $table->id();
             $table->foreignId('idEstado')->constrained('estado_pedidos')->cascadeOnDelete();
-            $table->text('observacion');
+            $table->text('observacion')->nullable();
             $table->date('fecha');
             $table->foreignId('idPersona')->constrained('datos_personas')->cascadeOnDelete();
             $table->timestamps();
