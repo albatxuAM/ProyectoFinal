@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 @section('content')
-@vite(['resources/js/carrito.js'])
+
 <div class="row justify-content-center conFondo ">
   <div class="col-12 col-md-10">
 

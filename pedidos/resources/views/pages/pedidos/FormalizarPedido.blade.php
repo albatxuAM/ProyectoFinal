@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 @section('content')
-@vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
 @if ($errors->any())
 <div class="row justify-content-center">
     <div class="alert alert-danger col-11 p-md-5">
