@@ -270,14 +270,9 @@ class PedidoController extends Controller
         $nuevoEstado = EstadoPedido::find($estado);
         $persona = DatosPersona::find($pedido->idPersona);
         
-        
         $productosPedido = ProductosPedido::where('idPedido','=',$pedido->id)->get();
         
-
-        
-
         $resumen = [];
-        
 
         $mailData = ['title'=>'El estado de su pedido ha cambiado',
             'body'=>'Su pedido número '.$pedido->id . ' a cambiado su estado a ' . $nuevoEstado->nombre,
