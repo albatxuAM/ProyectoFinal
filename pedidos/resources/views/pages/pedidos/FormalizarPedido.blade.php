@@ -91,7 +91,7 @@
 
 <div class="row justify-content-center">
     <div class="col-10">
-        <div class="card text-white grisMedio" id="vista" style="display:none;">
+        <div class="card text-white grisMedio mt-5 mb-5" id="vista" style="display:none;">
             <div class="card-header">
                 <h5>Nuevo usuario</h5>
             </div>
@@ -130,6 +130,8 @@
                     </div>
                     <div class="col-2">
                         <button type="submit" id='btnSubmit' class="btn  mt-3">Crear</button>
+                        <a role="button" href="#" id="volveratras" class="btn btn-link mt-3" value="Volver atras">Volver atras</a>
+          
                     </div>
                 </form>
             </div>
