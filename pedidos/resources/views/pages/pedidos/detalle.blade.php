@@ -86,6 +86,14 @@
                                     {{ $persona->telefono }}
                                 </td>
                             </tr>
+                            <tr>
+                                <td>
+                                    Fecha
+                                </td>
+                                <td>
+                                    {{ $pedido->fecha }}
+                                </td>
+                            </tr>
                         </table>
                     </div>
                     </div>

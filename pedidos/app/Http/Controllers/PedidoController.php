@@ -14,6 +14,8 @@ use App\Models\ProductosPedido;
 use App\Mail\MailSender;
 use App\Models\Productos;
 use Illuminate\Support\Facades\Mail;
+use Carbon\Carbon;
+
 class PedidoController extends Controller
 {
     /**
@@ -28,7 +30,7 @@ class PedidoController extends Controller
             }
             # Exista o no exista búsqueda, los ordenamos
             // $builder = Pedido::orderBy('idEstado');
-            $builder = Pedido::orderBy('id');
+            $builder = Pedido::orderBy('id', 'DESC')->whereDate('fecha', '>', Carbon::now());
             if ($busqueda) {
                 $builder->where("id", "LIKE", "%$busqueda%"); 
             }
