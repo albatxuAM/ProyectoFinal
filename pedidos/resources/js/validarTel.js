@@ -8,6 +8,8 @@ function comprobaciones(){
     var form2 = document.getElementById('nuevoUsuario');
     if(form2)
         form2.addEventListener('submit',validarDatos);
+    var toast = document.getElementById('toast');
+    console.log(toast);
 }
 
 function validarDatos(e){
@@ -34,7 +36,7 @@ function validarDatos(e){
        var emailInput = document.getElementById('nuevoCorreo');
        email = emailInput.value;
     }
-    debugger;
+    
     var telefonoValido = false;
     var nombreValido = false;
     var emailValido = false;
@@ -59,7 +61,10 @@ function validarTelefono(telefono){
         return valido;
     }catch(err){
         
-        alert(err);
+        var tos = new bootstrap.Toast(toast);
+        var toastBody = document.getElementById('body');
+        toastBody.innerHTML = err;
+        tos.show();
         return valido;
     }
 }
@@ -74,7 +79,8 @@ function validarCorreo(correo){
         return valido;
     }catch(err){
         
-        alert(err);
+        var tos = new bootstrap.Toast(toast);
+        tos.show();
         return valido;
     }
 }
@@ -87,8 +93,9 @@ function validarNombre(nombre){
         var valido = true;
         return valido;
     }catch(err){
+        var tos = new bootstrap.Toast(toast);
+        tos.show();
         
-        alert(err);
         return valido;
     }
 }

@@ -37,6 +37,7 @@ class ControlUsuarioController extends Controller
     }
     public function crearusunormal(Request $request)
     {
+       
         $validated = $request->validate([
             'nombre' => 'required|string|max:30',
             'correo' => 'required|email',
@@ -57,15 +58,16 @@ class ControlUsuarioController extends Controller
         ]);
 
         $datousuario = DatosPersona::where('email', '=', $validated['correo'])->first();
-
+        
         $datousuario = DatosPersona::where('email', '=', $validated['correo'])->first();
         User::create([
             'id_persona' => $datousuario->id,
             'email' => $validated['correo'],
             'password' => Hash::make($validated['contrasena']),
         ]);
+        //dd($datousuario);
         $tipos = TipoProducto::all();
-        dd($tipos);
-        return view('carrito.show', ["tipos" => $tipos]);
+        
+        return view('pages.carrito.show', ["tipos" => $tipos]);
     }
 }
