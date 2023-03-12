@@ -106,7 +106,7 @@ nav {
 }
 .btn:hover{
     background-color: map.get($map: $coloresEgibide, $key: 'morado');
-    color: white;
+    color: white !important;
 }
 #formularioInvitado {
     background-color: map.get($map: $coloresEgibide, $key: 'morado');

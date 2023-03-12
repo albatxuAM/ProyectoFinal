@@ -13,7 +13,7 @@
         <div class="col-10 card mb-3" id="cardIndex">
             <div class="row g-0 d-flex justify-content-center">
 
-                <div class="col-5 bg-light shadow d-flex align-items-center">
+                <div class="col-11 col-md-5 bg-light shadow d-flex align-items-center">
                     <div class="card-body">
                         <div class="row">
                             <div class="titulo col-10">
@@ -32,7 +32,7 @@
                 <div class="d-xl-none d-block">
                     <div class="w-100"></div>
                 </div>
-                <div id="carouselExampleControls" class="carousel slide col-5" data-bs-ride="carousel">
+                <div id="carouselExampleControls" class="carousel slide col-11 col-md-5" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active ">
                             <img src="{{ asset('images/plato1.jpg') }}" class="d-block w-100 img-fluid" alt="Imagen plato 1">

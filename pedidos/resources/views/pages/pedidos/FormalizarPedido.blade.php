@@ -2,20 +2,20 @@
 @section('content')
 
 @if ($errors->any())
-<div class="row justify-content-center">
-    <div class="alert alert-danger col-11 p-md-5">
-        @foreach ($errors->all() as $error)
-        {{ $error }}<br />
-        @endforeach
+    <div class="row justify-content-center">
+        <div class="alert alert-danger col-11 p-md-5">
+            @foreach ($errors->all() as $error)
+            {{ $error }}<br />
+            @endforeach
+        </div>
     </div>
-</div>
 
 @endif
 <div id='toast' class="toast" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="toast-header">
         <img src="..." class="rounded me-2" alt="">
         <strong class="me-auto">Error al iniciar</strong>
-        <small>11 mins ago</small>
+        {{-- <small>11 mins ago</small> --}}
         <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
     </div>
     <div class="toast-body" id='body'>
@@ -23,7 +23,7 @@
     </div>
 </div>
 <div class="card-group justify-content-center mt-5 mb-5" id='cardPrincipal'>
-    <div class="card " id='formularioInvitado' style="max-width: 18rem;">
+    <div class="card " id='formularioInvitado' style="max-width: 30rem;">
         <div class="card-header text-white">
             <h5>Invitado</h5>
         </div>
@@ -89,8 +89,8 @@
     </div>
 </div>
 
-<div class="row justify-content-center">
-    <div class="col-10">
+<div class="row justify-content-center mt-5 mb-5">
+    <div class="col-9">
         <div class="card text-white grisMedio" id="vista" style="display:none;">
             <div class="card-header">
                 <h5>Nuevo usuario</h5>
@@ -98,13 +98,13 @@
             <div class="card-body">
                 <form action="{{route('crearusu.normal')}}" id="nuevoUsuario" class="row" method="post">
                     @csrf
-                    <div class="col-6">
+                    <div class="col-12 col-md-6">
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-12 col-md-6">
                                 <label for="Nombre">Nombre</label>
                                 <input type="text" class="form-control" id='nuevoNombre' name="nombre" value="{{old('nombre')}}" placeholder="Nombre">
                             </div>
-                            <div class="col-6">
+                            <div class="col-12 col-md-6">
                                 <label for="telefono">tel&eacute;fono</label>
                                 <input type="text" class="form-control" id='nuevoTelefono' name="telefono" value="{{old('telefono')}}" placeholder="666555444">
                             </div>
@@ -116,7 +116,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-12 col-md-6">
                         <div class="row">
                             <div class="col-12">
                                 <label for="Contraseña">Contrase&ntilde;a</label>
@@ -129,7 +129,7 @@
                         </div>
                     </div>
                     <div class="col-2">
-                        <button type="submit" id='btnSubmit' class="btn  mt-3">Crear</button>
+                        <button type="submit" id='btnSubmit' class="btn mt-3">Crear</button>
                     </div>
                 </form>
             </div>

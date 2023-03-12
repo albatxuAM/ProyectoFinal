@@ -11,7 +11,7 @@
                         <h5>Confirmaci&oacute;n del pedido</h5>
                     </div>
                     <div class="row">
-                        <div class="card-body bg-light col-6">
+                        <div class="card-body bg-light col-12 col-md-6">
                             <h5 class="card-title "><b>Datos del cliente</b></h5>
                             <ul class="list-group list-group-flush bg-light">
                                 <li class="list-group-item bg-light"><b> Nombre:</b> {{ $persona->nombre }}</li>
@@ -19,7 +19,7 @@
                                 <li class="list-group-item bg-light"><b>Tel&eacute;fono:</b> {{ $persona->telefono }}</li>
                             </ul>
                         </div>
-                        <div class="card-body bg-light col-6">
+                        <div class="card-body bg-light col-12 col-md-6">
                             <form method="POST" action="{{route('pedidos.store')}}" id='formPedido' class="row">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <div class="col-md-12">
@@ -39,7 +39,7 @@
 
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-outline-secondary" id="enviar">Continuar</button>
+                                <button type="submit" class="btn btn-outline-secondary mx-2" id="enviar">Continuar</button>
                             </form>
                         </div>
                     </div>
