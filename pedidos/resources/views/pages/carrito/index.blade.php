@@ -20,7 +20,7 @@
                             </ul>
                         </div>
                         <div class="card-body bg-light col-6">
-                            <form method="POST" action="{{route('pedidos.store')}}" id='form' class="row">
+                            <form method="POST" action="{{route('pedidos.store')}}" id='formPedido' class="row">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -35,7 +35,7 @@
                                         <input type="hidden" name="idPersona" value="{{$persona->id}}">
                                     </div>
                                     <div class="form-group">
-                                        <textarea class="form-control" name="observaciones" id="exampleFormControlTextarea1" rows="3" placeholder="&iquest;Quiere decirnos algo&#63;"></textarea>
+                                        <textarea class="form-control" name="observaciones" id="observaciones" rows="3" placeholder="&iquest;Quiere decirnos algo&#63;"></textarea>
 
                                     </div>
                                 </div>
