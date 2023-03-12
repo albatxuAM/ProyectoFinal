@@ -17,7 +17,10 @@ class LogoutController extends Controller
     public function logout(Request $request)
     {
         Auth::logout();
-    
+
+        //clear persona
+        session()->forget('persona');
+
         return redirect('/');
     }
 }
