@@ -80,7 +80,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    Telefono
+                                    Tel&eacute;fono
                                 </td>
                                 <td>
                                     {{ $persona->telefono }}
@@ -92,11 +92,11 @@
                 </div>
 				<div class="card my-3"> 
                     <div class="card-header">
-                    <h3>Observacion</h3>
+                    <h3>Observaci&oacute;n</h3>
                     </div>
                     <div class="card-body">
                         @if ($pedido->observacion == "")
-                        no tiene observaciones
+                        No tiene observaciones
                         @else
                         {{ $pedido->observacion }}
                         @endif
@@ -115,7 +115,7 @@
                     </thead>
                     <tbody>
                         @foreach ($pedido->productosPedido as $producto)
-                            <tr>
+                            <tr class='lineaPedido'>
                                 <td>
                                     <img class="card-img-top img-fluid img-thumbnail" style="width: 110px" alt="{{$producto->nombre}}" 
                                         @if( file_exists('thumbnails/'.$producto->id.'.png') )
@@ -139,6 +139,9 @@
                         @endforeach
                     </tbody>
                 </table>
+                <div class="pt-5">
+                    <a href="{{ route('pedidos.index') }}" class="btn btn-secondary mt-5">Volver</a>
+                </div>
 			</div>
 		</div>
 	</div>

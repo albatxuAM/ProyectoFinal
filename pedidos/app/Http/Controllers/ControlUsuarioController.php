@@ -65,6 +65,7 @@ class ControlUsuarioController extends Controller
             'password' => Hash::make($validated['contrasena']),
         ]);
         $tipos = TipoProducto::all();
+        dd($tipos);
         return view('carrito.show', ["tipos" => $tipos]);
     }
 }
