@@ -18,7 +18,7 @@
             <h5>Invitado</h5>
         </div>
         <div class="card-body text-white">
-            <form action="{{route('datosPersona.store')}}" id="formularioInvitado" method="post">
+            <form action="{{route('datosPersona.store')}}" id="invitadoForm" method="post">
                 @csrf
                 <div class="row">
                     <div class="col-6">

@@ -139,6 +139,9 @@
                         @endforeach
                     </tbody>
                 </table>
+                <div class="pt-5">
+                    <a href="{{ route('pedidos.index') }}" class="btn btn-secondary mt-5">Volver</a>
+                </div>
 			</div>
 		</div>
 	</div>
