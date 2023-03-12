@@ -56,7 +56,9 @@ class ControlUsuarioController extends Controller
             'email' => $validated['correo'],
             'telefono'  => $validated['telefono'],
         ]);
-
+        $persona = DatosPersona::latest('id')->first();
+        
+       
         $datousuario = DatosPersona::where('email', '=', $validated['correo'])->first();
         
         $datousuario = DatosPersona::where('email', '=', $validated['correo'])->first();
@@ -68,6 +70,6 @@ class ControlUsuarioController extends Controller
         //dd($datousuario);
         $tipos = TipoProducto::all();
         
-        return view('pages.carrito.show', ["tipos" => $tipos]);
+        return view('pages.carrito.index', ["tipos" => $tipos,"persona"=>$persona]);
     }
 }
