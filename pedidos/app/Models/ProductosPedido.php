@@ -17,10 +17,10 @@ class ProductosPedido extends Model
     ];
 
     public function producto() {
-        return $this->belongsTo(Productos::class, 'id');
+        return $this->belongsTo(Productos::class,'idProducto' ,'id');
     }
 
     public function pedidos() {
-        return $this->belongsTo(Pedidos::class, 'id');
+        return $this->belongsTo(Pedido::class, "idPedido",'id');
     }
 }

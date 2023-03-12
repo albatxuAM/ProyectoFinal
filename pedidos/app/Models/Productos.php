@@ -24,6 +24,6 @@ class Productos extends Model
     }
 
     public function productosPedidos() {
-        return $this->HasMany(ProductosPedidos::class, 'id');
+        return $this->hasMany(ProductosPedido::class, 'idProducto');
     }
 }
