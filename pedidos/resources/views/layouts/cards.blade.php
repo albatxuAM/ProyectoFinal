@@ -13,7 +13,7 @@
                     <h5> {{ $producto->nombre }} </h5>
                 </div>
                 <div class="card-text">
-                    <p> Precio: {{ $producto->precio }}€</p>
+                    <p> Precio: {{ $producto->precio }}&euro;</p>
                 </div>
             </div>
             @if (Auth::user() and Auth::user()->admin)
@@ -26,11 +26,11 @@
                             <button class="btn btn-outline-danger">Eliminar</button>
                         </form>
                     </div>
-                </div>
+                </div>º
             @else
                 <div class="card-footer">
-                    <a class="btn btn-outline-secondary" href="{{ route('productos.show', $producto) }}">Opciones</a> <!-- ENLACE A FORMULARIO PARA INICIAR SESION O SEGUIR COMO INVITADO -->
-                    <a class="ms-5" href="{{ route('carrito.index',$producto) }}">Lo quiero </a>
+                    <a class="btn btn-outline-secondary" href="{{ route('productos.show', $producto) }}">Detalles</a> <!-- ENLACE A FORMULARIO PARA INICIAR SESION O SEGUIR COMO INVITADO -->
+                    <a class="ms-1 ms-md-2" href="{{ route('carrito.index',$producto) }}">Lo quiero </a>
                 </div>
             @endif
         </div>

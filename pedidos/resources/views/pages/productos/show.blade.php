@@ -25,33 +25,39 @@
                 <div class="row g-0">
                     <div class="col-12 card-body">
                         <div class="row">
-                            <h1 class="col card-title">{{ $producto->nombre }} </h1>
-                            <p><a class="btn btn-outline border-3 disabled etiqueta" href="#">{{ $tipo->nombre }}</a></p>
+                            <h1 class="col-12 card-title">{{ $producto->nombre }} </h1>
+                            <div class="row justify-content-around">
+                                <div class="col col-md-9 mb-2">
+                                    <a class="btn btn-outline border-3 disabled etiqueta" href="#">{{ $tipo->nombre }}</a>
+                                </div>
+                                <div class="col">
+                                    <a href="{{ route('carrito.index',$producto) }}">
+                                        Lo quiero
+                                    </a>
+                                </div>
+                            </div>
+                            
                         </div>
 
                         <h3 class="card-text">
                             @if($producto->observacion)
-                            <b>Observacion: </b> <br>{{ $producto->observacion }}
+                            <b>Observaci&oacuten: </b> <br>{{ $producto->observacion }}
                             @endif
                         </h3>
                         <div class="row d-flex justify-content-between align-items-end">
                             <div class="col-12 col-md-5 ms-5">
-                            <h5 class="card-text ">Precio: {{ $producto->precio }}€
-                                <a href="{{ route('carrito.index',$producto) }}">
-                                    <span class=" ms-3 material-symbols-outlined">add</span>
-                                </a>
-                               
-                            </h5>
+                                <h5 class="card-text ">Precio: {{ $producto->precio }}&euro;
+
+                                </h5>
                             </div>
                             <div class="d-none d-md-block col-3 me-5 mt-5">
-                                    <img src="{{ asset('images/simboloEgibide.png') }}" class="img-fluid" id="cont1">
-                                </div>
+                                <img src="{{ asset('images/simboloEgibide.png') }}" class="img-fluid" id="cont1">
+                            </div>
                         </div>
+
                     </div>
                 </div>
-                <a href="{{ route('carrito.index',$producto) }}">
-                    <span class=" ms-3 material-symbols-outlined mb-2 text-white">add_box</span>
-                </a>
+
             </div>
 
 

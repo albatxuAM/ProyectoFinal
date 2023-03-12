@@ -6,7 +6,7 @@
             <div class="col-12 col-md-6 mb-3">
                 <div class="card text-center">
                     <div class="card-header">
-                        <b> Nº pedidos pendientes por estado </b>
+                        <b> N&ordm; pedidos pendientes por estado </b>
                     </div>
                     <div class="card-body justify-content-center">
                         <canvas class="" id="productosPedidoPendiente"></canvas>
@@ -34,7 +34,7 @@
             <div class="col-12 col-md-6 mb-3">
                 <div class="card text-center">
                     <div class="card-header">
-                        <b> Nº pedidos por mes </b>
+                        <b> N&ordm; pedidos por mes </b>
                     </div>
                     <div class="card-body justify-content-center">
                         <canvas id="line"></canvas>
@@ -47,7 +47,7 @@
             <div class="col-12 col-md-6 mb-3">
                 <div class="card text-center">
                     <div class="card-header">
-                        <b> Nº productos por categoria </b>
+                        <b> N&ordm; productos por categoria </b>
                     </div>
                     <div class="card-body justify-content-center">
                         <canvas class="" id="productosTipo"></canvas>
@@ -62,7 +62,7 @@
             <div class="col-12 col-md-6 mb-3">
                 <div class="card text-center">
                     <div class="card-header">
-                        <b> Nº pedidos totales por estado </b>
+                        <b> N&ordm; pedidos totales por estado </b>
                     </div>
                     <div class="card-body justify-content-center">
                         <canvas class="" id="estadoPedidos"></canvas>

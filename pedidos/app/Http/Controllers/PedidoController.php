@@ -113,21 +113,27 @@ class PedidoController extends Controller
      */
     public function store(Request $request)
     {
+
         //select all pedidos where fecha is $request->fecha and estado is not 4
         $pedidos = Pedido::where('fecha', $request->fecha)->whereNotIn('idEstado', [4])->get();
         //if pedidos is more than 40 return true
         if($pedidos->count() <= 40){
             //insert pedido in database with estado 1 and fecha $request->fecha and idPersona $request->idPersona
             $pedido = new Pedido();
+            // dd($request);
             $pedido->fecha = $request->fecha;
             $pedido->idPersona = $request->idPersona;
             $pedido->idEstado = 1;
-            $pedido->observacion = $request->observaciones;
+            if($request->observaciones != null)
+                $pedido->observacion = $request->observaciones;
             $pedido->save();
-            //get idPedido and insert in producto pedidos taking produtos from sesion carrito
-            $idPedido = $pedido->id;
-            $carrito = session('carrito');
             
+            //get idPedido and insert in producto pedidos taking produtos from sesion carrito
+            // $idPedido = Pedido::latest('id')->first()->id;
+            $idPedido = $pedido->id;
+
+            $carrito = session('carrito');
+                
             foreach($carrito as $producto){
                 $productoPedido = new ProductosPedido();
                 $productoPedido->idPedido = $idPedido;
@@ -135,13 +141,19 @@ class PedidoController extends Controller
                 $productoPedido->cantidad = $producto['cantidad'];
                 $productoPedido->save();
             }
+
+            // //enviar mail
+            // $mailData = ['title'=>'Pedido realizado',
+            //     'body'=>'Su pedido número '.$pedido->id . ' acaba de llegar ' . $pedido->nombre,
+            //     'productosPedido'=>$carrito
+            // ];
+            // Mail::to($persona->email)->send(new MailSender($mailData));
+
             //clear carrito and persona
             session()->forget('carrito');
             session()->forget('persona');
 
-            
             return redirect()->route('pedidos.index');
-
         }
     }
 
@@ -203,9 +215,9 @@ class PedidoController extends Controller
         
 
         $mailData = ['title'=>'El estado de su pedido ha cambiado',
-        'body'=>'Su pedido número '.$pedido->id . ' a cambiado su estado a ' . $nuevoEstado->nombre,
-        'productosPedido'=>$productosPedido
-    ];
+            'body'=>'Su pedido número '.$pedido->id . ' a cambiado su estado a ' . $nuevoEstado->nombre,
+            'productosPedido'=>$productosPedido
+        ];
         Mail::to($persona->email)->send(new MailSender($mailData));
         //dd('el correo se ha mandado'. $persona->email);
     

@@ -5,3 +5,5 @@ import './registrar';
 import './contrasena';
 import './carrito';
 import './archivoprevio';
+import './validar';
+import './validarTel';

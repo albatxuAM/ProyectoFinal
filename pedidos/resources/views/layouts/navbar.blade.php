@@ -14,10 +14,10 @@
                             <a class="nav-link" href="{{ route('pedidos.index') }}">Pedidos Pendientes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('productos.catalogo') }}">Catalogo</a>
+                            <a class="nav-link" href="{{ route('productos.catalogo') }}">Cat&aacute;logo</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('estadisticas.index') }}">Estadisticas</a>
+                            <a class="nav-link" href="{{ route('estadisticas.index') }}">Estad&iacute;sticas</a>
                         </li>
 
                     @endif
