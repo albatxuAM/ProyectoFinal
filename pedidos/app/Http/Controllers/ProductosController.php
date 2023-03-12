@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Http\Request;
+
 use App\Models\Productos;
 use App\Models\TipoProducto;
-use Illuminate\Http\Request;
 
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
@@ -20,6 +23,9 @@ class ProductosController extends Controller
      */
     public function index($id = 0)
     {
+        if (Gate::allows('admin'))
+            return redirect()->route('productos.catalogo');
+
         $builder = Productos::orderBy('nombre');
 
         if ($id != 0) {
@@ -64,19 +70,24 @@ class ProductosController extends Controller
 
     public function catalogo($id = 0)
     {
-        $builder = Productos::orderBy('nombre');
+        if (Gate::allows('admin')) {
+            $builder = Productos::orderBy('nombre');
 
-        if ($id != 0) {
-            $builder->where('idTipo', '=', $id);
+            if ($id != 0) {
+                $builder->where('idTipo', '=', $id);
+            }
+            $productos = $builder->paginate(8);
+
+            $tipos = TipoProducto::all();
+            return view('pages.productos.catalogo', [
+                "productos" => $productos,
+                "tipos" => $tipos,
+                "id" => $id,
+            ]);
         }
-        $productos = $builder->paginate(8);
-
-        $tipos = TipoProducto::all();
-        return view('pages.productos.catalogo', [
-            "productos" => $productos,
-            "tipos" => $tipos,
-            "id" => $id,
-        ]);
+        else {
+            return redirect()->route('productos.index');
+        }
     }
 
 
@@ -203,12 +214,12 @@ class ProductosController extends Controller
             'idTipo' => 'in:1,2,3,4,5,6,7',
             'pedidoMinimo' => 'required|min:1',
             'precio' => 'required|numeric|gt:0',
-            'foto.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'foto.*' => 'image|mimes:png|max:2048'
         ], [
             'nombre.required' => 'Nombre es obligatorio.',
             'idTipo.in' => 'Tipo es obligatorio.',
             'pedidoMinimo.required' => 'Pedido minimo es obligatorio.',
-            'foto.mimes' => 'El archivo tiene que se una foto en formato jpeg,png,jpg,gif,svg'
+            'foto.mimes' => 'El archivo tiene que se una foto en formato png'
         ]);
 
         //Recibimos el archivo y lo guardamos en la carpeta storage/app/public
@@ -221,11 +232,6 @@ class ProductosController extends Controller
             if ($request->file('file')->getMimeType() !== "image/png") {
                 // echo "El tipo de archivo no es válido";
             } else {
-
-                // $manager = Image([]);
-                // $image = $manager->make('public/images/croqueta.png')->resize(100,100);
-                // $image->store($image);
-
                 $file = $request->file('file');
                 //Cogemos el nombre que el usuario a introducido
                 $name = $producto->id;

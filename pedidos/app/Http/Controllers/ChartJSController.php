@@ -1,12 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
- 
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Http\Request;
+
 use App\Models\EstadoPedido;
 use App\Models\TipoProducto;
 use App\Models\Pedido;
 use App\Models\User;
-use Illuminate\Http\Request;
 use Redirect,Response;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
@@ -20,10 +23,15 @@ class ChartJSController extends Controller
      */
     public function index()
     {   
-        $tipos = TipoProducto::all();
-        return view('pages.estadisticas.index', [ 
-            "tipos" => $tipos
-        ]);
+        if (Gate::allows('admin')) {
+            $tipos = TipoProducto::all();
+            return view('pages.estadisticas.index', [ 
+                "tipos" => $tipos
+            ]);
+        }
+        else {
+            return redirect()->route('home');
+        }
     }
 
     public function productosPedido()
@@ -32,6 +40,21 @@ class ChartJSController extends Controller
         foreach ($estados as $e) {
             $nombres[] = $e->nombre;
             $pedidos[] = Pedido::all()->where('idEstado', $e->id)->count();
+        }
+        return ['success' => true, 
+                "estados" => $nombres,
+                "pedidos" => $pedidos
+            ];
+    }
+
+    public function productosPedidoPendiente()
+    {
+        $estados = EstadoPedido::all();
+        foreach ($estados as $e) {
+            if($e->id != 4 && $e->id != 5) {
+                $nombres[] = $e->nombre;
+                $pedidos[] = Pedido::all()->where('idEstado', $e->id)->count();
+            }
         }
         return ['success' => true, 
                 "estados" => $nombres,
@@ -87,6 +110,21 @@ class ChartJSController extends Controller
         return ['success' => true, 
                 "dataPast" => $dataPast,
                 "dataCurr" => $dataCurr
+            ];
+    }
+
+    public function productosTipo()
+    {
+        $tipos = TipoProducto::all();
+        foreach ($tipos as $tipo) {
+            $categoria[] = $tipo->nombre;
+            // $productosTipo[] = Pedido::all()->where('idProducto', Producto::all()->where('idTipo', $tipo->id)->count();
+            $productosTipo[] = $tipo->productos()->count();
+        }
+
+        return ['success' => true, 
+                "categoria" => $categoria,
+                "productosTipo" => $productosTipo
             ];
     }
 

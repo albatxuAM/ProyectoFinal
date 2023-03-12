@@ -13,22 +13,24 @@
                     <h5> {{ $producto->nombre }} </h5>
                 </div>
                 <div class="card-text">
-                    <p> Precio: {{ $producto->precio }}€</p>
+                    <p> Precio: {{ $producto->precio }}&euro;</p>
                 </div>
             </div>
             @if (Auth::user() and Auth::user()->admin)
-                <div class="card-footer text-muted d-flex justify-content-between">
-                    <a class="btn btn-outline-secondary" role='button' href="{{ route('productos.edit', $producto) }}"> Editar </a>
-                    <form action="{{ route('productos.destroy', $producto) }}" method="POST">
-                        @csrf
-                        @method("DELETE")
-                        <button class="btn btn-outline-danger">Eliminar</button>
-                    </form>
+                <div class="card-footer text-muted">
+                    <div class="row justify-content-center m-1">
+                        <a class="col-auto btn btn-outline-secondary mb-2" role='button' href="{{ route('productos.edit', $producto) }}"> Editar </a>
+                        <form class="col" action="{{ route('productos.destroy', $producto) }}" method="POST">
+                            @csrf
+                            @method("DELETE")
+                            <button class="btn btn-outline-danger">Eliminar</button>
+                        </form>
+                    </div>
                 </div>
             @else
                 <div class="card-footer">
-                    <a class="btn btn-outline-secondary" href="{{ route('productos.show', $producto) }}">Opciones</a> <!-- ENLACE A FORMULARIO PARA INICIAR SESION O SEGUIR COMO INVITADO -->
-                    <a class="ms-5" href="{{ route('carrito.index',$producto) }}">Lo quiero </a>
+                    <a class="btn btn-outline-secondary" href="{{ route('productos.show', $producto) }}">Detalles</a> <!-- ENLACE A FORMULARIO PARA INICIAR SESION O SEGUIR COMO INVITADO -->
+                    <a class="ms-1 ms-md-2" href="{{ route('carrito.index',$producto) }}">Lo quiero </a>
                 </div>
             @endif
         </div>

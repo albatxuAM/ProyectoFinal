@@ -1,6 +1,6 @@
  document.addEventListener("DOMContentLoaded", function(e) {
     var inputTotal = document.getElementById('total');
-    console.log(inputTotal);
+    // console.log(inputTotal);
     var totalCesta = 0;
     var subtotales = document.getElementsByTagName('td');
     
@@ -12,8 +12,6 @@
   
         }
       }
-      inputTotal.value = totalCesta + "???";
+      inputTotal.value = totalCesta.toFixed(2) + "€";
     }
-
-
   })

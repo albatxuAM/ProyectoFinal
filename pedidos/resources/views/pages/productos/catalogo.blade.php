@@ -3,7 +3,7 @@
 <div class="row mt-4 d-flex justify-content-center"><!-- PLATOS -->
     <div class="col-10 col-md-11 col-lg-10">
         <a class="btn btn-outline-success float-end" href="{{ route('productos.create') }}"> Nuevo Producto </a>
-        <h1>PLATOS PARA LLEVAR</h1>
+        
         <div class="row gy-3 mt-4">
 
             <div class="col-12 col-md-3"><!-- Col del groupList -->
@@ -25,7 +25,6 @@
             </div>
 
             
-
             <!-- COL DEL CONTENIDO -->
                 <div class="col-12 col-md-9 mb-4 tab-content" id="nav-tabContent">
                     <div class=" row tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">

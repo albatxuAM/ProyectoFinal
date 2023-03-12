@@ -99,7 +99,7 @@ class DatabaseSeeder extends Seeder
         }
 
         $faker = \Faker\Factory::create();
-        for($i=1;$i<=30;$i++){
+        for($i=1;$i<=50;$i++){
             DB::table('pedidos')->insert([
                 'id' =>  $i,
                 'idEstado' => $faker->numberBetween(1, 5),
@@ -122,12 +122,12 @@ class DatabaseSeeder extends Seeder
         } 
 
         $faker = \Faker\Factory::create();
-        for($i=31;$i<=50;$i++){
+        for($i=51;$i<=100;$i++){
             DB::table('pedidos')->insert([
                 'id' =>  $i,
                 'idEstado' => $faker->numberBetween(1, 5),
                 'observacion' =>  $faker->realText(40,2),
-                'fecha' =>  $faker->dateTimeBetween('-3 weeks', '+1 weeks'),
+                'fecha' =>  $faker->dateTimeBetween('-3 weeks', '+3 weeks'),
                 'idPersona' => $faker->numberBetween(1, 10),
                 'created_at' => $faker->dateTimeBetween('-1 years', 'now'),
                 'updated_at' => $faker->dateTimeBetween('-1 years', 'now'),

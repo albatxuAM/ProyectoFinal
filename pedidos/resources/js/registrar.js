@@ -1,15 +1,16 @@
+//control botones
 var registrar = document.getElementById("registrar");
-var vista = document.getElementById("vista");
-registrar === null || registrar === void 0 ? void 0 : registrar.addEventListener('click', verregistro);
-function verregistro() {
-    var x = registrar;
-    if (x.innerHTML == 'atras') {
-        vista === null || vista === void 0 ? void 0 : vista.setAttribute("style", "display:none;");
-        x.innerHTML = 'nuevo usuario';
-    }
-    else {
-        vista === null || vista === void 0 ? void 0 : vista.setAttribute("style", "display:block;");
-        x.innerHTML = 'atras';
-    }
-    vista === null || vista === void 0 ? void 0 : vista.classList.toggle('d-flex');
+var iratras = document.getElementById("volveratras");
+//control vistas
+var vistageneral = document.getElementById("cardPrincipal");
+var vistaregistro = document.getElementById("vista");
+registrar === null || registrar === void 0 ? void 0 : registrar.addEventListener('click', verRegistro);
+iratras === null || iratras === void 0 ? void 0 : iratras.addEventListener('click', volveratras);
+function verRegistro() {
+    vistageneral === null || vistageneral === void 0 ? void 0 : vistageneral.setAttribute("style", "display:none;");
+    vistaregistro === null || vistaregistro === void 0 ? void 0 : vistaregistro.setAttribute("style", "display:flex;");
+}
+function volveratras() {
+    vistaregistro === null || vistaregistro === void 0 ? void 0 : vistaregistro.setAttribute("style", "display:none;");
+    vistageneral === null || vistageneral === void 0 ? void 0 : vistageneral.setAttribute("style", "display:flex;");
 }

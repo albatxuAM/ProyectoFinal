@@ -1,93 +1,26 @@
-.plato .card-footer {
-    background-color: white;
-}
-
-.filtro {
-    width: 7em;
-}
 
 
 
-.titulo {
-    font-size: 3rem;
-    font-family: 'Dancing Script', cursive;
-    font-weight: bold;
-    color: #8b0066;
-}
-
-#btnMorado {
-    background-color: #8b0066;
-    color: white;
-}
-
-nav {
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
-}
 
 
-#formularioInvitado {
-    background-color: #860062cb;
-    box-shadow: 5px 6px 16px -7px rgba(0, 0, 0, 0.75);
-}
-
-#formularioInvitado .card-header {
-    background-color: #860062; 
 
 
-}
 
-#cardIndex {
-    border: none;
-}
 
-#volver {
-    color: #8b0066;
-    text-decoration: none;
-}
 
-a {
-    color: #8b0066;
-    text-decoration: none;
-}
 
-#registrar {
-    color: #8b0066;
-    text-decoration: none;
-}
 
-#btnSubmit {
-    background-color: #8b0066;
-    color: white;
-}
 
-.productillo:hover,
-.filtro:hover {
-    transform: scale(1.05);
-    background-color: #a8aeb5;
-    color: whitesmoke;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
-}
 
-.productillo:hover>.card-footer {
-    background-color: #a8aeb5;
-    color: whitesmoke;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
-}
 
-.productillo:hover>.card-footer>a {
-    color: #8b0066;
-}
-.productillo:hover>.card-footer>a:hover {
-    color: 4f003a;
-}
 
-.productillo:hover>.card-footer>.btn-outline-secondary:hover {
-    background-color: #8b0066;
-    color: white;
-}
 
-.btn-outline-secondary {
-    border-color: #8b0066;
-    color: #8b0066;
 
-}
+
+
+
+
+
+
+
+
